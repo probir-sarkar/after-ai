@@ -147,80 +147,125 @@ const SHORT_DRIVER: Record<string, string> = {
  */
 export function ChurnChart() {
   const max = Math.max(...churn.map((d) => Math.max(d.created, Math.abs(d.displaced))));
-  // 38% of the half-width, not 50%: the value label sits at the bar's end and
-  // needs room, or the longest bar pushes its number out of the panel.
-  const unit = 38 / max;
+  // 84%, not 100%: the longest bar's value sits at its end, so the scale has to
+  // leave a column of air or "+19M" lands outside the panel.
+  const pct = (v: number) => (Math.abs(v) / max) * 84;
+  const ticks = [0, 5, 10, 15].filter((t) => t <= max);
 
   return (
     <div className="chart-shell">
-      <div className="mb-2 flex flex-wrap items-center gap-x-5 gap-y-1">
+      <div className="mb-3 flex flex-wrap items-center gap-x-5 gap-y-1">
         <span className="flex items-center gap-2">
           <span className="h-[9px] w-[9px] rounded-[2px]" style={{ background: C.survive }} />
-          <span className="eyebrow">Created →</span>
+          <span className="eyebrow">Jobs created</span>
         </span>
         <span className="flex items-center gap-2">
           <span className="h-[9px] w-[9px] rounded-[2px]" style={{ background: C.risk }} />
-          <span className="eyebrow">Displaced ←</span>
+          <span className="eyebrow">Jobs displaced</span>
         </span>
-        <span className="eyebrow ml-auto">millions of jobs · to 2030</span>
+        <span className="eyebrow ml-auto">millions of jobs · to 2030 · same scale</span>
       </div>
 
-      <div className="relative">
-        {/* the zero line, drawn once behind every row */}
-        <span className="absolute bottom-0 left-[calc(132px+1.25rem)] top-0 hidden w-px bg-[var(--color-line)] sm:block" />
-        <span className="absolute -top-0.5 left-[calc(132px+1.25rem)] hidden h-2 w-px bg-[var(--color-faint)] sm:block" />
+      <div className="hidden items-end sm:grid sm:grid-cols-[124px_1fr_66px] sm:gap-x-5">
+        <div />
+        <div />
+        <div className="eyebrow pb-1 text-right">Net</div>
+      </div>
 
+      <div>
         {churn.map((row) => {
-          const createdW = row.created * unit;
-          const displacedW = Math.abs(row.displaced) * unit;
+          // For every driver the net is created minus displaced. For robots the
+          // −5M is the published net itself, not arithmetic, and the cell says so.
+          const net = row.netOnly ? row.displaced : row.created + row.displaced;
           return (
             <div
               key={row.driver}
-              className="grid grid-cols-1 items-center gap-x-5 gap-y-1 border-t border-[var(--color-line-soft)] py-3 sm:grid-cols-[132px_1fr]"
+              className="grid grid-cols-1 gap-x-5 border-t border-[var(--color-line-soft)] py-2.5 sm:grid-cols-[124px_1fr_66px] sm:items-center"
             >
               <div className="text-[12.5px] leading-tight text-muted">{SHORT_DRIVER[row.driver] ?? row.driver}</div>
 
-              <div className="relative h-[26px]">
+              <div className="relative h-[36px]">
+                {ticks.map((t) => (
+                  <span
+                    key={t}
+                    aria-hidden="true"
+                    className="absolute inset-y-1 w-px bg-[var(--color-line-soft)]"
+                    style={{ left: `${pct(t)}%` }}
+                  />
+                ))}
+                <span aria-hidden="true" className="absolute inset-y-1 left-0 w-px bg-[var(--color-line)]" />
+
                 {row.created > 0 ? (
                   <>
                     <span
-                      className="absolute top-1/2 left-1/2 h-[13px] -translate-y-1/2 rounded-r-[3px]"
-                      style={{ width: `${createdW}%`, background: C.survive }}
+                      className="absolute top-[6px] left-0 h-[11px] rounded-r-[3px]"
+                      style={{ width: `${pct(row.created)}%`, background: C.survive }}
                     />
                     <span
-                      className="num absolute top-1/2 -translate-y-1/2 pl-2 text-[11.5px] whitespace-nowrap"
-                      style={{ left: `calc(50% + ${createdW}%)`, color: C.survive }}
+                      className="num absolute top-[3px] pl-2 text-[11.5px] whitespace-nowrap"
+                      style={{ left: `${pct(row.created)}%`, color: C.survive }}
                     >
                       +{row.created}M
                     </span>
                   </>
                 ) : (
-                  <span className="num absolute top-1/2 left-1/2 -translate-y-1/2 pl-2 text-[10.5px] whitespace-nowrap text-faint">
-                    no creation figure published
-                  </span>
+                  <>
+                    {/* A missing-data track rather than an empty row: a full-width
+                        dashed outline reads as "no figure", not as a short bar. */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-[6px] left-0 h-[11px] w-full rounded-[3px] border border-dashed"
+                      style={{ borderColor: '#3d3d49' }}
+                    />
+                    <span className="num absolute top-[5px] left-0 pl-2 text-[10.5px] whitespace-nowrap text-faint">
+                      no creation figure published
+                    </span>
+                  </>
                 )}
 
                 <span
-                  className="absolute top-1/2 right-1/2 h-[13px] -translate-y-1/2 rounded-l-[3px]"
+                  className="absolute top-[20px] left-0 h-[11px] rounded-r-[3px]"
                   style={{
-                    width: `${displacedW}%`,
+                    width: `${pct(row.displaced)}%`,
                     background: row.netOnly ? 'rgba(255,125,110,0.22)' : C.risk,
                     border: row.netOnly ? `1px dashed ${C.risk}` : undefined,
                   }}
                 />
                 <span
-                  className="num absolute top-1/2 -translate-y-1/2 pr-2 text-[11.5px] whitespace-nowrap"
-                  style={{ right: `calc(50% + ${displacedW}%)`, color: C.risk }}
+                  className="num absolute top-[17px] pl-2 text-[11.5px] whitespace-nowrap"
+                  style={{ left: `${pct(row.displaced)}%`, color: C.risk }}
                 >
                   {row.netOnly ? `net −${Math.abs(row.displaced)}M` : `−${Math.abs(row.displaced)}M`}
                 </span>
+              </div>
+
+              <div className="num mt-1 text-left text-[12px] sm:mt-0 sm:text-right" style={{ color: net >= 0 ? C.survive : C.risk }}>
+                {`${net > 0 ? '+' : '−'}${Math.abs(net)}M`}
               </div>
             </div>
           );
         })}
       </div>
 
-      <p className="eyebrow mt-3">The dashed bar is a net figure: employers published no creation number for robots.</p>
+      <div className="hidden sm:grid sm:grid-cols-[124px_1fr_66px] sm:gap-x-5">
+        <div />
+        <div className="relative mt-1 h-5 border-t border-[var(--color-line-soft)]">
+          {ticks.map((t) => (
+            <span
+              key={t}
+              className="num absolute top-1 -translate-x-1/2 text-[10px] text-faint"
+              style={{ left: `${pct(t)}%` }}
+            >
+              {t === 0 ? '0' : `${t}M`}
+            </span>
+          ))}
+        </div>
+        <div />
+      </div>
+
+      <p className="eyebrow mt-4">
+        Net is created minus displaced; for robots it is the published net figure, since no creation number exists.
+      </p>
     </div>
   );
 }
