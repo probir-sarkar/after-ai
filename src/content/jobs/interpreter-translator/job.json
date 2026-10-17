@@ -1,0 +1,32 @@
+{
+  "name": "Interpreters and translators",
+  "short": "Interpreters & translators",
+  "verdict": "at-risk",
+  "category": "cognitive",
+  "oneLiner": "Ranked the single most AI-affected occupation in Microsoft's usage data.",
+  "tests": {
+    "body": 1,
+    "accountability": 1,
+    "relationship": 2,
+    "bundle": 1
+  },
+  "why": [
+    "Long-form text translation is a solved problem for current models",
+    "The work product is text, and text is what the machine produces"
+  ],
+  "threats": [],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "Interpreters and translators rank first on Microsoft's list of occupations most affected by generative AI, based on 200,000 real AI conversations.",
+      "source": "geekwire-ms"
+    },
+    {
+      "text": "The ILO finds translations among the occupations that increased in exposure as model capability widened.",
+      "source": "ilo-index"
+    }
+  ],
+  "series": [],
+  "horizon": "2024–2025",
+  "order": 23
+}

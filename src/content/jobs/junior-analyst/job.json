@@ -1,0 +1,69 @@
+{
+  "name": "Junior data analysts",
+  "short": "Junior analysts",
+  "verdict": "mixed",
+  "category": "cognitive",
+  "oneLiner": "The role that proves the entry level is being redesigned rather than deleted.",
+  "tests": {
+    "body": 0,
+    "accountability": 2,
+    "relationship": 2,
+    "bundle": 3
+  },
+  "why": [
+    "AI-exposed junior roles redesigned to demand senior skills are growing",
+    "Interpretation and framing of a result is now the visible half of the work"
+  ],
+  "threats": [
+    "Globally, entry-level postings in highly AI-exposed roles have flatlined",
+    "49% of CEOs expect AI adoption to reduce junior hiring in the next three years"
+  ],
+  "metrics": [
+    {
+      "label": "Growth of 'seniorised' junior roles",
+      "display": "+35%",
+      "value": 35,
+      "unit": "percent",
+      "source": "pwc-barometer"
+    },
+    {
+      "label": "Growth of other entry-level roles",
+      "display": "−10%",
+      "value": -10,
+      "unit": "percent",
+      "source": "pwc-release"
+    },
+    {
+      "label": "CEO expectation of less junior hiring",
+      "display": "49%",
+      "value": 49,
+      "unit": "percent",
+      "source": "pwc-barometer"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Entry-level roles that now require more than ten traditionally senior skills are growing at 35%, while other entry-level roles decline.",
+      "source": "pwc-barometer"
+    },
+    {
+      "text": "The most AI-exposed entry-level roles are seven times more likely than the least exposed to demand traditionally senior skills such as leadership, strategic decision-making and stakeholder management.",
+      "source": "pwc-barometer"
+    },
+    {
+      "text": "49% of CEOs expect AI adoption to decrease junior hiring over the next three years, against 12% for senior hiring.",
+      "source": "pwc-barometer"
+    }
+  ],
+  "series": [
+    {
+      "label": "'Seniorised' junior roles",
+      "value": 35,
+      "kind": "share",
+      "source": "pwc-barometer"
+    }
+  ],
+  "horizon": "since 2019",
+  "order": 26,
+  "featured": true
+}

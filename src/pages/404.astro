@@ -1,0 +1,26 @@
+---
+import Base from '@/layouts/Base.astro';
+---
+
+<Base title="Not found" description="That page is not here.">
+  <section class="wrap flex min-h-[60vh] flex-col justify-center py-20">
+    <p class="eyebrow">404</p>
+    <h1 class="mt-5 max-w-[16ch] font-display">That role does not exist — yet.</h1>
+    <p class="lede mt-5">
+      The page you asked for is not on this site. The catalogue of every job profile is probably where you
+      wanted to be.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/jobs"
+        class="inline-flex min-h-[46px] items-center rounded-full bg-ink px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-void no-underline hover:bg-signal"
+        >All job profiles</a
+      >
+      <a
+        href="/"
+        class="inline-flex min-h-[46px] items-center rounded-full border border-line px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:border-signal hover:text-ink"
+        >Back to the overview</a
+      >
+    </div>
+  </section>
+</Base>

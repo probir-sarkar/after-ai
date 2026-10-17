@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import JobCard from '@/components/JobCard.astro';
+import JobFilter from '@/components/islands/JobFilter.tsx';
+
+const jobs = (await getCollection('jobs')).sort((a, b) => a.data.order - b.data.order);
+
+const counts = jobs.reduce<Record<string, number>>((acc, j) => {
+  acc[j.data.verdict] = (acc[j.data.verdict] ?? 0) + 1;
+  return acc;
+}, {});
+
+const headline = (j: (typeof jobs)[number]) => {
+  const m = j.data.metrics[0];
+  return m ? { display: m.display, label: m.label } : undefined;
+};
+---
+
+<Base
+  title="All job profiles"
+  description="Nineteen job profiles: what survives, what is exposed, and what is emerging — each with its evidence attached."
+>
+  <section class="wrap pt-14 pb-8 sm:pt-20">
+    <p class="eyebrow">The catalogue</p>
+    <h1 class="mt-5 max-w-[16ch] font-display">Every profile, with the evidence attached.</h1>
+    <p class="lede mt-5">
+      Each profile is a folder: a typed data file with the numbers and their sources, plus a written note
+      with the argument. Where a role has no official projection, the card says so rather than inventing
+      a figure.
+    </p>
+  </section>
+
+  <section class="wrap pb-8">
+    <JobFilter client:load counts={counts} />
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {jobs.map((j) => <JobCard {...j.data} id={j.id} headline={headline(j)} />)}
+    </div>
+  </section>
+
+  <section class="wrap border-t border-line-soft py-8">
+    <p class="text-[13px] leading-relaxed text-faint">
+      Nothing here is a prediction of a specific person's employment. The profiles describe task
+      profiles and the demand for the role — which is a different, and much more defensible, claim.
+    </p>
+  </section>
+</Base>

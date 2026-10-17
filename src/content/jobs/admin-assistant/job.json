@@ -1,0 +1,36 @@
+{
+  "name": "Administrative assistants and executive assistants",
+  "short": "Admin assistants",
+  "verdict": "at-risk",
+  "category": "cognitive",
+  "oneLiner": "Scheduling, drafting and coordinating — the exact activities appearing most in real AI usage.",
+  "tests": {
+    "body": 0,
+    "accountability": 2,
+    "relationship": 2,
+    "bundle": 2
+  },
+  "why": [
+    "Trust and discretion still matter: the assistant knows things the org chart does not",
+    "Someone must coordinate people who will not coordinate themselves"
+  ],
+  "threats": [],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "Administrative assistants appear among the roles employers expect to decline sharply to 2030.",
+      "source": "wef-fastest"
+    },
+    {
+      "text": "The most common and most successful AI-assisted activities are information work — creating, processing and communicating information.",
+      "source": "ms-applicability"
+    },
+    {
+      "text": "The ILO's refined index places clerical support work in the highest exposure gradients.",
+      "source": "ilo-index"
+    }
+  ],
+  "series": [],
+  "horizon": "to 2030",
+  "order": 25
+}

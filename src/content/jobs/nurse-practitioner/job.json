@@ -1,0 +1,67 @@
+{
+  "name": "Nurse practitioners",
+  "short": "Nurse practitioners",
+  "verdict": "survives",
+  "category": "care",
+  "oneLiner": "The fastest-growing occupation in the BLS table, at 41% — more than ten times the economy-wide rate.",
+  "tests": {
+    "body": 2,
+    "accountability": 3,
+    "relationship": 3,
+    "bundle": 3
+  },
+  "why": [
+    "Prescribing and diagnosing means legal accountability, which cannot be delegated to a model",
+    "Care teams are being restructured around these roles, not away from them",
+    "The clinical relationship carries the outcome; a wrong call is a harmed patient"
+  ],
+  "threats": [
+    "Documentation and routine triage shrink the administrative half of the role",
+    "Training pipelines still depend on supervised hours that AI is not replacing"
+  ],
+  "metrics": [
+    {
+      "label": "Projected growth, 2025–35",
+      "display": "+41.0%",
+      "value": 41.0,
+      "unit": "percent",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Jobs added",
+      "display": "+137,800",
+      "value": 137800,
+      "unit": "jobs",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Median annual pay",
+      "display": "$132,300",
+      "value": 132300,
+      "unit": "usd",
+      "source": "bls-fastest"
+    }
+  ],
+  "claims": [
+    {
+      "text": "The fastest-growing occupation in BLS projections to 2035, at 41%, against 3.5% for all occupations.",
+      "source": "bls-fastest"
+    },
+    {
+      "text": "Providers are relying more on these roles to deliver care under collaborative, team-based models.",
+      "source": "bls-projections"
+    }
+  ],
+  "series": [
+    {
+      "label": "Nurse practitioners",
+      "value": 41.0,
+      "kind": "growth",
+      "source": "bls-fastest"
+    }
+  ],
+  "horizon": "2025–2035",
+  "wage": "$132,300",
+  "order": 2,
+  "featured": true
+}

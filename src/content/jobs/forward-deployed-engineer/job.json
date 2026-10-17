@@ -1,0 +1,63 @@
+{
+  "name": "Forward deployed engineer",
+  "short": "Forward deployed engineer",
+  "verdict": "emerging",
+  "category": "platform",
+  "oneLiner": "Postings up 729% in a year: the job that exists because AI projects fail for organisational reasons.",
+  "tests": {
+    "body": 0,
+    "accountability": 2,
+    "relationship": 3,
+    "bundle": 3
+  },
+  "why": [
+    "Enterprise AI deployments fail on process and data politics, not model quality",
+    "The role sits inside the customer, so the human relationship is the product"
+  ],
+  "threats": [
+    "Vendor-published and job-board counts are not official occupational statistics",
+    "Highly concentrated in a handful of AI labs and consultancies"
+  ],
+  "metrics": [
+    {
+      "label": "Postings, April 2025",
+      "display": "643",
+      "value": 643,
+      "unit": "count",
+      "source": "fde-data"
+    },
+    {
+      "label": "Postings, April 2026",
+      "display": "5,330",
+      "value": 5330,
+      "unit": "count",
+      "source": "fde-data"
+    },
+    {
+      "label": "Median base salary",
+      "display": "≈$174,000",
+      "value": 174000,
+      "unit": "usd",
+      "source": "fde-data"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Job postings grew from 643 in April 2025 to 5,330 in April 2026 — a 729% increase — on hiring data compiled by Exponent.",
+      "source": "fde-data"
+    },
+    {
+      "text": "The role exists because enterprise AI deployments often fail for organisational rather than technical reasons, and an embedded engineer clears those blockers faster than a traditional vendor model.",
+      "source": "fde-data"
+    },
+    {
+      "text": "Roughly 70% of postings include equity, and the median base across postings is about $174,000.",
+      "source": "fde-data"
+    }
+  ],
+  "series": [],
+  "horizon": "Apr 2025 → Apr 2026",
+  "wage": "≈$174,000 median base",
+  "order": 31,
+  "featured": true
+}

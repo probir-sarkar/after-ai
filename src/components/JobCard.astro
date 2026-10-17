@@ -1,0 +1,54 @@
+---
+import { getSource } from '@/data/sources';
+import { categoryMeta, verdictMeta, type Verdict } from '@/lib/site';
+
+interface Props {
+  id: string;
+  name: string;
+  short: string;
+  verdict: Verdict;
+  category: string;
+  oneLiner: string;
+  headline?: { display: string; label: string } | undefined;
+}
+
+const { id, name, verdict, category, oneLiner, headline } = Astro.props;
+const v = verdictMeta[verdict];
+const cats = [category];
+---
+
+<a
+  href={`/jobs/${id}`}
+  data-verdict={verdict}
+  data-category={category}
+  class="job-card panel group relative flex flex-col p-5 no-underline transition-colors hover:border-[#3a3a46]"
+  style={`--vc:${v.color}`}
+>
+  <div class="flex items-center gap-2">
+    <span
+      class="num rounded-full border px-2 py-[3px] text-[9.5px] uppercase tracking-[0.12em]"
+      style={`border-color:${v.color}; color:${v.color}`}>{v.label}</span
+    >
+    <span class="eyebrow">{cats.map((c) => categoryMeta[c] ?? c).join(' · ')}</span>
+  </div>
+
+  <h3 class="mt-4 min-h-[3.4em] font-display text-[21px] leading-[1.15] text-ink">{name}</h3>
+
+  <p class="mt-2 text-[13.5px] leading-relaxed text-muted">{oneLiner}</p>
+
+  <div class="mt-auto flex items-end justify-between gap-3 pt-5">
+    {
+      headline ? (
+        <div>
+          <div class="num text-[22px] leading-none" style={`color:${v.color}`}>
+            {headline.display}
+          </div>
+          <div class="eyebrow mt-1.5">{headline.label}</div>
+        </div>
+      ) : (
+        <div class="eyebrow">No official projection</div>
+      )
+    }
+    <span class="num text-[11px] text-faint transition-colors group-hover:text-signal">read →</span>
+  </div>
+</a>

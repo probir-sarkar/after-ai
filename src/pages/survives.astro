@@ -1,0 +1,133 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import { section } from '@/lib/sections';
+import Cite from '@/components/Cite.tsx';
+import Figure from '@/components/Figure.astro';
+import Spectrum from '@/components/Spectrum.astro';
+import JobCard from '@/components/JobCard.astro';
+import { BlsAbsoluteChart, BlsGrowthChart } from '@/components/charts/Index';
+
+const entry = await section('survives');
+const { Content } = await render(entry);
+
+const jobs = (await getCollection('jobs'))
+  .filter((j) => j.data.verdict === 'survives')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const headline = (j: (typeof jobs)[number]) => {
+  const m = j.data.metrics[0];
+  return m ? { display: m.display, label: m.label } : undefined;
+};
+
+const fmt = new Intl.NumberFormat('en-US');
+const withProjection = jobs.filter((j) => j.data.metrics.some((m) => m.unit === 'jobs'));
+const totalJobs = withProjection.reduce(
+  (n, j) => n + (j.data.metrics.find((m) => m.unit === 'jobs')?.value ?? 0),
+  0
+);
+---
+
+<Base
+  title={entry.data.title}
+  description={entry.data.standfirst}
+>
+  <section class="wrap pt-14 pb-10 sm:pt-20">
+    <div class="flex items-center gap-4">
+      <span class="num text-[11px] text-faint">{entry.data.eyebrow}</span>
+      <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
+      <span class="eyebrow">{jobs.length} profiles</span>
+    </div>
+    <h1 class="mt-6 max-w-[18ch] font-display">{entry.data.title}</h1>
+    <p class="lede mt-5">{entry.data.standfirst}</p>
+  </section>
+
+  <section class="wrap grid gap-10 pb-16 lg:grid-cols-[1fr_320px] lg:items-start">
+    <div class="prose-body max-w-[70ch] text-[15.5px]">
+      <Content components={{ Cite }} />
+    </div>
+    <aside class="panel p-5">
+      <div class="eyebrow">What this page adds up to</div>
+      <div class="mt-4 space-y-4">
+        <div>
+          <div class="num text-[30px] leading-none text-survive">{fmt.format(totalJobs)}</div>
+          <p class="mt-2 text-[12px] leading-relaxed text-faint">
+            net new jobs across the {withProjection.length} profiles here that carry an official BLS
+            projection — over ten years, in the US alone.
+          </p>
+        </div>
+        <div class="hairline pt-4">
+          <div class="num text-[30px] leading-none text-ink">≈⅓</div>
+          <p class="mt-2 text-[12px] leading-relaxed text-faint">
+            of non-physical US work hours draw on social and emotional skills that remain largely
+            beyond automation — and two-thirds of all work hours are non-physical.
+          </p>
+        </div>
+        <div class="hairline pt-4">
+          <a href="/sources#mckinsey-agents" class="font-mono text-[10.5px] uppercase tracking-[0.12em] text-signal no-underline"
+            >McKinsey 2025 →</a
+          >
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="wrap grid gap-6 pb-6">
+    <Figure
+      eyebrow="Percentage growth"
+      title="The fastest-growing occupations, 2025–2035"
+      sources={['bls-fastest']}
+      note="US Bureau of Labor Statistics projections. Percentage growth flatters small occupations — see the absolute chart for scale."
+    >
+      <BlsGrowthChart client:load />
+    </Figure>
+    <Figure
+      eyebrow="Absolute growth"
+      title="Where the jobs actually are"
+      sources={['bls-fastest']}
+      note="One occupation accounts for about 14% of all net new jobs projected in the US to 2035: home health and personal care aides."
+    >
+      <BlsAbsoluteChart client:load />
+    </Figure>
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="grid gap-6 lg:grid-cols-[1fr_1fr]">
+      <Spectrum
+        side="least"
+        title="Least affected by AI, measured from real usage"
+        caption="Microsoft classified 200,000 anonymised AI conversations against O*NET work activities. Low applicability is not a guarantee of job security — it is a statement about task overlap."
+      />
+      <div class="panel p-6">
+        <p class="eyebrow">Read the ranking carefully</p>
+        <h3 class="mt-3 font-display text-[22px]">Applicability is not displacement</h3>
+        <div class="prose-body mt-4">
+          <p>
+            The researchers who built the most-cited applicability score warn against reading it as a
+            headcount forecast. Bank tellers survived ATMs by changing what the job contained; the
+            seat stayed and the tasks moved.<Cite ids="geekwire-ms" />
+          </p>
+          <p>
+            What the ranking does tell you is where AI's capability overlaps a job's activities today.
+            That is a starting point for a task audit, not an ending point for a career decision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2>Profiles</h2>
+      <p class="eyebrow">Ranked by strength of evidence</p>
+    </div>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {jobs.map((j) => <JobCard {...j.data} id={j.id} headline={headline(j)} />)}
+    </div>
+  </section>
+
+  <section class="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line-soft py-8">
+    <a href="/" class="font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← Overview</a>
+    <a href="/risk" class="font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline">Next: what is exposed →</a>
+  </section>
+</Base>

@@ -1,0 +1,209 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-void: #08080a;
+  --color-panel: #0e0e12;
+  --color-raise: #15151b;
+  --color-line: #26262f;
+  --color-line-soft: #1b1b22;
+  --color-ink: #f2efe9;
+  --color-muted: #a9a9b4;
+  --color-faint: #85858f;
+  --color-survive: #6ee7b7;
+  --color-risk: #ff7d6e;
+  --color-emerge: #8ab4ff;
+  --color-signal: #dcf26e;
+
+  --font-display: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+
+  --text-hero: clamp(2.9rem, 8.4vw, 7.2rem);
+  --text-h2: clamp(2rem, 4.6vw, 3.4rem);
+  --text-h3: clamp(1.35rem, 2.2vw, 1.75rem);
+}
+
+@layer base {
+  html {
+    background: var(--color-void);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--color-void);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv05';
+  }
+  /* Tailwind preflight flattens headings; give every one an explicit size. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+  h1 { font-size: var(--text-hero); }
+  h2 { font-size: var(--text-h2); }
+  h3 { font-size: var(--text-h3); line-height: 1.15; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--color-signal); color: #0a0a0a; }
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  a { color: inherit; }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1160px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding-inline: 2.5rem; }
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+
+  .lede {
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--color-muted);
+    max-width: 62ch;
+  }
+
+  .prose-body p {
+    color: var(--color-muted);
+    line-height: 1.72;
+    margin-block: 0.9rem;
+    max-width: 68ch;
+  }
+  .prose-body strong { color: var(--color-ink); font-weight: 600; }
+  .prose-body em { color: var(--color-ink); }
+  .prose-body h3 { margin-top: 2rem; }
+  .prose-body ul { margin-block: 1rem; padding-left: 1.1rem; list-style: none; }
+  .prose-body li {
+    color: var(--color-muted);
+    line-height: 1.65;
+    margin-block: 0.45rem;
+    position: relative;
+  }
+  .prose-body li::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0.7em;
+    width: 5px;
+    height: 1px;
+    background: var(--color-signal);
+  }
+  .prose-body a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-line);
+  }
+  .prose-body a:hover { text-decoration-color: var(--color-signal); }
+
+  .panel {
+    background: linear-gradient(180deg, var(--color-panel) 0%, #0b0b0f 100%);
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+  }
+
+  .hairline { border-top: 1px solid var(--color-line-soft); }
+
+  /* Grid and flex items are allowed to shrink below their content's min-content
+     size. Without this the 560px chart floor (below) propagates up through
+     min-content sizing and pushes the whole page wider than the viewport —
+     measured 606px of content in a 390px window on the job detail page. */
+  .grid > *,
+  .flex > * { min-width: 0; }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 38px;
+    padding: 0 0.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    background: #101014;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+  .chip:hover { color: var(--color-ink); border-color: #3a3a46; }
+  .chip[data-active='true'] {
+    color: #0a0a0a;
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .link-quiet {
+    color: var(--color-muted);
+    transition: color 140ms ease;
+  }
+  .link-quiet:hover { color: var(--color-ink); }
+}
+
+/* ---- charts ---------------------------------------------------------- */
+.chart-shell { font-family: var(--font-mono); }
+.chart-shell .recharts-cartesian-axis-tick-value { font-size: 10.5px; letter-spacing: 0.02em; }
+.chart-shell .recharts-label { font-family: var(--font-mono); }
+.recharts-surface:focus { outline: none; }
+.recharts-wrapper { margin-inline: auto; }
+
+.tt {
+  background: #101015;
+  border: 1px solid #32323d;
+  border-radius: 10px;
+  padding: 0.55rem 0.7rem;
+  box-shadow: 0 18px 40px -20px #000;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  max-width: 240px;
+}
+.tt-k { color: #8f8f9c; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9.5px; }
+.tt-v { color: var(--color-ink); font-size: 13px; }
+
+/* A build-time/SSR chart inside a 320px panel puts its labels at ~4px.
+   Give the plot a floor and let the wrapper scroll instead of shrinking. */
+@media (max-width: 720px) {
+  .chart-scroll .chart-shell { min-width: 560px; }
+}
+
+/* ---- motion ---------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  .draw-line { stroke-dasharray: 2000; animation: draw 1.6s ease-out both; }
+  @keyframes draw {
+    from { stroke-dashoffset: 2000; }
+    to { stroke-dashoffset: 0; }
+  }
+}

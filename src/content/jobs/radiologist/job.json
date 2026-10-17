@@ -1,0 +1,43 @@
+{
+  "name": "Radiologists",
+  "short": "Radiologists",
+  "verdict": "survives",
+  "category": "judgement",
+  "oneLiner": "The profession everyone predicted would vanish first, which instead got better at its hard half.",
+  "tests": {
+    "body": 0,
+    "accountability": 3,
+    "relationship": 2,
+    "bundle": 3
+  },
+  "why": [
+    "The job is a bundle: drafting reports was never the valuable part",
+    "Diagnostic accountability sits with a named clinician",
+    "AI output needs verification, and verification is expert work"
+  ],
+  "threats": [
+    "The drafting rung of the training ladder is disappearing",
+    "Radiology took 20 years of warnings and did not shrink — that is evidence, not comfort"
+  ],
+  "metrics": [
+    {
+      "label": "Reading time cut for juniors",
+      "display": "−18.5%",
+      "value": 18.5,
+      "unit": "percent",
+      "source": "mckinsey-workforce"
+    }
+  ],
+  "claims": [
+    {
+      "text": "In a clinical trial, AI-generated report drafts cut junior radiologists' reading time by 18.5% and improved report quality, shifting work from drafting to reviewing, validating and correcting.",
+      "source": "mckinsey-workforce"
+    },
+    {
+      "text": "PwC classifies radiologists as professionalised by AI: routine tasks automated away, human expertise emphasised, and professionalised roles growing twice as fast as democratised ones.",
+      "source": "pwc-barometer"
+    }
+  ],
+  "series": [],
+  "order": 7
+}

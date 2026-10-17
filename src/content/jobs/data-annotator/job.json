@@ -1,0 +1,35 @@
+{
+  "name": "Data annotators and AI trainers",
+  "short": "Data annotators",
+  "verdict": "emerging",
+  "category": "platform",
+  "oneLiner": "The most accessible on-ramp into AI work, and the one that rewards domain expertise over coding.",
+  "tests": {
+    "body": 0,
+    "accountability": 1,
+    "relationship": 1,
+    "bundle": 2
+  },
+  "why": [
+    "Labeled data and preference feedback are inputs the models cannot generate for themselves",
+    "Domain knowledge (medicine, law, finance) is the scarce input, not programming"
+  ],
+  "threats": [
+    "Individual-contributor annotation is hourly, insecure and often outsourced",
+    "Automated labelling compresses the bottom of the market over time"
+  ],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "Data annotator ranks fourth among LinkedIn's fastest-growing US job titles for 2026.",
+      "source": "linkedin-rise"
+    },
+    {
+      "text": "The work is reviewing and labelling data to specified guidelines and running quality checks so that training datasets are accurate.",
+      "source": "linkedin-rise"
+    }
+  ],
+  "series": [],
+  "horizon": "2023–2025",
+  "order": 32
+}

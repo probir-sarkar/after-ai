@@ -1,0 +1,37 @@
+{
+  "name": "Customer service representatives",
+  "short": "Customer service",
+  "verdict": "at-risk",
+  "category": "cognitive",
+  "oneLiner": "The clearest case of AI eating the entry rung rather than the ladder.",
+  "tests": {
+    "body": 0,
+    "accountability": 1,
+    "relationship": 2,
+    "bundle": 1
+  },
+  "why": [
+    "Front-line resolution of routine enquiries is exactly what agents do well",
+    "Volume is high and the interaction is text or voice, both native to AI"
+  ],
+  "threats": [],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "Customer service representatives are among the most affected occupations in Microsoft's usage-based analysis.",
+      "source": "geekwire-ms"
+    },
+    {
+      "text": "Early-career workers aged 22–25 in the most AI-exposed occupations — including customer service representatives and software developers — saw a 16% relative employment decline, while experienced workers in the same occupations stayed stable.",
+      "source": "stanford-canaries"
+    },
+    {
+      "text": "Employment declines concentrate in applications where AI automates work rather than augments it.",
+      "source": "stanford-canaries"
+    }
+  ],
+  "series": [],
+  "horizon": "2022–2025",
+  "order": 22,
+  "featured": true
+}

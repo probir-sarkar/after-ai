@@ -1,0 +1,107 @@
+---
+import Base from '@/layouts/Base.astro';
+import { sources } from '@/data/sources';
+
+const groups: { kind: string; label: string; blurb: string }[] = [
+  { kind: 'study', label: 'Peer-reviewed & working papers', blurb: 'Task-level measurement and observed employment effects.' },
+  { kind: 'survey', label: 'Employer & advertisement surveys', blurb: 'Large-scale expectations and hiring data. Forecasts, not outcomes.' },
+  { kind: 'statistics', label: 'Official statistics', blurb: 'Government projections and wage data.' },
+  { kind: 'report', label: 'Institutional & vendor reports', blurb: 'Useful, but read the interest behind them — noted per source.' },
+  { kind: 'press', label: 'Journalism', blurb: 'Where the ranked lists and primary quotes are reported.' },
+];
+
+const grouped = groups
+  .map((g) => ({ ...g, items: sources.filter((s) => s.kind === g.kind) }))
+  .filter((g) => g.items.length > 0);
+---
+
+<Base
+  title="Sources"
+  description="All 18 sources behind this brief, with what each one measures and where it is weak."
+>
+  <section class="wrap pt-14 pb-10 sm:pt-20">
+    <p class="eyebrow">Bibliography</p>
+    <h1 class="mt-5 max-w-[16ch] font-display">Every number, and where it came from.</h1>
+    <p class="lede mt-5">
+      {sources.length} sources. Nothing on this site is cited that is not listed here, and every source listed
+      here is cited somewhere. The build fails if that stops being true.
+    </p>
+  </section>
+
+  <section class="wrap grid gap-6 pb-16 lg:grid-cols-2">
+    <div class="panel p-5">
+      <div class="eyebrow">How to read a source</div>
+      <div class="prose-body mt-3 text-[13.5px]">
+        <p>
+          Three kinds of claim appear on this site, and they are labelled differently: <strong>measured</strong>
+          (payroll data, official projections, task scoring), <strong>forecast</strong> (employer surveys and
+          employer expectations, always marked), and <strong>editorial</strong> (the 0–3 scoring on each job
+          profile, and the framing). Confusing the first two is the most common error in this field.
+        </p>
+        <p>
+          Where a source has a commercial interest — a governance vendor, a job board counting its own
+          postings — the note says so, and the number is presented as directional.
+        </p>
+      </div>
+    </div>
+    <div class="panel p-5">
+      <div class="eyebrow">Coverage gaps</div>
+      <div class="prose-body mt-3 text-[13.5px]">
+        <p>
+          The evidence base skews Anglophone and to high-income countries: the employment-effect study is US
+          payroll data, the exposure index is global but calibrated on one national task taxonomy, and the
+          advertisement analysis covers 27 countries.
+        </p>
+        <p>
+          Low- and middle-income labour markets are thinner here, and informal work barely appears at all —
+          which matters, because that is where most of the world's employment is.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {
+    grouped.map((g) => (
+      <section class="wrap pb-12">
+        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line-soft pb-3">
+          <h2 class="font-display text-[26px]">{g.label}</h2>
+          <p class="text-[13px] text-faint">{g.blurb}</p>
+          <span class="num ml-auto text-[11px] text-faint">{g.items.length}</span>
+        </div>
+
+        <ul class="mt-6 grid gap-4 lg:grid-cols-2">
+          {g.items.map((s) => (
+            <li id={s.id} class="panel scroll-mt-24 p-5">
+              <div class="flex items-center gap-3">
+                <span class="num rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint">{s.short}</span>
+                <span class="eyebrow">{s.year}</span>
+              </div>
+              <h3 class="mt-3 font-display text-[20px] leading-snug">{s.title}</h3>
+              <p class="mt-2 text-[12.5px] text-muted">{s.publisher}</p>
+              {s.note && <p class="mt-3 text-[12.5px] leading-relaxed text-faint">{s.note}</p>}
+              <a
+                href={s.url}
+                rel="noopener"
+                class="num mt-4 inline-block text-[11px] text-signal no-underline hover:underline"
+              >
+                Read the source →
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <section class="wrap pb-16">
+    <div class="panel p-6">
+      <div class="eyebrow">Corrections</div>
+      <h2 class="mt-3 max-w-[28ch] font-display text-[24px]">If a figure here is wrong, the fix is a data file.</h2>
+      <p class="mt-3 max-w-[68ch] text-[13.5px] leading-relaxed text-muted">
+        Every chart series lives in one typed file with its source id attached, and every job profile is a
+        folder holding a validated data file and a written note. A number cannot reach a chart without a
+        reference, and a reference cannot exist without an entry on this page.
+      </p>
+    </div>
+  </section>
+</Base>

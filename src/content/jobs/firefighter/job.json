@@ -1,0 +1,52 @@
+{
+  "name": "Firefighters",
+  "short": "Firefighters",
+  "verdict": "survives",
+  "category": "frontline",
+  "oneLiner": "Ranked the single most AI-proof occupation in a study of O*NET physical abilities.",
+  "tests": {
+    "body": 3,
+    "accountability": 3,
+    "relationship": 2,
+    "bundle": 3
+  },
+  "why": [
+    "Stamina, static strength, reaction time, spatial orientation, danger detection",
+    "Someone has to be accountable when the decision kills or saves",
+    "The environment changes faster than any specification can describe"
+  ],
+  "threats": [
+    "Dispatch, mapping and paperwork are already being automated around the role",
+    "Public-sector pay and staffing are political, not technological, risks"
+  ],
+  "metrics": [
+    {
+      "label": "Median annual pay",
+      "display": "$59,280",
+      "value": 59280,
+      "unit": "usd",
+      "source": "resumenow"
+    },
+    {
+      "label": "Rank on Resume Now's list",
+      "display": "#1",
+      "value": 1,
+      "unit": "index",
+      "source": "resumenow"
+    }
+  ],
+  "claims": [
+    {
+      "text": "First on a ranking of occupations that rely most on six O*NET abilities: stamina, static strength, reaction time, spatial orientation, time sharing and problem sensitivity.",
+      "source": "resumenow"
+    },
+    {
+      "text": "The distinguishing feature is that the work requires recognising problems, interpreting changing conditions, deciding under unpredictable conditions — and that a wrong call injures someone.",
+      "source": "resumenow"
+    }
+  ],
+  "series": [],
+  "wage": "$59,280",
+  "order": 6,
+  "featured": true
+}

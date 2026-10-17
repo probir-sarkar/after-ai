@@ -1,0 +1,162 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import { section } from '@/lib/sections';
+import Cite from '@/components/Cite.tsx';
+import Figure from '@/components/Figure.astro';
+import JobCard from '@/components/JobCard.astro';
+import { FdeChart, PremiumChart } from '@/components/charts/Index';
+
+const entry = await section('opportunity');
+const { Content } = await render(entry);
+
+const jobs = (await getCollection('jobs'))
+  .filter((j) => j.data.verdict === 'emerging')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const headline = (j: (typeof jobs)[number]) => {
+  const m = j.data.metrics[0];
+  return m ? { display: m.display, label: m.label } : undefined;
+};
+
+const clusters = [
+  {
+    k: 'Build',
+    t: 'Build the systems',
+    d: 'AI specialist postings grew 68.9% in 2025 while all jobs grew 8.6%. AI engineer has been the fastest-growing US title for two years running.',
+    s: 'pwc-barometer',
+  },
+  {
+    k: 'Deploy',
+    t: 'Deploy them inside someone else',
+    d: 'Forward-deployed engineering postings went from 643 to 5,330 in a year, because enterprise AI projects fail for organisational reasons.',
+    s: 'fde-data',
+  },
+  {
+    k: 'Feed',
+    t: 'Feed and teach the models',
+    d: 'Data annotation and evaluation — ranked fourth among the fastest-growing US roles, and the entry point that rewards domain knowledge over coding.',
+    s: 'linkedin-rise',
+  },
+  {
+    k: 'Govern',
+    t: 'Govern and audit them',
+    d: 'Regulation attaches a permanent function: roughly seven builders are hired per governance hire across the EU postings one study examined.',
+    s: 'axipro',
+  },
+  {
+    k: 'Supervise',
+    t: 'Supervise the machines',
+    d: 'Reviewing outputs, handling exceptions, assuring quality, documenting decisions. AI rarely removes work without creating oversight obligations.',
+    s: 'mckinsey-workforce',
+  },
+];
+---
+
+<Base title={entry.data.title} description={entry.data.standfirst}>
+  <section class="wrap pt-14 pb-10 sm:pt-20">
+    <div class="flex items-center gap-4">
+      <span class="num text-[11px] text-faint">{entry.data.eyebrow}</span>
+      <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
+      <span class="eyebrow">{clusters.length} clusters</span>
+    </div>
+    <h1 class="mt-6 max-w-[20ch] font-display">{entry.data.title}</h1>
+    <p class="lede mt-5">{entry.data.standfirst}</p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="panel p-4">
+        <div class="num text-[24px] text-signal">+62%</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">average wage premium for jobs requiring AI skills</p>
+      </div>
+      <div class="panel p-4">
+        <div class="num text-[24px] text-emerge">×8</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">faster growth in AI-specialist postings than in all jobs, 2025</p>
+      </div>
+      <div class="panel p-4">
+        <div class="num text-[24px] text-emerge">729%</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">growth in forward-deployed engineering postings in one year</p>
+      </div>
+      <div class="panel p-4">
+        <div class="num text-[24px] text-survive">+35%</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">growth in AI-exposed junior roles redesigned to demand senior skills</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap grid gap-10 pb-16 lg:grid-cols-[1fr_320px] lg:items-start">
+    <div class="prose-body max-w-[70ch] text-[15.5px]">
+      <Content components={{ Cite }} />
+    </div>
+    <aside class="panel p-5">
+      <div class="eyebrow">The honest caveat</div>
+      <div class="prose-body mt-3 text-[13px]">
+        <p>
+          New-job evidence is younger and thinner than the risk evidence. Title counts from job boards
+          and vendor studies are not occupational statistics: they measure hiring for a label, and
+          labels age fast — the same role was "ML engineer" five years ago.
+        </p>
+        <p>
+          Where a number on this page comes from a vendor or a job board, the chart says so.
+        </p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="wrap grid gap-6 pb-16 lg:grid-cols-[1.1fr_1fr]">
+    <Figure
+      eyebrow="One title, one year"
+      title="Forward-deployed engineering postings"
+      sources={['fde-data']}
+      note="Hiring data compiled by Exponent from job postings: 643 in April 2025, 5,330 in April 2026. Median base across postings is about $174,000, and roughly 70% include equity."
+    >
+      <FdeChart client:load />
+    </Figure>
+    <Figure
+      eyebrow="AI skills, priced"
+      title="The wage premium for AI skills"
+      sources={['pwc-release']}
+      note="Premium compares advertised wages for similar workers who differ only in whether the role requires AI skills. It does not control for education, experience or location."
+    >
+      <PremiumChart client:load />
+    </Figure>
+  </section>
+
+  <section class="wrap pb-16">
+    <p class="eyebrow">Five clusters</p>
+    <h2 class="mt-4 max-w-[26ch]">Where the new work is arriving</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        clusters.map((c, i) => (
+          <div class="panel flex flex-col p-5">
+            <div class="flex items-baseline gap-3">
+              <span class="num text-[11px] text-faint">{String(i + 1).padStart(2, '0')}</span>
+              <span class="num text-[10.5px] uppercase tracking-[0.14em] text-signal">{c.k}</span>
+            </div>
+            <h3 class="mt-3 font-display text-[20px] leading-snug">{c.t}</h3>
+            <p class="mt-3 flex-1 text-[13px] leading-relaxed text-muted">{c.d}</p>
+            <a
+              href={`/sources#${c.s}`}
+              class="num mt-4 w-fit rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink"
+            >
+              {c.s}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2>Emerging profiles</h2>
+      <p class="eyebrow">Evidence is real but young</p>
+    </div>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {jobs.map((j) => <JobCard {...j.data} id={j.id} headline={headline(j)} />)}
+    </div>
+  </section>
+
+  <section class="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line-soft py-8">
+    <a href="/risk" class="font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← What is exposed</a>
+    <a href="/what-to-do" class="font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline">Next: what to do about it →</a>
+  </section>
+</Base>

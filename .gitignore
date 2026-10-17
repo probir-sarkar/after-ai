@@ -1,0 +1,14 @@
+# build output
+dist/
+.astro/
+node_modules/
+
+# deploy artefact
+.wrangler/
+
+# local verification screenshots (7MB, not part of the site)
+.shots/
+
+# logs and OS noise
+*.log
+.DS_Store

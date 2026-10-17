@@ -1,0 +1,80 @@
+{
+  "name": "Home health and personal care aides",
+  "short": "Home health aides",
+  "verdict": "survives",
+  "category": "care",
+  "oneLiner": "The largest source of new jobs in the US economy — and the one AI helps least.",
+  "tests": {
+    "body": 3,
+    "accountability": 2,
+    "relationship": 3,
+    "bundle": 2
+  },
+  "why": [
+    "Hands-on physical assistance: lifting, transferring, bathing, gait belts",
+    "The work is a relationship, and the client can tell the difference",
+    "Licensing, liability and dignity keep a human accountable for the outcome",
+    "Demand is driven by demographics, not by software adoption"
+  ],
+  "threats": [
+    "Median pay is $35,800 — a job-quality crisis, not an AI story",
+    "Most openings replace workers who leave, not new growth",
+    "Charting, scheduling and vitals logging will leave the human's plate"
+  ],
+  "metrics": [
+    {
+      "label": "Projected growth, 2025–35",
+      "display": "+18.1%",
+      "value": 18.1,
+      "unit": "percent",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Jobs added",
+      "display": "+847,300",
+      "value": 847300,
+      "unit": "jobs",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Median annual pay",
+      "display": "$35,800",
+      "value": 35800,
+      "unit": "usd",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Openings a year",
+      "display": "760,500",
+      "value": 760500,
+      "unit": "count",
+      "source": "bls-homecare"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Adds more jobs than any other occupation published by the US Bureau of Labor Statistics.",
+      "source": "bls-projections"
+    },
+    {
+      "text": "About 760,500 openings a year, most of them replacing workers who leave rather than new positions.",
+      "source": "bls-homecare"
+    },
+    {
+      "text": "AI's documented value in care is documentation, scheduling and monitoring; experts across the care workforce reject it as a substitute for physical assistance or human relationships.",
+      "source": "acl-care"
+    }
+  ],
+  "series": [
+    {
+      "label": "Home health aides",
+      "value": 18.1,
+      "kind": "growth",
+      "source": "bls-fastest"
+    }
+  ],
+  "horizon": "2025–2035",
+  "wage": "$35,800",
+  "order": 1,
+  "featured": true
+}

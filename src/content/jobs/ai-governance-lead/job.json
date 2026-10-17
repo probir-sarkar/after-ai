@@ -1,0 +1,64 @@
+{
+  "name": "AI governance, risk and audit",
+  "short": "AI governance",
+  "verdict": "emerging",
+  "category": "platform",
+  "oneLiner": "Regulation creates a function; the function creates the jobs.",
+  "tests": {
+    "body": 0,
+    "accountability": 3,
+    "relationship": 2,
+    "bundle": 3
+  },
+  "why": [
+    "Independently checking the work is the whole point — the builder cannot audit the builder",
+    "Conformity obligations need named owners and documented evidence",
+    "Insurers and boards are asking for both"
+  ],
+  "threats": [
+    "The headline ratios come from a vendor study with a commercial interest in governance hiring",
+    "Enforcement timelines keep moving, which delays hiring plans"
+  ],
+  "metrics": [
+    {
+      "label": "Builders hired per governance hire (EU)",
+      "display": "≈7 : 1",
+      "value": 7,
+      "unit": "index",
+      "source": "axipro"
+    },
+    {
+      "label": "Consultant day rate in mature markets",
+      "display": "$800–2,000",
+      "value": 1400,
+      "unit": "day",
+      "source": "axipro"
+    },
+    {
+      "label": "AI-related postings analysed",
+      "display": "3,519",
+      "value": 3519,
+      "unit": "count",
+      "source": "axipro"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Across eight EU countries, companies are hiring roughly seven professionals to build AI systems for every one hired to govern them.",
+      "source": "axipro"
+    },
+    {
+      "text": "Independent AI governance consultants in mature markets command day rates of $800–$2,000, with demand up 150% year over year.",
+      "source": "axipro"
+    },
+    {
+      "text": "Governing work is a permanent function once regulation attaches to it: EU AI Act obligations, NIST AI RMF and ISO/IEC 42001 all need evidence that someone checked the system.",
+      "source": "axipro"
+    }
+  ],
+  "series": [],
+  "horizon": "2026",
+  "wage": "$800–2,000 a day (consulting)",
+  "order": 33,
+  "featured": true
+}

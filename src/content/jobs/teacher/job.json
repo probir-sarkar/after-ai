@@ -1,0 +1,35 @@
+{
+  "name": "Teachers",
+  "short": "Teachers",
+  "verdict": "survives",
+  "category": "judgement",
+  "oneLiner": "Real-time reading of other humans, in a room, with a duty of care.",
+  "tests": {
+    "body": 2,
+    "accountability": 3,
+    "relationship": 3,
+    "bundle": 3
+  },
+  "why": [
+    "A teacher reads the room continuously and changes plan mid-sentence",
+    "Parents and institutions require a responsible adult in the building",
+    "The role is indivisible: every school still needs the seat filled"
+  ],
+  "threats": [
+    "Lesson prep, marking and reporting are all being automated around the role",
+    "Clickwork tutoring products compete at the margins of the job"
+  ],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "McKinsey places teachers among occupations with lower disruption because the work depends heavily on physical presence, regulation and human interaction.",
+      "source": "mckinsey-workforce"
+    },
+    {
+      "text": "Occupations are bundles of interdependent activities, and some are indivisible — every school still requires a principal, every hospital a medical director.",
+      "source": "mckinsey-workforce"
+    }
+  ],
+  "series": [],
+  "order": 8
+}

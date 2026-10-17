@@ -1,0 +1,70 @@
+{
+  "name": "AI engineer (applied / LLM)",
+  "short": "AI engineer",
+  "verdict": "emerging",
+  "category": "platform",
+  "oneLiner": "The single fastest-growing job title in the US, two years running.",
+  "tests": {
+    "body": 0,
+    "accountability": 1,
+    "relationship": 1,
+    "bundle": 2
+  },
+  "why": [
+    "Integration and evaluation work that requires judgement about reliability",
+    "Every AI deployment creates maintenance and monitoring obligations"
+  ],
+  "threats": [
+    "Titles age fast in this space — the same work was 'ML engineer' five years ago",
+    "A crowded on-ramp: it demands production engineering skill, not curiosity"
+  ],
+  "metrics": [
+    {
+      "label": "AI-specialist postings growth, 2025",
+      "display": "+68.9%",
+      "value": 68.9,
+      "unit": "percent",
+      "source": "pwc-barometer"
+    },
+    {
+      "label": "All-jobs postings growth, 2025",
+      "display": "+8.6%",
+      "value": 8.6,
+      "unit": "percent",
+      "source": "pwc-barometer"
+    },
+    {
+      "label": "Average AI-skills wage premium",
+      "display": "+62%",
+      "value": 62,
+      "unit": "premium",
+      "source": "pwc-barometer"
+    }
+  ],
+  "claims": [
+    {
+      "text": "AI engineer ranks first among LinkedIn's fastest-growing US job titles, having held the top spot for a second year.",
+      "source": "linkedin-rise"
+    },
+    {
+      "text": "AI-specialist job postings grew 68.9% in 2025 while total job growth was 8.6%; globally there are now 10.7 AI specialist postings for every one in 2012.",
+      "source": "pwc-barometer"
+    },
+    {
+      "text": "The average wage premium for workers with AI skills reached 62%, up from 57% a year earlier.",
+      "source": "pwc-release"
+    }
+  ],
+  "series": [
+    {
+      "label": "AI engineer",
+      "value": 62,
+      "kind": "premium",
+      "source": "pwc-barometer"
+    }
+  ],
+  "horizon": "2025",
+  "wage": "62% premium over comparable non-AI roles",
+  "order": 30,
+  "featured": true
+}

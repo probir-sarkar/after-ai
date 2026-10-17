@@ -1,0 +1,66 @@
+{
+  "name": "Solar photovoltaic installers",
+  "short": "Solar installers",
+  "verdict": "survives",
+  "category": "trades",
+  "oneLiner": "Physical work in a place that changes every day, on a roof that does not read specifications.",
+  "tests": {
+    "body": 3,
+    "accountability": 2,
+    "relationship": 1,
+    "bundle": 2
+  },
+  "why": [
+    "Every site is different: roof pitch, timber, weather, wiring",
+    "Fine motor control and safety judgement on ladders and live arrays",
+    "The energy transition is the demand driver, not AI"
+  ],
+  "threats": [
+    "Robotics, if dexterity and cost change, is the only real threat here",
+    "Pay is moderate for outdoor, hazardous work"
+  ],
+  "metrics": [
+    {
+      "label": "Projected growth, 2025–35",
+      "display": "+36.5%",
+      "value": 36.5,
+      "unit": "percent",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Jobs added",
+      "display": "+11,300",
+      "value": 11300,
+      "unit": "jobs",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Median annual pay",
+      "display": "$53,140",
+      "value": 53140,
+      "unit": "usd",
+      "source": "bls-fastest"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Second-fastest-growing occupation in BLS projections to 2035, at 36.5%.",
+      "source": "bls-fastest"
+    },
+    {
+      "text": "Climate and energy-storage trends put renewable energy and environmental engineering roles among the fastest-growing, and environmental stewardship entered the top-10 fastest-growing skills for the first time.",
+      "source": "wef-jobs-2025"
+    }
+  ],
+  "series": [
+    {
+      "label": "Solar installers",
+      "value": 36.5,
+      "kind": "growth",
+      "source": "bls-fastest"
+    }
+  ],
+  "horizon": "2025–2035",
+  "wage": "$53,140",
+  "order": 3
+}

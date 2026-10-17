@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "after-ai",
+  "compatibility_date": "2026-10-01",
+  // Fully prerendered: no main, no adapter — the Worker is just static assets.
+  "assets": {
+    "directory": "./dist",
+    // 'none' 404s the root while every deep route still works; this project
+    // builds to /jobs/x.html, so extensionless URLs need this to resolve.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "after-ai.probir.dev", "custom_domain": true }],
+  "observability": { "enabled": true }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Software developers",
+  "short": "Software developers",
+  "verdict": "mixed",
+  "category": "platform",
+  "oneLiner": "Split in two: the ones who direct agents are thriving; the ones who wrote boilerplate are not.",
+  "tests": {
+    "body": 0,
+    "accountability": 1,
+    "relationship": 1,
+    "bundle": 2
+  },
+  "why": [
+    "System-level design and trade-off decisions still need a human",
+    "Someone must own an outage",
+    "The profession absorbed a generational tool change before and refactored around it"
+  ],
+  "threats": [
+    "PwC classifies software developers as *democratised* — AI takes the expert tasks and leaves simpler work",
+    "Entry-level hiring in these occupations is where the Stanford decline shows up",
+    "The task-level exposure keeps rising as models get agentic"
+  ],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "PwC's 2026 Barometer lists software developers among the roles AI democratises: it automates higher-expertise tasks and leaves the role requiring less expertise, with lower barriers to entry and falling wages.",
+      "source": "pwc-barometer"
+    },
+    {
+      "text": "Democratised jobs make up 52% of advertised roles and are growing half as fast as professionalised roles, with 42% slower wage growth since 2021.",
+      "source": "pwc-barometer"
+    },
+    {
+      "text": "Software developers are among the AI-exposed occupations in which 22–25-year-old employment fell sharply.",
+      "source": "stanford-canaries"
+    }
+  ],
+  "series": [],
+  "horizon": "2021–2025",
+  "order": 24,
+  "featured": true
+}

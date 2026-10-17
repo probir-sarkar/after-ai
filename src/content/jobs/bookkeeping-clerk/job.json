@@ -1,0 +1,36 @@
+{
+  "name": "Bookkeeping, accounting and auditing clerks",
+  "short": "Bookkeeping clerks",
+  "verdict": "at-risk",
+  "category": "cognitive",
+  "oneLiner": "Rule-based verification of numbers, at high volume, in a digitised system.",
+  "tests": {
+    "body": 0,
+    "accountability": 1,
+    "relationship": 1,
+    "bundle": 1
+  },
+  "why": [
+    "Reconciliation is pattern matching against rules the machine already holds",
+    "High volume and routine, so savings per hour are large"
+  ],
+  "threats": [],
+  "metrics": [],
+  "claims": [
+    {
+      "text": "Employers expect a sharp fall in accounting and auditing clerk roles to 2030, alongside cashiers, ticket clerks and administrative assistants.",
+      "source": "wef-fastest"
+    },
+    {
+      "text": "Accounting and bookkeeping clerks sit in the ILO's highest generative-AI exposure gradient.",
+      "source": "ilo-index"
+    },
+    {
+      "text": "The ILO finds strongly digitised occupations have increased in exposure as models gained multimodal and agentic capability.",
+      "source": "ilo-index"
+    }
+  ],
+  "series": [],
+  "horizon": "to 2030",
+  "order": 21
+}

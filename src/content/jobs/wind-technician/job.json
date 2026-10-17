@@ -1,0 +1,62 @@
+{
+  "name": "Wind turbine service technicians",
+  "short": "Wind technicians",
+  "verdict": "survives",
+  "category": "trades",
+  "oneLiner": "Eighty metres up a tower, on a machine that is not coming to you.",
+  "tests": {
+    "body": 3,
+    "accountability": 2,
+    "relationship": 0,
+    "bundle": 2
+  },
+  "why": [
+    "Confined, high-altitude, hazardous — no teleoperation on this timeline",
+    "Diagnosis on a variable physical asset, not on a document",
+    "Small workforce, growing industry, hard to offshore"
+  ],
+  "threats": [
+    "Remote diagnostics and condition monitoring shrink the inspection half of the job",
+    "Very small absolute numbers: this is a niche, not a lifeboat"
+  ],
+  "metrics": [
+    {
+      "label": "Projected growth, 2025–35",
+      "display": "+29.5%",
+      "value": 29.5,
+      "unit": "percent",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Jobs added",
+      "display": "+3,500",
+      "value": 3500,
+      "unit": "jobs",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Median annual pay",
+      "display": "$64,120",
+      "value": 64120,
+      "unit": "usd",
+      "source": "bls-fastest"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Fourth-fastest-growing occupation in BLS projections, at 29.5% — but only 3,500 net new jobs.",
+      "source": "bls-fastest"
+    }
+  ],
+  "series": [
+    {
+      "label": "Wind technicians",
+      "value": 29.5,
+      "kind": "growth",
+      "source": "bls-fastest"
+    }
+  ],
+  "horizon": "2025–2035",
+  "wage": "$64,120",
+  "order": 4
+}

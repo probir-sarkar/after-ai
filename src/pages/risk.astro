@@ -1,0 +1,150 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import { section } from '@/lib/sections';
+import Cite from '@/components/Cite.tsx';
+import Figure from '@/components/Figure.astro';
+import Spectrum from '@/components/Spectrum.astro';
+import JobCard from '@/components/JobCard.astro';
+import { EntryLevelChart, ExposureChart } from '@/components/charts/Index';
+
+const entry = await section('risk');
+const { Content } = await render(entry);
+
+const jobs = (await getCollection('jobs'))
+  .filter((j) => j.data.verdict === 'at-risk' || j.data.verdict === 'mixed')
+  .sort((a, b) => a.data.order - b.data.order);
+
+const headline = (j: (typeof jobs)[number]) => {
+  const m = j.data.metrics[0];
+  return m ? { display: m.display, label: m.label } : undefined;
+};
+
+const declining = [
+  { role: 'Data entry clerks', note: 'Clerical, specified, verifiable' },
+  { role: 'Bank tellers and related clerks', note: 'Already reshaped twice by machines' },
+  { role: 'Material-recording and stock-keeping clerks', note: 'Rule-based counting in a system' },
+  { role: 'Administrative assistants', note: 'Scheduling and drafting' },
+  { role: 'Cashiers and ticket clerks', note: 'Routine transactions with a queue' },
+  { role: 'Printing workers', note: 'Downstream of a digitising medium' },
+  { role: 'Accountants and auditors', note: 'Rule-based verification at volume' },
+  { role: 'Door-to-door sales and street vendors', note: 'Channel replaced, not automated' },
+];
+---
+
+<Base title={entry.data.title} description={entry.data.standfirst}>
+  <section class="wrap pt-14 pb-10 sm:pt-20">
+    <div class="flex items-center gap-4">
+      <span class="num text-[11px] text-faint">{entry.data.eyebrow}</span>
+      <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
+      <span class="eyebrow">{jobs.length} profiles</span>
+    </div>
+    <h1 class="mt-6 max-w-[20ch] font-display">{entry.data.title}</h1>
+    <p class="lede mt-5">{entry.data.standfirst}</p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-3">
+      <div class="panel p-4">
+        <div class="num text-[24px] text-risk">−16%</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">relative employment change, ages 22–25, most exposed occupations</p>
+      </div>
+      <div class="panel p-4">
+        <div class="num text-[24px] text-emerge">3.3%</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">of global employment sits in the highest GenAI exposure band</p>
+      </div>
+      <div class="panel p-4">
+        <div class="num text-[24px] text-ink">52%</div>
+        <p class="mt-2 text-[12px] leading-relaxed text-faint">of advertised jobs are being deskilled by AI, per PwC</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap grid gap-10 pb-16 lg:grid-cols-[1fr_320px] lg:items-start">
+    <div class="prose-body max-w-[70ch] text-[15.5px]">
+      <Content components={{ Cite }} />
+    </div>
+    <aside class="panel p-5">
+      <div class="eyebrow">How to read an exposure score</div>
+      <div class="prose-body mt-3 text-[13px]">
+        <p>
+          Every exposure index in the literature answers the same narrow question: how much of this
+          job's activity set could a model do? None of them answers "will these people be fired".
+        </p>
+        <p>
+          That gap is why this page shows both the exposure measures and the one dataset that tracks
+          actual employment.
+        </p>
+      </div>
+      <div class="hairline mt-4 pt-4">
+        <a href="/sources#ilo-index" class="font-mono text-[10.5px] uppercase tracking-[0.12em] text-signal no-underline"
+          >ILO 2025 →</a
+        >
+      </div>
+    </aside>
+  </section>
+
+  <section class="wrap grid gap-6 pb-6 lg:grid-cols-2">
+    <Figure
+      eyebrow="Observed, not forecast"
+      title="Who is losing ground"
+      sources={['stanford-canaries']}
+      note="High-frequency US payroll data. The 16% is relative to less AI-exposed occupations; the adjustment came through hiring, not pay. The second row is a null result — employment there did not fall — not missing data."
+    >
+      <EntryLevelChart client:load />
+    </Figure>
+    <Figure
+      eyebrow="Task-level exposure"
+      title="Where exposure lands: by band, and by country income"
+      sources={['ilo-index']}
+      note="2,861 tasks scored by three models plus expert review. The first two rows are exposure bands; the last two are the share of all employment exposed in high- and low-income countries — a different cut of the same index."
+    >
+      <ExposureChart client:load />
+    </Figure>
+  </section>
+
+  <section class="wrap grid gap-6 pb-16 lg:grid-cols-2">
+    <Spectrum
+      side="most"
+      title="Most affected by AI, measured from real usage"
+      caption="Ranked by the share of an occupation's activities that AI already performs in real conversations. Information work dominates the top of this list."
+    />
+    <div>
+      <div class="panel overflow-hidden">
+        <div class="border-b border-line-soft px-5 py-4">
+          <div class="eyebrow">Employer projections to 2030</div>
+          <h3 class="mt-1 font-display text-[19px]">Roles expected to decline fastest</h3>
+        </div>
+        <ul class="divide-y divide-[var(--color-line-soft)]">
+          {
+            declining.map((d, i) => (
+              <li class="flex gap-4 px-5 py-[12px]">
+                <span class="num mt-[3px] w-6 shrink-0 text-[11px] text-risk">{String(i + 1).padStart(2, '0')}</span>
+                <span class="min-w-0">
+                  <span class="block text-[14.5px] leading-snug text-ink">{d.role}</span>
+                  <span class="mt-1 block text-[12px] leading-relaxed text-muted">{d.note}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="border-t border-line-soft px-5 py-3 text-[11.5px] leading-relaxed text-faint">
+          Employers were asked which roles would decline in their own organisations — a direction, not
+          a magnitude. No percentage is published per occupation, so none is shown here.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2>Profiles</h2>
+      <p class="eyebrow">Exposed, and in flux</p>
+    </div>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {jobs.map((j) => <JobCard {...j.data} id={j.id} headline={headline(j)} />)}
+    </div>
+  </section>
+
+  <section class="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line-soft py-8">
+    <a href="/survives" class="font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← What survives</a>
+    <a href="/opportunity" class="font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline">Next: what is coming →</a>
+  </section>
+</Base>

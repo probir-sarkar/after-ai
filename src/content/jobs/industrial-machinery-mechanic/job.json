@@ -1,0 +1,66 @@
+{
+  "name": "Industrial machinery mechanics",
+  "short": "Machinery mechanics",
+  "verdict": "survives",
+  "category": "trades",
+  "oneLiner": "When the automation breaks, someone has to take it apart.",
+  "tests": {
+    "body": 3,
+    "accountability": 2,
+    "relationship": 1,
+    "bundle": 3
+  },
+  "why": [
+    "Every automation programme creates maintenance work",
+    "Fault diagnosis on real metal, in situ, under production pressure",
+    "446,900 people already do this — 79,700 more are projected"
+  ],
+  "threats": [
+    "Predictive maintenance removes some scheduled-inspection work",
+    "Employer-funded training is the bottleneck, not demand"
+  ],
+  "metrics": [
+    {
+      "label": "Projected growth, 2025–35",
+      "display": "+17.8%",
+      "value": 17.8,
+      "unit": "percent",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Jobs added",
+      "display": "+79,700",
+      "value": 79700,
+      "unit": "jobs",
+      "source": "bls-fastest"
+    },
+    {
+      "label": "Median annual pay",
+      "display": "$64,520",
+      "value": 64520,
+      "unit": "usd",
+      "source": "bls-fastest"
+    }
+  ],
+  "claims": [
+    {
+      "text": "Projected to grow 17.8% to 2035, adding 79,700 jobs — one of the largest absolute additions in the fastest-growing table.",
+      "source": "bls-fastest"
+    },
+    {
+      "text": "Demand is rising for complementary skills alongside AI fluency — quality assurance, process optimisation, teaching, and physical skills such as nursing and electrical work.",
+      "source": "mckinsey-agents"
+    }
+  ],
+  "series": [
+    {
+      "label": "Machinery mechanics",
+      "value": 17.8,
+      "kind": "growth",
+      "source": "bls-fastest"
+    }
+  ],
+  "horizon": "2025–2035",
+  "wage": "$64,520",
+  "order": 5
+}
