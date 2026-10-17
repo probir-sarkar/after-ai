@@ -27,9 +27,9 @@ const headline = (j: (typeof jobs)[number]) => {
     <p class="eyebrow rise">Labour-market brief · {jobs.length} job profiles · 18 public sources</p>
     <h1 class="rise mt-5 max-w-[19ch] font-display">The work that stays.</h1>
     <p class="lede rise mt-6">
-      AI is not deleting jobs in wholes. It is splitting them — into a version that gets more expert and
-      more valuable, and a version that gets deskilled and cheaper. Everything below is drawn from the
-      2025–26 evidence, with the source attached to every number.
+      AI is not wiping out jobs. It is splitting them: the same job can become more skilled and better
+      paid, or simpler and worse paid. Below is what the evidence says about which is which — with the
+      source printed next to every number.
     </p>
     <div class="rise mt-8 flex flex-wrap gap-3">
       <a
@@ -70,6 +70,38 @@ const headline = (j: (typeof jobs)[number]) => {
       source="bls-fastest"
       tone="survive"
     />
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="panel p-6 sm:p-8">
+      <p class="eyebrow">The whole thing in three sentences</p>
+      <div class="mt-5 grid gap-5 lg:grid-cols-3">
+        <div>
+          <h3 class="font-display text-[20px] leading-snug text-survive">Some jobs are hard to automate</h3>
+          <p class="mt-2 text-[13.5px] leading-relaxed text-muted">
+            They need hands in a place that keeps changing, a person to answer for the result, or a
+            relationship with someone. Care work, trades, teaching, medicine.
+            <a href="/survives" class="num text-[11px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see them</a>
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display text-[20px] leading-snug text-risk">Some are already shrinking</h3>
+          <p class="mt-2 text-[13.5px] leading-relaxed text-muted">
+            Mostly routine office work — typing, filing, booking, first-draft writing. The loss lands
+            hardest on people just starting out, because the entry-level version is the first to go.
+            <a href="/risk" class="num text-[11px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see the risk</a>
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display text-[20px] leading-snug text-emerge">New jobs are appearing</h3>
+          <p class="mt-2 text-[13.5px] leading-relaxed text-muted">
+            Building AI, installing it inside a company, labelling and checking its output, and watching
+            it once it is live. They pay well and they are growing fast.
+            <a href="/opportunity" class="num text-[11px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see them</a>
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="wrap grid gap-10 pb-20 lg:grid-cols-[1fr_1.15fr] lg:items-start">
@@ -121,11 +153,10 @@ const headline = (j: (typeof jobs)[number]) => {
 
   <section class="wrap pb-20">
     <p class="eyebrow">The four tests</p>
-    <h2 class="mt-4 max-w-[24ch]">A job is durable to the extent it passes one of these.</h2>
+    <h2 class="mt-4 max-w-[26ch]">Four things that keep a job out of a machine's reach.</h2>
     <p class="lede mt-5">
-      These recur across every dataset in this brief. A role is fragile to the extent it has none of
-      them — and the scoring on each job profile is an editorial reading of its task profile, labelled
-      as such, not a measurement.
+      They come up again and again in the research. A job with none of them is the one at risk. Each
+      job page scores them 0–3, as our reading rather than a measurement — and says so.
     </p>
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {

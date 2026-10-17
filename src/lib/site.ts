@@ -4,6 +4,7 @@ export const site = {
   description:
     'A sourced, chart-heavy brief on the work that survives automation, the work that is exposed, and the roles being created — built from the 2025–26 labour-market evidence.',
   url: 'https://after-ai.probir.dev',
+  repo: 'https://github.com/probir-sarkar/after-ai',
 } as const;
 
 export const nav = [
@@ -57,11 +58,62 @@ export const categoryMeta: Record<string, string> = {
 };
 
 export const testLabels = [
-  { key: 'body', label: 'Body in a variable world', short: 'Body' },
-  { key: 'accountability', label: 'Someone is accountable', short: 'Accountability' },
-  { key: 'relationship', label: 'It is a relationship', short: 'Relationship' },
-  { key: 'bundle', label: 'Indivisible bundle', short: 'Bundle' },
+  { key: 'body', label: 'The work needs a body, in a place that keeps changing', short: 'Needs hands and a body' },
+  { key: 'accountability', label: 'A person is answerable for the result', short: 'Someone is answerable' },
+  { key: 'relationship', label: 'It depends on a relationship with a person', short: "It's about people" },
+  { key: 'bundle', label: 'The role is one job, not a pile of tasks', short: "The role can't be split" },
 ] as const;
+
+/** What each step of the 0–3 scale means. */
+export const testScale = [
+  { n: 0, label: 'not at all' },
+  { n: 1, label: 'a little' },
+  { n: 2, label: 'clearly' },
+  { n: 3, label: 'the whole job' },
+] as const;
+
+export type TestProfile = { body: number; accountability: number; relationship: number; bundle: number };
+
+/**
+ * Turns the four-test score into a sentence, because "4/12" on its own reads as
+ * a bad grade. The score measures how much protection a job gets from the four
+ * properties — it is not a judgement of demand, and the verdict has to be part
+ * of the reading or an emerging role looks like an exposed one.
+ */
+export function readProfile(t: TestProfile, verdict: Verdict): { total: number; reading: string } {
+  const total = t.body + t.accountability + t.relationship + t.bundle;
+
+  if (verdict === 'emerging') {
+    return {
+      total,
+      reading:
+        'Low, and that is expected. These four things protect a job from being automated — and this job was created by AI in the first place, so it never needed protecting. Low here does not mean at risk.',
+    };
+  }
+  if (verdict === 'at-risk') {
+    return {
+      total,
+      reading:
+        total <= 3
+          ? 'None of the four really applies. Nothing here is protecting the job from being automated.'
+          : 'One or two of the four apply. That is usually what is left of a job after the routine half is automated.',
+    };
+  }
+  if (verdict === 'mixed') {
+    return {
+      total,
+      reading:
+        'A low score that hides two different jobs under one title: the part that got more skilled scores high, the part that got simpler scores near zero.',
+    };
+  }
+  return {
+    total,
+    reading:
+      total >= 9
+        ? 'Most of the four apply. A machine cannot do this work on its own, so the job holds its shape.'
+        : 'Some of the four apply. The job stays, but its routine half moves to AI.',
+  };
+}
 
 /** Formats a value that the data file already carries a display string for. */
 export function signed(value: number, digits = 1): string {

@@ -4,7 +4,7 @@ import Base from '@/layouts/Base.astro';
 import Cite from '@/components/Cite.tsx';
 import Figure from '@/components/Figure.astro';
 import { RankedBars, TestBars } from '@/components/charts/Index';
-import { categoryMeta, verdictMeta } from '@/lib/site';
+import { categoryMeta, readProfile, verdictMeta } from '@/lib/site';
 import { getSource } from '@/data/sources';
 
 export async function getStaticPaths() {
@@ -30,6 +30,7 @@ const { job, note } = Astro.props;
 const d = job.data;
 const v = verdictMeta[d.verdict];
 const { Content } = await render(note);
+const profile = readProfile(d.tests, d.verdict);
 
 const all = (await getCollection('jobs')).sort((a, b) => a.data.order - b.data.order);
 const index = all.findIndex((j) => j.id === job.id);
@@ -86,8 +87,8 @@ const chartBars = growth
           )
         }
         <div>
-          <dt class="eyebrow">Profile</dt>
-          <dd class="num mt-1 text-[13px]">{d.tests.body + d.tests.accountability + d.tests.relationship + d.tests.bundle}/12 on the four tests</dd>
+          <dt class="eyebrow">Protection from automation</dt>
+          <dd class="num mt-1 text-[13px]">{profile.total}/12 · our reading</dd>
         </div>
       </dl>
     </header>
@@ -102,7 +103,7 @@ const chartBars = growth
               </div>
               <div class="mt-2 text-[12px] leading-relaxed text-faint">{m.label}</div>
               <a
-                href={`/sources#${m.source}`}
+                href={`/sources#${m.source}`} target="_blank" rel="noopener"
                 class="num mt-3 inline-block rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink"
               >
                 {getSource(m.source).short}
@@ -171,14 +172,15 @@ const chartBars = growth
       <aside class="grid gap-6 lg:sticky lg:top-24">
         <div class="panel p-5">
           <div class="eyebrow">The four tests</div>
-          <h3 class="mt-2 font-display text-[19px]">How the task profile reads</h3>
-          <div class="mt-4">
-            <TestBars client:load tests={d.tests} />
-          </div>
-          <p class="mt-4 text-[11px] leading-relaxed text-faint">
-            Editorial reading of the task profile, scored 0–3 against each test — not a measurement.
-            The sourced evidence is below.
+          <h3 class="mt-2 font-display text-[19px]">What protects this job</h3>
+          <p class="mt-2 text-[12px] leading-relaxed text-muted">
+            Four things that keep a job out of a machine's reach. The higher the score, the less
+            replaceable that part of the work — and the sentence at the bottom says what the total means
+            for this particular job.
           </p>
+          <div class="mt-4">
+            <TestBars client:load tests={d.tests} verdict={d.verdict} reading={profile.reading} />
+          </div>
         </div>
 
         {
@@ -190,7 +192,7 @@ const chartBars = growth
                   <li class="text-[13px] leading-relaxed text-muted">
                     {c.text}{' '}
                     <a
-                      href={`/sources#${c.source}`}
+                      href={`/sources#${c.source}`} target="_blank" rel="noopener"
                       class="num whitespace-nowrap rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink"
                     >
                       {getSource(c.source).short}

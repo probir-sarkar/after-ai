@@ -14,13 +14,22 @@ export interface Bar {
 }
 
 /** WEF employers: jobs created and displaced to 2030, by technology driver. */
-export const churn: { driver: string; created: number; displaced: number; note?: string; source: string }[] = [
+export const churn: {
+  driver: string;
+  created: number;
+  displaced: number;
+  /** True when the leftward figure is a net position, not a displacement count. */
+  netOnly?: boolean;
+  note?: string;
+  source: string;
+}[] = [
   { driver: 'Broadening digital access', created: 19, displaced: -9, source: 'wef-fastest' },
   { driver: 'AI & information processing', created: 11, displaced: -9, source: 'wef-fastest' },
   {
     driver: 'Robots & autonomous systems',
     created: 0,
     displaced: -5,
+    netOnly: true,
     note: 'No creation figure published; the −5M is the net position after displacement.',
     source: 'wef-fastest',
   },
@@ -108,6 +117,7 @@ export const blsAbsolute: Bar[] = [
 export const twoTrack: {
   track: 'Professionalised' | 'Democratised' | 'Low exposure';
   share: number;
+  plain: string;
   move: string;
   outcome: string;
   examples: string;
@@ -116,6 +126,7 @@ export const twoTrack: {
   {
     track: 'Professionalised',
     share: 22,
+    plain: 'AI does the boring parts, so the job gets harder — and pays more.',
     move: 'AI takes the routine tasks; the human does the harder, more expert ones',
     outcome: 'Growing twice as fast as democratised roles, with 42% higher wage growth since 2021',
     examples: 'Radiologists · employment recruiters · air traffic controllers',
@@ -124,6 +135,7 @@ export const twoTrack: {
   {
     track: 'Democratised',
     share: 52,
+    plain: 'AI does the hard parts, so the job gets simpler — and pays less.',
     move: 'AI takes the complex tasks; simpler work is left for people to do',
     outcome: 'Barriers to entry fall, wages fall, postings grow half as fast',
     examples: 'Software developers · loan officers · medical secretaries · finance managers',
@@ -132,6 +144,7 @@ export const twoTrack: {
   {
     track: 'Low exposure',
     share: 26,
+    plain: 'AI barely touches it either way. Something else decides this job’s fate.',
     move: 'Few tasks in the job overlap with what AI can do at all',
     outcome: 'Little change from AI either way — the demand story is something else',
     examples: 'Chefs · construction workers · mechanics',

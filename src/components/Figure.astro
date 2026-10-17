@@ -24,7 +24,7 @@ const refs = sources.map(getSource);
       {
         refs.map((s) => (
           <a
-            href={`/sources#${s.id}`}
+            href={`/sources#${s.id}`} target="_blank" rel="noopener"
             class="num rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink"
             title={`${s.title} — ${s.publisher}, ${s.year}`}
           >
