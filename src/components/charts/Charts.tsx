@@ -161,7 +161,7 @@ export function ChurnChart() {
         </span>
         <span className="flex items-center gap-2">
           <span className="h-[9px] w-[9px] rounded-[2px]" style={{ background: C.risk }} />
-          <span className="eyebrow">Jobs displaced</span>
+          <span className="eyebrow">Jobs displaced (shown as magnitude)</span>
         </span>
         <span className="eyebrow ml-auto">millions of jobs · to 2030 · same scale</span>
       </div>
@@ -205,38 +205,29 @@ export function ChurnChart() {
                       className="num absolute top-[3px] pl-2 text-[11.5px] whitespace-nowrap"
                       style={{ left: `${pct(row.created)}%`, color: C.survive }}
                     >
-                      +{row.created}M
+                      {row.created}M
                     </span>
                   </>
                 ) : (
+                  <span className="num absolute top-1/2 left-0 -translate-y-1/2 pl-1 text-[11px] whitespace-nowrap text-faint">
+                    net only — no creation figure published
+                  </span>
+                )}
+
+                {!row.netOnly && (
                   <>
-                    {/* A missing-data track rather than an empty row: a full-width
-                        dashed outline reads as "no figure", not as a short bar. */}
                     <span
-                      aria-hidden="true"
-                      className="absolute top-[6px] left-0 h-[11px] w-full rounded-[3px] border border-dashed"
-                      style={{ borderColor: '#3d3d49' }}
+                      className="absolute top-[20px] left-0 h-[11px] rounded-r-[3px]"
+                      style={{ width: `${pct(row.displaced)}%`, background: C.risk }}
                     />
-                    <span className="num absolute top-[5px] left-0 pl-2 text-[10.5px] whitespace-nowrap text-faint">
-                      no creation figure published
+                    <span
+                      className="num absolute top-[17px] pl-2 text-[11.5px] whitespace-nowrap"
+                      style={{ left: `${pct(row.displaced)}%`, color: C.risk }}
+                    >
+                      {Math.abs(row.displaced)}M
                     </span>
                   </>
                 )}
-
-                <span
-                  className="absolute top-[20px] left-0 h-[11px] rounded-r-[3px]"
-                  style={{
-                    width: `${pct(row.displaced)}%`,
-                    background: row.netOnly ? 'rgba(255,125,110,0.22)' : C.risk,
-                    border: row.netOnly ? `1px dashed ${C.risk}` : undefined,
-                  }}
-                />
-                <span
-                  className="num absolute top-[17px] pl-2 text-[11.5px] whitespace-nowrap"
-                  style={{ left: `${pct(row.displaced)}%`, color: C.risk }}
-                >
-                  {row.netOnly ? `net −${Math.abs(row.displaced)}M` : `−${Math.abs(row.displaced)}M`}
-                </span>
               </div>
 
               <div className="num mt-1 text-left text-[12px] sm:mt-0 sm:text-right" style={{ color: net >= 0 ? C.survive : C.risk }}>
@@ -264,7 +255,8 @@ export function ChurnChart() {
       </div>
 
       <p className="eyebrow mt-4">
-        Net is created minus displaced; for robots it is the published net figure, since no creation number exists.
+        Net is created minus displaced. Robots and autonomous systems are shown as a net only — employers published no creation
+        figure for them, so the row is not comparable with the two above.
       </p>
     </div>
   );
