@@ -428,17 +428,11 @@ export function TestBars({
 
   return (
     <div>
-      <div className="flex items-baseline justify-between gap-2">
-        <span className="eyebrow">0 doesn’t apply · 1 a little · 2 clearly · 3 it’s the whole job</span>
-        <span className="num shrink-0 text-[13px] text-ink">total {total}/12</span>
-      </div>
-
-      <div className="mt-3 grid gap-2.5">
+      <div className="grid gap-3">
         {testLabels.map((t) => {
           const score = tests[t.key] ?? 0;
-          const color = score >= 3 ? C.survive : score === 2 ? C.signal : score === 1 ? C.emerge : C.risk;
           return (
-            <div key={t.key} className="grid grid-cols-[1fr_62px_30px] items-center gap-3">
+            <div key={t.key} className="grid grid-cols-[1fr_62px_34px] items-center gap-3">
               <div className="text-[12.5px] leading-tight text-muted" title={t.label}>
                 {t.short}
               </div>
@@ -448,25 +442,39 @@ export function TestBars({
                     key={n}
                     className="h-[8px] flex-1 rounded-[3px]"
                     style={{
-                      // An empty segment has to stay visible in both themes —
-                      // unfilled steps were invisible on the dark panel.
-                      background: n <= score ? color : 'var(--line-soft)',
+                      // One fill colour for every filled step: a multi-colour scale
+                      // implied a colour key the panel never provided, and it read as
+                      // meaning when it was only magnitude. Empty steps stay visible
+                      // in both themes.
+                      background: n <= score ? 'var(--color-signal)' : 'var(--line-soft)',
                     }}
                   />
                 ))}
               </div>
-              <div className="num text-right text-[11.5px] text-faint">{score}</div>
+              <div className="num text-right text-[11.5px] text-faint">{score}/3</div>
             </div>
           );
         })}
       </div>
 
-      <p className="mt-4 border-t border-[var(--color-line-soft)] pt-3 text-[12.5px] leading-relaxed text-muted">
-        {reading}
-      </p>
-      <p className="mt-2 text-[11.5px] leading-relaxed text-faint">
-        Our reading of the job, not a measurement. The evidence behind it is below.
-      </p>
+      <div className="mt-4 border-t border-[var(--color-line-soft)] pt-3">
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="eyebrow">Total · four tests × 3 points</span>
+          <span className="num text-[15px] text-ink">{total}/12</span>
+        </div>
+
+        <p className="mt-2.5 text-[12.5px] leading-relaxed text-muted">{reading}</p>
+
+        <div className="micro mt-3 rounded-lg border border-line-soft px-3 py-2">
+          0 not at all · 1 a little · 2 clearly · 3 it’s the whole job
+          <span className="mt-1 block text-faint">One filled pip = one point; three is the most any one test can score.</span>
+        </div>
+
+        <p className="mt-2.5 text-[11.5px] leading-relaxed text-faint">
+          Equally weighted checklist points, not a weighted index — our reading of the job rather than a
+          measurement. The evidence behind it is below.
+        </p>
+      </div>
     </div>
   );
 }

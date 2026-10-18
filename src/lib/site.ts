@@ -59,8 +59,8 @@ export const categoryMeta: Record<string, string> = {
 
 export const testLabels = [
   { key: 'body', label: 'The work needs a body, in a place that keeps changing', short: 'Needs hands and a body' },
-  { key: 'accountability', label: 'A person is answerable for the result', short: 'Someone is answerable' },
-  { key: 'relationship', label: 'It depends on a relationship with a person', short: "It's about people" },
+  { key: 'accountability', label: 'A person is legally or morally answerable for the result', short: 'A person is answerable' },
+  { key: 'relationship', label: 'It depends on a relationship with a person', short: 'It needs a relationship' },
   { key: 'bundle', label: 'The role is one job, not a pile of tasks', short: "The role can't be split" },
 ] as const;
 
