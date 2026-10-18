@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 // serves assets, so `build.format: 'file'` gives extensionless URLs with no
 // trailing slash — see the URL contract in the deploy notes.
 export default defineConfig({
-  site: 'https://after-ai.probir.dev',
+  site: 'https://after-ai.browserstay.com',
   build: { format: 'file' },
   integrations: [
     react(),

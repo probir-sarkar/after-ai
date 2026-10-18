@@ -11,7 +11,7 @@ import { join, relative } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
-const ORIGIN = 'https://after-ai.probir.dev';
+const ORIGIN = 'https://after-ai.browserstay.com';
 
 let failures = 0;
 const fail = (m) => {

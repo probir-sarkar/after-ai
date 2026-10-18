@@ -3,7 +3,7 @@ export const site = {
   tagline: 'Which jobs survive, and which are being born',
   description:
     'Which jobs survive automation, which are already exposed, and which are being created — with every figure cited to a public source.',
-  url: 'https://after-ai.probir.dev',
+  url: 'https://after-ai.browserstay.com',
   repo: 'https://github.com/probir-sarkar/after-ai',
 } as const;
 
