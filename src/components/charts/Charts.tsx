@@ -424,57 +424,49 @@ export function TestBars({
   verdict: Verdict;
   reading: string;
 }) {
-  const total = testLabels.reduce((n, t) => n + (tests[t.key] ?? 0), 0);
+  // Three states, no numbers: holds, partly, doesn't. A 0–3 scale needed a key,
+  // a total out of twelve and a caveat to decode — more apparatus than the
+  // content deserved. The mark carries the meaning.
+  const stateOf = (n: number) => (n >= 2 ? 'yes' : n === 1 ? 'partly' : 'no');
+
+  const mark = {
+    yes: { glyph: '✓', label: 'holds', color: 'var(--color-ink)' },
+    partly: { glyph: '~', label: 'partly', color: 'var(--color-muted)' },
+    no: { glyph: '✕', label: 'does not hold', color: 'var(--color-faint)' },
+  } as const;
 
   return (
     <div>
-      <div className="grid gap-3">
+      <ul className="grid gap-2.5">
         {testLabels.map((t) => {
-          const score = tests[t.key] ?? 0;
+          const state = stateOf(tests[t.key] ?? 0);
+          const m = mark[state];
           return (
-            <div key={t.key} className="grid grid-cols-[1fr_62px_34px] items-center gap-3">
-              <div className="text-[12.5px] leading-tight text-muted" title={t.label}>
+            <li key={t.key} className="flex items-baseline gap-3">
+              <span
+                aria-hidden="true"
+                className="w-[14px] shrink-0 text-center text-[13px] leading-none"
+                style={{ color: m.color }}
+              >
+                {m.glyph}
+              </span>
+              <span
+                className={`text-[13.5px] leading-snug ${state === 'no' ? 'text-faint' : 'text-ink'}`}
+              >
                 {t.short}
-              </div>
-              <div className="flex gap-[3px]">
-                {[1, 2, 3].map((n) => (
-                  <span
-                    key={n}
-                    className="h-[8px] flex-1 rounded-[3px]"
-                    style={{
-                      // One fill colour for every filled step: a multi-colour scale
-                      // implied a colour key the panel never provided, and it read as
-                      // meaning when it was only magnitude. Empty steps stay visible
-                      // in both themes.
-                      background: n <= score ? 'var(--color-signal)' : 'var(--line-soft)',
-                    }}
-                  />
-                ))}
-              </div>
-              <div className="num text-right text-[11.5px] text-faint">{score}/3</div>
-            </div>
+                <span className="sr-only"> — {m.label}</span>
+              </span>
+            </li>
           );
         })}
-      </div>
+      </ul>
 
-      <div className="mt-4 border-t border-[var(--color-line-soft)] pt-3">
-        <div className="flex items-baseline justify-between gap-3">
-          <span className="eyebrow">Total · four tests × 3 points</span>
-          <span className="num text-[15px] text-ink">{total}/12</span>
-        </div>
-
-        <p className="mt-2.5 text-[12.5px] leading-relaxed text-muted">{reading}</p>
-
-        <div className="micro mt-3 rounded-lg border border-line-soft px-3 py-2">
-          0 not at all · 1 a little · 2 clearly · 3 it’s the whole job
-          <span className="mt-1 block text-faint">One filled pip = one point; three is the most any one test can score.</span>
-        </div>
-
-        <p className="mt-2.5 text-[11.5px] leading-relaxed text-faint">
-          Equally weighted checklist points, not a weighted index — our reading of the job rather than a
-          measurement. The evidence behind it is below.
-        </p>
-      </div>
+      <p className="mt-4 border-t border-[var(--color-line-soft)] pt-3 text-[13px] leading-relaxed text-ink">
+        {reading}
+      </p>
+      <p className="mt-2 text-[11.5px] leading-relaxed text-faint">
+        ✓ holds · ~ partly · ✕ doesn’t. Our reading of the job, not a measurement — the evidence is below.
+      </p>
     </div>
   );
 }

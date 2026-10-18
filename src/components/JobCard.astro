@@ -1,54 +1,35 @@
 ---
-import { getSource } from '@/data/sources';
 import { categoryMeta, verdictMeta, type Verdict } from '@/lib/site';
 
 interface Props {
   id: string;
   name: string;
-  short: string;
   verdict: Verdict;
   category: string;
   oneLiner: string;
+  /** Kept for call-site compatibility; the card no longer shows a figure. */
   headline?: { display: string; label: string } | undefined;
 }
 
-const { id, name, verdict, category, oneLiner, headline } = Astro.props;
+const { id, name, verdict, category, oneLiner } = Astro.props;
 const v = verdictMeta[verdict];
-const cats = [category];
 ---
 
 <a
   href={`/jobs/${id}`}
   data-verdict={verdict}
   data-category={category}
-  class="job-card panel group relative flex flex-col p-5 no-underline transition-colors hover:border-[var(--color-ink)]"
-  style={`--vc:${v.color}`}
+  class="job-card group block border-t border-line py-4 no-underline"
 >
   <div class="flex items-center gap-2">
-    <span
-      class="num rounded-full border px-2 py-[3px] text-[10.5px] uppercase tracking-[0.12em]"
-      style={`border-color:${v.color}; color:${v.color}`}>{v.label}</span
-    >
-    <span class="eyebrow">{cats.map((c) => categoryMeta[c] ?? c).join(' · ')}</span>
+    <span class="h-[7px] w-[7px] shrink-0 rounded-full" style={`background:${v.color}`} aria-hidden="true"></span>
+    <span class="eyebrow">{categoryMeta[category] ?? category}</span>
+    <span class="eyebrow ml-auto opacity-0 transition-opacity group-hover:opacity-100">{v.label}</span>
   </div>
 
-  <h3 class="mt-4 min-h-[3.4em] font-display text-[21px] leading-[1.15] text-ink">{name}</h3>
+  <h3 class="mt-2 font-display text-[21px] leading-[1.12] text-ink group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+    {name}
+  </h3>
 
-  <p class="mt-2 text-[14px] leading-relaxed text-muted">{oneLiner}</p>
-
-  <div class="mt-auto flex items-end justify-between gap-3 pt-5">
-    {
-      headline ? (
-        <div>
-          <div class="num text-[22px] leading-none" style={`color:${v.color}`}>
-            {headline.display}
-          </div>
-          <div class="eyebrow mt-1.5">{headline.label}</div>
-        </div>
-      ) : (
-        <div class="eyebrow">No official projection</div>
-      )
-    }
-    <span class="num text-[11.5px] text-faint transition-colors group-hover:text-signal">read →</span>
-  </div>
+  <p class="mt-1.5 max-w-[46ch] text-[14px] leading-relaxed text-muted">{oneLiner}</p>
 </a>

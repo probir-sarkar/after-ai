@@ -76,7 +76,7 @@ const clusters = [
 ---
 
 <Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst}>
-  <section class="wrap pt-14 pb-10 sm:pt-20">
+  <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
       <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
@@ -84,20 +84,20 @@ const clusters = [
     </div>
     <h1 class="mt-6 max-w-[20ch] font-display">{entry.data.title}</h1>
     <p class="lede mt-5">{entry.data.standfirst}</p>
-    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <div class="panel p-4">
+    <div class="mt-4 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-signal">+62%</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">average wage premium for jobs requiring AI skills</p>
       </div>
-      <div class="panel p-4">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-emerge">×8</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">faster growth in AI-specialist postings than in all jobs, 2025</p>
       </div>
-      <div class="panel p-4">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-emerge">729%</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">growth in forward-deployed engineering postings in one year</p>
       </div>
-      <div class="panel p-4">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-survive">+35%</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">growth in AI-exposed junior roles redesigned to demand senior skills</p>
       </div>
@@ -105,10 +105,10 @@ const clusters = [
   </section>
 
   <section class="wrap grid gap-10 pb-16 lg:grid-cols-[1fr_320px] lg:items-start">
-    <div class="prose-body max-w-[70ch] text-[15.5px]">
+    <div class="prose-body max-w-[70ch]">
       <Content components={{ Cite }} />
     </div>
-    <aside class="panel p-5">
+    <aside class="hairline pt-6 lg:sticky lg:top-20">
       <div class="eyebrow">The honest caveat</div>
       <div class="prose-body mt-3 text-[14px]">
         <p>
@@ -142,13 +142,13 @@ const clusters = [
     </Figure>
   </section>
 
-  <section class="wrap pb-16">
+  <section class="wrap section-tight">
     <p class="eyebrow">Five clusters</p>
     <h2 class="mt-4 max-w-[26ch]">Where the new work is arriving</h2>
-    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-4 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
       {
         clusters.map((c, i) => (
-          <div class="panel flex flex-col p-5">
+          <div class="hairline pt-6">
             <div class="flex items-baseline gap-3">
               <span class="num text-[11.5px] text-faint">{String(i + 1).padStart(2, '0')}</span>
               <span class="num text-[11px] uppercase tracking-[0.14em] text-signal">{c.k}</span>
@@ -167,12 +167,12 @@ const clusters = [
     </div>
   </section>
 
-  <section class="wrap pb-16">
+  <section class="wrap section-tight">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <h2>Emerging profiles</h2>
       <p class="eyebrow">Evidence is real but young</p>
     </div>
-    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-4 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
       {jobs.map((j) => <JobCard {...j.data} id={j.id} headline={headline(j)} />)}
     </div>
   </section>

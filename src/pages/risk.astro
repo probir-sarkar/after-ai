@@ -55,7 +55,7 @@ const declining = [
 ---
 
 <Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst}>
-  <section class="wrap pt-14 pb-10 sm:pt-20">
+  <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
       <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
@@ -63,16 +63,16 @@ const declining = [
     </div>
     <h1 class="mt-6 max-w-[20ch] font-display">{entry.data.title}</h1>
     <p class="lede mt-5">{entry.data.standfirst}</p>
-    <div class="mt-8 grid gap-4 sm:grid-cols-3">
-      <div class="panel p-4">
+    <div class="mt-4 grid gap-x-10 sm:grid-cols-3">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-risk">−19%</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">shortfall for ages 22–25 in the most exposed occupations, up from 15% a year earlier</p>
       </div>
-      <div class="panel p-4">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-emerge">3.3%</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">of global employment sits in the highest GenAI exposure band</p>
       </div>
-      <div class="panel p-4">
+      <div class="hairline pt-5">
         <div class="num text-[24px] text-ink">52%</div>
         <p class="mt-2 text-[13px] leading-relaxed text-faint">of advertised jobs are being deskilled by AI, per PwC</p>
       </div>
@@ -80,10 +80,10 @@ const declining = [
   </section>
 
   <section class="wrap grid gap-10 pb-16 lg:grid-cols-[1fr_320px] lg:items-start">
-    <div class="prose-body max-w-[70ch] text-[15.5px]">
+    <div class="prose-body max-w-[70ch]">
       <Content components={{ Cite }} />
     </div>
-    <aside class="panel p-5">
+    <aside class="hairline pt-6 lg:sticky lg:top-20">
       <div class="eyebrow">How to read an exposure score</div>
       <div class="prose-body mt-3 text-[14px]">
         <p>
@@ -148,7 +148,7 @@ const declining = [
       caption="Ranked by the share of an occupation's activities that AI already performs in real conversations. Information work dominates the top of this list."
     />
     <div>
-      <div class="panel overflow-hidden">
+      <div class="hairline pt-6">
         <div class="border-b border-line-soft px-5 py-4">
           <div class="eyebrow">Employer projections to 2030</div>
           <h3 class="mt-1 font-display text-[19px]">Roles expected to decline fastest</h3>
@@ -174,12 +174,12 @@ const declining = [
     </div>
   </section>
 
-  <section class="wrap pb-16">
+  <section class="wrap section-tight">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <h2>Profiles</h2>
       <p class="eyebrow">Exposed, and in flux</p>
     </div>
-    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-4 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
       {jobs.map((j) => <JobCard {...j.data} id={j.id} headline={headline(j)} />)}
     </div>
   </section>

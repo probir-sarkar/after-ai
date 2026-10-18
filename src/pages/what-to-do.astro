@@ -54,7 +54,7 @@ const evidence: Record<string, { text: string; source: string }> = {
 ---
 
 <Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst}>
-  <section class="wrap pt-14 pb-10 sm:pt-20">
+  <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
       <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
@@ -64,11 +64,11 @@ const evidence: Record<string, { text: string; source: string }> = {
     <p class="lede mt-5">{entry.data.standfirst}</p>
   </section>
 
-  <section class="wrap pb-16">
-    <div class="grid gap-4 sm:grid-cols-2">
+  <section class="wrap section-tight">
+    <div class="grid gap-x-10 gap-y-6 sm:grid-cols-2">
       {
         testLabels.map((t, i) => (
-          <div class="panel flex flex-col p-5">
+          <div class="hairline pt-6">
             <div class="flex items-baseline gap-3">
               <span class="num text-[11.5px] text-faint">TEST {i + 1}</span>
             </div>
@@ -91,10 +91,10 @@ const evidence: Record<string, { text: string; source: string }> = {
   </section>
 
   <section class="wrap grid gap-10 pb-16 lg:grid-cols-[1fr_320px] lg:items-start">
-    <div class="prose-body max-w-[70ch] text-[15.5px]">
+    <div class="prose-body max-w-[70ch]">
       <Content components={{ Cite }} />
     </div>
-    <aside class="panel p-5">
+    <aside class="hairline pt-6 lg:sticky lg:top-20">
       <div class="eyebrow">If you remember one number</div>
       <div class="mt-3 num text-[38px] leading-none text-survive">+35%</div>
       <p class="mt-3 text-[14px] leading-relaxed text-muted">
@@ -109,7 +109,7 @@ const evidence: Record<string, { text: string; source: string }> = {
     </aside>
   </section>
 
-  <section class="wrap pb-16">
+  <section class="wrap section-tight">
     <Figure
       eyebrow="Entry level, split"
       title="The one instruction in the data"
@@ -120,7 +120,7 @@ const evidence: Record<string, { text: string; source: string }> = {
     </Figure>
   </section>
 
-  <section class="wrap pb-16">
+  <section class="wrap section-tight">
     <p class="eyebrow">Three ways to be wrong</p>
     <h2 class="mt-4 max-w-[26ch]">What would have to change for this advice to be bad advice.</h2>
     <div class="mt-8">
@@ -128,8 +128,8 @@ const evidence: Record<string, { text: string; source: string }> = {
     </div>
   </section>
 
-  <section class="wrap pb-16">
-    <div class="panel p-6 sm:p-8">
+  <section class="wrap section-tight">
+    <div class="hairline pt-8">
       <p class="eyebrow">The instruction</p>
       <h2 class="mt-4 max-w-[30ch]">Do not avoid AI-exposed fields. Enter them at the expert end.</h2>
       <div class="prose-body mt-4">

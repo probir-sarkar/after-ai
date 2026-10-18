@@ -13,11 +13,13 @@ const src = getSource(source);
 const color = `var(--color-${tone})`;
 ---
 
-<div class="panel flex flex-col p-5">
-  <div class="num text-[clamp(1.7rem,3.4vw,2.4rem)] leading-none" style={`color:${color}`}>{value}</div>
-  <p class="mt-3 flex-1 text-[14px] leading-relaxed text-muted">{label}</p>
+<div class="border-t border-line pt-3">
+  <div class="num text-[clamp(1.55rem,2.4vw,2rem)] leading-none" style={`color:${color}`}>{value}</div>
+  <p class="mt-2 max-w-[30ch] text-[13px] leading-relaxed text-muted">{label}</p>
   <a
-    href={`/sources#${src.id}`} target="_blank" rel="noopener"
-    class="num mt-4 w-fit rounded border border-line px-1.5 py-0.5 text-[10.5px] text-faint no-underline hover:border-signal hover:text-ink">{src.short}</a
+    href={`/sources#${src.id}`}
+    target="_blank"
+    rel="noopener"
+    class="num mt-2 inline-block text-[10.5px] text-faint no-underline hover:text-ink">{src.short}</a
   >
 </div>

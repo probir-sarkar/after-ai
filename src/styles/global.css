@@ -23,9 +23,9 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
 
-  --text-hero: clamp(2.6rem, 8vw, 7rem);
-  --text-h2: clamp(1.9rem, 4.4vw, 3.3rem);
-  --text-h3: clamp(1.3rem, 2.1vw, 1.7rem);
+  --text-hero: clamp(2.3rem, 5.4vw, 4.3rem);
+  --text-h2: clamp(1.55rem, 2.7vw, 2.25rem);
+  --text-h3: clamp(1.15rem, 1.5vw, 1.35rem);
 }
 
 :root,
@@ -118,9 +118,9 @@
 
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     line-height: 1.45;
-    letter-spacing: 0.11em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--faint);
   }
@@ -140,13 +140,13 @@
 
   .prose-body p {
     color: var(--muted);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.72;
     margin-block: 0.9rem;
     max-width: 68ch;
   }
   @media (min-width: 768px) {
-    .prose-body p { font-size: 1.0625rem; }
+    .prose-body p { font-size: 1.125rem; }
   }
   .prose-body strong { color: var(--ink); font-weight: 600; }
   .prose-body em { color: var(--ink); }
@@ -183,6 +183,23 @@
   }
 
   .hairline { border-top: 1px solid var(--line-soft); }
+
+  /* One vertical rhythm for every page, so spacing stops being a per-page choice. */
+  .section { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+  .section-tight { padding-block: clamp(1.5rem, 3vw, 2.5rem); }
+
+  /* A figure is a block with a rule above it, not a card inside a card. */
+  .figure {
+    border-top: 1px solid var(--line);
+    padding-top: 0.9rem;
+  }
+  .figure-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.75rem;
+  }
 
   /* Grid and flex items are allowed to shrink below their content's min-content
      size. Without this the chart min-width (below) propagates up through

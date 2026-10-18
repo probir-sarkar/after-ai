@@ -64,14 +64,6 @@ export const testLabels = [
   { key: 'bundle', label: 'The role is one job, not a pile of tasks', short: "The role can't be split" },
 ] as const;
 
-/** What each step of the 0–3 scale means. */
-export const testScale = [
-  { n: 0, label: 'not at all' },
-  { n: 1, label: 'a little' },
-  { n: 2, label: 'clearly' },
-  { n: 3, label: 'the whole job' },
-] as const;
-
 export type TestProfile = { body: number; accountability: number; relationship: number; bundle: number };
 
 /**
@@ -87,7 +79,7 @@ export function readProfile(t: TestProfile, verdict: Verdict): { total: number; 
     return {
       total,
       reading:
-        'Low, and that is expected. These four things protect a job from being automated — and this job was created by AI in the first place, so it never needed protecting. Low here does not mean at risk.',
+        'Not protected, and that is expected: this job exists because of AI, so it never needed protecting. That is not the same as being at risk.',
     };
   }
   if (verdict === 'at-risk') {
@@ -95,27 +87,40 @@ export function readProfile(t: TestProfile, verdict: Verdict): { total: number; 
       total,
       reading:
         total <= 3
-          ? 'None of the four really applies. Nothing here is protecting the job from being automated.'
-          : 'One or two of the four apply. That is usually what is left of a job after the routine half is automated.',
+          ? 'Almost none of these hold, so nothing here keeps the work out of a machine’s reach.'
+          : 'One of them holds, which is usually what survives of a job after its routine half is automated.',
     };
   }
   if (verdict === 'mixed') {
     return {
       total,
       reading:
-        'A low score that hides two different jobs under one title: the part that got more skilled scores high, the part that got simpler scores near zero.',
+        'One title, two jobs: the part that got more skilled is protected, the part that got simpler is not.',
     };
   }
   return {
     total,
     reading:
       total >= 9
-        ? 'Most of the four apply. A machine cannot do this work on its own, so the job holds its shape.'
-        : 'Some of the four apply. The job stays, but its routine half moves to AI.',
+        ? 'Most of these hold. A machine cannot do this work on its own, so the job keeps its shape.'
+        : 'Some of these hold. The job stays, but its routine half moves to AI.',
   };
 }
 
-/** Formats a value that the data file already carries a display string for. */
+/** A word for the total, so the page never has to show a score out of twelve. */
+export function protectionWord(total: number): string {
+  if (total >= 9) return 'Well protected';
+  if (total >= 6) return 'Partly protected';
+  if (total >= 3) return 'Weakly protected';
+  return 'Barely protected';
+}
+
+// Astro.url.pathname carries the .html that build.format:'file' adds, so every
+// canonical, og:url and nav highlight is built from the cleaned path instead.
+export function cleanPath(pathname: string): string {
+  return pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+}
+
 export function signed(value: number, digits = 1): string {
   const rounded = Number.isInteger(value) ? value : Number(value.toFixed(digits));
   return `${rounded > 0 ? '+' : rounded < 0 ? '−' : ''}${Math.abs(rounded)}`;
@@ -123,8 +128,4 @@ export function signed(value: number, digits = 1): string {
 
 export function withCommas(value: number): string {
   return value.toLocaleString('en-US');
-}
-
-export function cleanPath(pathname: string): string {
-  return pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
 }
