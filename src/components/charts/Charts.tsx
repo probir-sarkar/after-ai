@@ -309,7 +309,12 @@ export function FdeChart() {
 
 /* ------------------------------------------------------------ two track */
 
-/** PwC's split, with the share donut always visible and detail per track. */
+/**
+ * PwC's split. The first version put the donut in its own 300px column beside a
+ * tall panel, which left ~40% of the card empty under the ring. Now the donut
+ * and the track list share one row (both sized by percentage, so the ring fills
+ * its box) and the detail panel spans the full width beneath them.
+ */
 export function TwoTrack() {
   const [track, setTrack] = useState('Professionalised');
   const total = twoTrack.reduce((n, t) => n + t.share, 0);
@@ -322,22 +327,29 @@ export function TwoTrack() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[300px_1fr] lg:items-start">
-      <div className="relative">
-        <Plot height={260} label={`Share of advertised jobs: professionalised ${twoTrack[0]!.share}%, democratised ${twoTrack[1]!.share}%, low exposure ${twoTrack[2]!.share}%`}>
+    <Tabs.Root
+      value={track}
+      onValueChange={(v) => setTrack(String(v))}
+      className="grid gap-5 sm:grid-cols-[minmax(0,196px)_minmax(0,1fr)] sm:items-stretch sm:gap-6"
+    >
+      <div className="relative mx-auto w-full max-w-[196px] self-center">
+        <Plot
+          height={196}
+          label={`Share of advertised jobs: professionalised ${twoTrack[0]!.share}%, democratised ${twoTrack[1]!.share}%, low exposure ${twoTrack[2]!.share}%`}
+        >
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={twoTrack}
                 dataKey="share"
                 nameKey="track"
-                innerRadius={68}
-                outerRadius={104}
-                paddingAngle={3}
+                innerRadius="62%"
+                outerRadius="94%"
+                paddingAngle={2.5}
                 stroke="none"
-                isAnimationActive={false}
                 startAngle={90}
                 endAngle={-270}
+                isAnimationActive={false}
               >
                 {twoTrack.map((t) => (
                   <Cell key={t.track} fill={colors[t.track]} fillOpacity={0.95} />
@@ -360,48 +372,43 @@ export function TwoTrack() {
           </ResponsiveContainer>
         </Plot>
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-          <div className="num text-3xl">{total}%</div>
-          <div className="eyebrow mt-1">of job ads studied</div>
+          <div className="num text-[23px] leading-none">{total}%</div>
+          <div className="eyebrow mt-1 text-center">of job ads</div>
         </div>
       </div>
 
-      <div>
-        <Tabs.Root value={track} onValueChange={(v) => setTrack(String(v))}>
-          <Tabs.List className="flex flex-wrap gap-2">
-            {twoTrack.map((t) => (
-              <Tabs.Tab
-                key={t.track}
-                value={t.track}
-                className="chip cursor-pointer data-[active]:border-ink data-[active]:bg-ink data-[active]:text-void"
-              >
-                <span
-                  className="h-2 w-2 shrink-0 rounded-full"
-                  style={{ background: colors[t.track] }}
-                  aria-hidden="true"
-                />
-                {t.track} · {t.share}%
-              </Tabs.Tab>
-            ))}
-          </Tabs.List>
-          <Tabs.Panel value={active.track} className="mt-5">
-            <div className="panel p-5">
-              <div className="eyebrow">{active.track}</div>
-              <p className="mt-3 font-display text-[21px] leading-snug text-ink">{active.plain}</p>
-              <p className="mt-4 text-[14px] leading-relaxed text-muted">{active.move}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{active.outcome}</p>
-              <div className="mt-4 hairline pt-3">
-                <div className="eyebrow mb-1">Examples named in the study</div>
-                <div className="num text-[11.5px] text-muted">{active.examples}</div>
-              </div>
-            </div>
-          </Tabs.Panel>
-        </Tabs.Root>
-      </div>
-    </div>
+      <Tabs.List className="grid gap-2 sm:h-full sm:grid-rows-3" aria-label="Which track to explain">
+        {twoTrack.map((t) => (
+          <Tabs.Tab
+            key={t.track}
+            value={t.track}
+            className="chip w-full cursor-pointer justify-start gap-2.5 bg-raise data-[active]:border-ink data-[active]:bg-ink data-[active]:text-void"
+          >
+            <span
+              className="h-2.5 w-2.5 shrink-0 rounded-full"
+              style={{ background: colors[t.track] }}
+              aria-hidden="true"
+            />
+            <span className="flex-1 text-left normal-case tracking-normal">{t.track}</span>
+            <span className="num">{t.share}%</span>
+          </Tabs.Tab>
+        ))}
+      </Tabs.List>
+
+      <Tabs.Panel value={active.track} className="sm:col-span-2">
+        <div className="rounded-xl border border-line-soft p-4 sm:p-5">
+          <p className="font-display text-[21px] leading-snug text-ink">{active.plain}</p>
+          <p className="mt-2.5 text-[14px] leading-relaxed text-muted">{active.move}</p>
+          <p className="mt-2.5 text-[13.5px] leading-relaxed text-muted">{active.outcome}</p>
+          <div className="mt-3.5 border-t border-line-soft pt-3">
+            <div className="eyebrow mb-1">Examples named in the study</div>
+            <div className="num text-[12.5px] text-muted">{active.examples}</div>
+          </div>
+        </div>
+      </Tabs.Panel>
+    </Tabs.Root>
   );
 }
-
-/* ----------------------------------------------------------- job tests */
 
 /**
  * The four tests, scored 0–3. This is an editorial reading of a job's task
