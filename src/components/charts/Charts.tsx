@@ -55,7 +55,7 @@ export function RankedBars({
             interval={0}
           />
           <Tooltip
-            cursor={{ fill: 'rgba(255,255,255,0.03)' }}
+            cursor={{ fill: 'var(--chart-grid)' }}
             content={({ active, payload }: TipProps) =>
               active && payload?.length ? (
                 <TipBox
@@ -103,7 +103,7 @@ export function ZeroBars({ data, height, note }: { data: BarDatum[]; height: num
           />
           <ReferenceLine y={0} stroke={C.line} />
           <Tooltip
-            cursor={{ fill: 'rgba(255,255,255,0.03)' }}
+            cursor={{ fill: 'var(--chart-grid)' }}
             content={({ active, payload }: TipProps) =>
               active && payload?.length ? (
                 <TipBox
@@ -182,7 +182,7 @@ export function ChurnChart() {
               key={row.driver}
               className="grid grid-cols-1 gap-x-5 border-t border-[var(--color-line-soft)] py-2.5 sm:grid-cols-[124px_1fr_66px] sm:items-center"
             >
-              <div className="text-[12.5px] leading-tight text-muted">{SHORT_DRIVER[row.driver] ?? row.driver}</div>
+              <div className="text-[13.5px] leading-tight text-muted">{SHORT_DRIVER[row.driver] ?? row.driver}</div>
 
               <div className="relative h-[36px]">
                 {ticks.map((t) => (
@@ -202,14 +202,14 @@ export function ChurnChart() {
                       style={{ width: `${pct(row.created)}%`, background: C.survive }}
                     />
                     <span
-                      className="num absolute top-[3px] pl-2 text-[11.5px] whitespace-nowrap"
+                      className="num absolute top-[3px] pl-2 text-[12.5px] whitespace-nowrap"
                       style={{ left: `${pct(row.created)}%`, color: C.survive }}
                     >
                       {row.created}M
                     </span>
                   </>
                 ) : (
-                  <span className="num absolute top-1/2 left-0 -translate-y-1/2 pl-1 text-[11px] whitespace-nowrap text-faint">
+                  <span className="num absolute top-1/2 left-0 -translate-y-1/2 pl-1 text-[11.5px] whitespace-nowrap text-faint">
                     net only — no creation figure published
                   </span>
                 )}
@@ -221,7 +221,7 @@ export function ChurnChart() {
                       style={{ width: `${pct(row.displaced)}%`, background: C.risk }}
                     />
                     <span
-                      className="num absolute top-[17px] pl-2 text-[11.5px] whitespace-nowrap"
+                      className="num absolute top-[17px] pl-2 text-[12.5px] whitespace-nowrap"
                       style={{ left: `${pct(row.displaced)}%`, color: C.risk }}
                     >
                       {Math.abs(row.displaced)}M
@@ -230,7 +230,7 @@ export function ChurnChart() {
                 )}
               </div>
 
-              <div className="num mt-1 text-left text-[12px] sm:mt-0 sm:text-right" style={{ color: net >= 0 ? C.survive : C.risk }}>
+              <div className="num mt-1 text-left text-[13px] sm:mt-0 sm:text-right" style={{ color: net >= 0 ? C.survive : C.risk }}>
                 {`${net > 0 ? '+' : '−'}${Math.abs(net)}M`}
               </div>
             </div>
@@ -244,7 +244,7 @@ export function ChurnChart() {
           {ticks.map((t) => (
             <span
               key={t}
-              className="num absolute top-1 -translate-x-1/2 text-[10px] text-faint"
+              className="num absolute top-1 -translate-x-1/2 text-[11px] text-faint"
               style={{ left: `${pct(t)}%` }}
             >
               {t === 0 ? '0' : `${t}M`}
@@ -254,10 +254,6 @@ export function ChurnChart() {
         <div />
       </div>
 
-      <p className="eyebrow mt-4">
-        Net is created minus displaced. Robots and autonomous systems are shown as a net only — employers published no creation
-        figure for them, so the row is not comparable with the two above.
-      </p>
     </div>
   );
 }
@@ -281,7 +277,7 @@ export function FdeChart() {
             <XAxis dataKey="label" axisLine={{ stroke: C.line }} tickLine={false} tick={{ ...tick, fontSize: 10 }} height={26} />
             <YAxis hide domain={[0, 6200]} />
             <Tooltip
-              cursor={{ fill: 'rgba(255,255,255,0.03)' }}
+              cursor={{ fill: 'var(--chart-grid)' }}
               content={({ active, payload }: TipProps) =>
                 active && payload?.length ? (
                   <TipBox
@@ -376,9 +372,13 @@ export function TwoTrack() {
               <Tabs.Tab
                 key={t.track}
                 value={t.track}
-                className="chip cursor-pointer data-[active]:border-transparent data-[active]:bg-ink data-[active]:text-void"
-                style={{ borderColor: colors[t.track] }}
+                className="chip cursor-pointer data-[active]:border-ink data-[active]:bg-ink data-[active]:text-void"
               >
+                <span
+                  className="h-2 w-2 shrink-0 rounded-full"
+                  style={{ background: colors[t.track] }}
+                  aria-hidden="true"
+                />
                 {t.track} · {t.share}%
               </Tabs.Tab>
             ))}
@@ -387,11 +387,11 @@ export function TwoTrack() {
             <div className="panel p-5">
               <div className="eyebrow">{active.track}</div>
               <p className="mt-3 font-display text-[21px] leading-snug text-ink">{active.plain}</p>
-              <p className="mt-4 text-[13.5px] leading-relaxed text-muted">{active.move}</p>
+              <p className="mt-4 text-[14px] leading-relaxed text-muted">{active.move}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted">{active.outcome}</p>
               <div className="mt-4 hairline pt-3">
                 <div className="eyebrow mb-1">Examples named in the study</div>
-                <div className="num text-[11px] text-muted">{active.examples}</div>
+                <div className="num text-[11.5px] text-muted">{active.examples}</div>
               </div>
             </div>
           </Tabs.Panel>
@@ -423,7 +423,7 @@ export function TestBars({
     <div>
       <div className="flex items-baseline justify-between gap-2">
         <span className="eyebrow">0 doesn’t apply · 1 a little · 2 clearly · 3 it’s the whole job</span>
-        <span className="num shrink-0 text-[12px] text-ink">total {total}/12</span>
+        <span className="num shrink-0 text-[13px] text-ink">total {total}/12</span>
       </div>
 
       <div className="mt-3 grid gap-2.5">
@@ -432,7 +432,7 @@ export function TestBars({
           const color = score >= 3 ? C.survive : score === 2 ? C.signal : score === 1 ? C.emerge : C.risk;
           return (
             <div key={t.key} className="grid grid-cols-[1fr_62px_30px] items-center gap-3">
-              <div className="text-[11.5px] leading-tight text-muted" title={t.label}>
+              <div className="text-[12.5px] leading-tight text-muted" title={t.label}>
                 {t.short}
               </div>
               <div className="flex gap-[3px]">
@@ -441,23 +441,23 @@ export function TestBars({
                     key={n}
                     className="h-[8px] flex-1 rounded-[3px]"
                     style={{
-                      // An empty segment has to stay visible: at #1e1e25 on a #0e0e12
-                      // panel the unfilled part of the scale disappeared entirely.
-                      background: n <= score ? color : '#2f2f3a',
+                      // An empty segment has to stay visible in both themes —
+                      // unfilled steps were invisible on the dark panel.
+                      background: n <= score ? color : 'var(--line-soft)',
                     }}
                   />
                 ))}
               </div>
-              <div className="num text-right text-[11px] text-faint">{score}</div>
+              <div className="num text-right text-[11.5px] text-faint">{score}</div>
             </div>
           );
         })}
       </div>
 
-      <p className="mt-4 border-t border-[var(--color-line-soft)] pt-3 text-[11.5px] leading-relaxed text-muted">
+      <p className="mt-4 border-t border-[var(--color-line-soft)] pt-3 text-[12.5px] leading-relaxed text-muted">
         {reading}
       </p>
-      <p className="mt-2 text-[11px] leading-relaxed text-faint">
+      <p className="mt-2 text-[11.5px] leading-relaxed text-faint">
         Our reading of the job, not a measurement. The evidence behind it is below.
       </p>
     </div>
@@ -485,7 +485,7 @@ export function DeltaRows({
         const pct = (Math.abs(r.value) / scale) * 100;
         return (
           <div key={r.label} className="grid grid-cols-[132px_1fr_62px] items-center gap-3 sm:grid-cols-[180px_1fr_70px]">
-            <div className="text-[11.5px] leading-tight text-muted">{r.label}</div>
+            <div className="text-[12.5px] leading-tight text-muted">{r.label}</div>
             <div className="relative h-[16px]">
               <span className="absolute inset-y-0 left-0 w-px bg-[var(--color-line)]" />
               {r.value === 0 ? (
@@ -506,7 +506,7 @@ export function DeltaRows({
                 />
               )}
             </div>
-            <div className="num text-right text-[13px]" style={{ color }}>
+            <div className="num text-right text-[14px]" style={{ color }}>
               {r.display}
             </div>
           </div>

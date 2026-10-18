@@ -34,7 +34,7 @@ const evidence: Record<string, { text: string; source: string }> = {
 <Base title={entry.data.title} description={entry.data.standfirst}>
   <section class="wrap pt-14 pb-10 sm:pt-20">
     <div class="flex items-center gap-4">
-      <span class="num text-[11px] text-faint">{entry.data.eyebrow}</span>
+      <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
       <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
       <span class="eyebrow">Four tests · one instruction</span>
     </div>
@@ -48,13 +48,13 @@ const evidence: Record<string, { text: string; source: string }> = {
         testLabels.map((t, i) => (
           <div class="panel flex flex-col p-5">
             <div class="flex items-baseline gap-3">
-              <span class="num text-[11px] text-faint">TEST {i + 1}</span>
+              <span class="num text-[11.5px] text-faint">TEST {i + 1}</span>
             </div>
             <h3 class="mt-3 font-display text-[21px] leading-snug">{t.label}</h3>
-            <p class="mt-3 flex-1 text-[13.5px] leading-relaxed text-muted">{evidence[t.key].text}</p>
+            <p class="mt-3 flex-1 text-[14px] leading-relaxed text-muted">{evidence[t.key].text}</p>
             <a
               href={`/sources#${evidence[t.key].source}`} target="_blank" rel="noopener"
-              class="num mt-4 w-fit rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink"
+              class="num mt-4 w-fit rounded border border-line px-1.5 py-0.5 text-[10.5px] text-faint no-underline hover:border-signal hover:text-ink"
             >
               {evidence[t.key].source}
             </a>
@@ -75,12 +75,12 @@ const evidence: Record<string, { text: string; source: string }> = {
     <aside class="panel p-5">
       <div class="eyebrow">If you remember one number</div>
       <div class="mt-3 num text-[38px] leading-none text-survive">+35%</div>
-      <p class="mt-3 text-[13px] leading-relaxed text-muted">
+      <p class="mt-3 text-[14px] leading-relaxed text-muted">
         Growth since 2019 in AI-exposed entry-level roles that were redesigned to demand senior skills.
         Roles that were not shrank 10%.
       </p>
       <div class="hairline mt-4 pt-4">
-        <a href="/sources#pwc-barometer" target="_blank" rel="noopener" class="font-mono text-[10.5px] uppercase tracking-[0.12em] text-signal no-underline"
+        <a href="/sources#pwc-barometer" target="_blank" rel="noopener" class="font-mono text-[11px] uppercase tracking-[0.12em] text-signal no-underline"
           >PwC 2026 →</a
         >
       </div>
@@ -125,12 +125,12 @@ const evidence: Record<string, { text: string; source: string }> = {
       <div class="mt-7 flex flex-wrap gap-3">
         <a
           href="/jobs"
-          class="inline-flex min-h-[46px] items-center rounded-full bg-ink px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-void no-underline hover:bg-signal"
+          class="inline-flex min-h-[46px] items-center rounded-full bg-ink px-5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-void no-underline hover:bg-signal"
           >Check the profiles</a
         >
         <a
           href="/sources"
-          class="inline-flex min-h-[46px] items-center rounded-full border border-line px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:border-signal hover:text-ink"
+          class="inline-flex min-h-[46px] items-center rounded-full border border-line px-5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-muted no-underline hover:border-signal hover:text-ink"
           >Read the sources</a
         >
       </div>
@@ -138,7 +138,7 @@ const evidence: Record<string, { text: string; source: string }> = {
   </section>
 
   <section class="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line-soft py-8">
-    <a href="/opportunity" class="font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← What is coming</a>
-    <a href="/jobs" class="font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline">All profiles →</a>
+    <a href="/opportunity" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← What is coming</a>
+    <a href="/jobs" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-signal no-underline">All profiles →</a>
   </section>
 </Base>

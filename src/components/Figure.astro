@@ -25,7 +25,7 @@ const refs = sources.map(getSource);
         refs.map((s) => (
           <a
             href={`/sources#${s.id}`} target="_blank" rel="noopener"
-            class="num rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink"
+            class="num rounded border border-line px-1.5 py-0.5 text-[10.5px] text-faint no-underline hover:border-signal hover:text-ink"
             title={`${s.title} — ${s.publisher}, ${s.year}`}
           >
             {s.short}
@@ -41,7 +41,7 @@ const refs = sources.map(getSource);
 
   {
     note && (
-      <div class="border-t border-line-soft px-5 py-3 text-[11.5px] leading-relaxed text-faint">
+      <div class="border-t border-line-soft px-5 py-3 text-[12.5px] leading-relaxed text-faint">
         {note}
       </div>
     )

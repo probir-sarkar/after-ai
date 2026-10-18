@@ -40,13 +40,13 @@ export default function Falsification() {
             <Accordion.Trigger className="group flex w-full cursor-pointer items-baseline gap-4 px-5 py-4 text-left">
               <span className="eyebrow w-32 shrink-0 group-data-[panel-open]:text-signal">{item.k}</span>
               <span className="flex-1 text-[16.5px] leading-snug text-ink">{item.q}</span>
-              <span className="num text-[13px] text-faint transition-transform group-data-[panel-open]:rotate-45">
+              <span className="num text-[14px] text-faint transition-transform group-data-[panel-open]:rotate-45">
                 +
               </span>
             </Accordion.Trigger>
           </Accordion.Header>
           <Accordion.Panel className="overflow-hidden">
-            <p className="max-w-[68ch] px-5 pb-5 pl-[9.5rem] text-[13.5px] leading-relaxed text-muted">
+            <p className="max-w-[68ch] px-5 pb-5 pl-[9.5rem] text-[14px] leading-relaxed text-muted">
               {item.a}
             </p>
           </Accordion.Panel>

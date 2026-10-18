@@ -1,38 +1,86 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-void: #08080a;
-  --color-panel: #0e0e12;
-  --color-raise: #15151b;
-  --color-line: #26262f;
-  --color-line-soft: #1b1b22;
-  --color-ink: #f2efe9;
-  --color-muted: #a9a9b4;
-  --color-faint: #85858f;
-  --color-survive: #6ee7b7;
-  --color-risk: #ff7d6e;
-  --color-emerge: #8ab4ff;
-  --color-signal: #dcf26e;
+/*
+ * Two themes over one set of tokens. Utilities resolve to the variables (via
+ * @theme inline), so flipping [data-theme] on <html> restyles everything —
+ * including the charts, which read the same variables through SVG fill.
+ */
+@theme inline {
+  --color-void: var(--paper);
+  --color-panel: var(--panel);
+  --color-raise: var(--raise);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-survive: var(--survive);
+  --color-risk: var(--risk);
+  --color-emerge: var(--emerge);
+  --color-signal: var(--signal);
 
   --font-display: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
 
-  --text-hero: clamp(2.9rem, 8.4vw, 7.2rem);
-  --text-h2: clamp(2rem, 4.6vw, 3.4rem);
-  --text-h3: clamp(1.35rem, 2.2vw, 1.75rem);
+  --text-hero: clamp(2.6rem, 8vw, 7rem);
+  --text-h2: clamp(1.9rem, 4.4vw, 3.3rem);
+  --text-h3: clamp(1.3rem, 2.1vw, 1.7rem);
+}
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #08080a;
+  --panel: #0e0e12;
+  --raise: #191921;
+  --line: #34343f;
+  --line-soft: #23232c;
+  --ink: #f4f1eb;
+  --muted: #b6b6c1;
+  --faint: #93939f;
+  --survive: #7ff0c2;
+  --risk: #ff9385;
+  --emerge: #9cc0ff;
+  --signal: #dcf26e;
+
+  --chart-grid: rgba(255, 255, 255, 0.09);
+  --tip-bg: #14141a;
+  --tip-line: #3c3c48;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --paper: #f8f6f0;
+  --panel: #ffffff;
+  --raise: #ece8dc;
+  --line: #b8b1a0;
+  --line-soft: #d8d2c2;
+  --ink: #15140f;
+  --muted: #403d35;
+  --faint: #514d44;
+  --survive: #0b6b4f;
+  --risk: #a92f1c;
+  --emerge: #1c4f9c;
+  --signal: #55660a;
+
+  --chart-grid: rgba(20, 20, 15, 0.12);
+  --tip-bg: #ffffff;
+  --tip-line: #c9c3b2;
 }
 
 @layer base {
   html {
-    background: var(--color-void);
-    color-scheme: dark;
+    background: var(--paper);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 180ms ease;
   }
   body {
-    background: var(--color-void);
-    color: var(--color-ink);
+    background: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
     font-feature-settings: 'ss01', 'cv05';
   }
@@ -41,16 +89,16 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.015em;
-    line-height: 1.02;
+    line-height: 1.04;
     text-wrap: balance;
   }
   h1 { font-size: var(--text-hero); }
   h2 { font-size: var(--text-h2); }
-  h3 { font-size: var(--text-h3); line-height: 1.15; }
+  h3 { font-size: var(--text-h3); line-height: 1.18; }
   p { text-wrap: pretty; }
-  ::selection { background: var(--color-signal); color: #0a0a0a; }
+  ::selection { background: var(--signal); color: var(--paper); }
   :focus-visible {
-    outline: 2px solid var(--color-signal);
+    outline: 2px solid var(--ink);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -62,7 +110,7 @@
     width: 100%;
     max-width: 1160px;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: 1.125rem;
   }
   @media (min-width: 768px) {
     .wrap { padding-inline: 2.5rem; }
@@ -71,61 +119,73 @@
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    letter-spacing: 0.13em;
+    line-height: 1.45;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
-    color: var(--color-faint);
+    color: var(--faint);
+  }
+  @media (max-width: 639px) {
+    .eyebrow { font-size: 0.78rem; letter-spacing: 0.07em; }
   }
 
   .lede {
     font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
     line-height: 1.6;
-    color: var(--color-muted);
+    color: var(--muted);
     max-width: 62ch;
+  }
+  @media (max-width: 639px) {
+    .lede { font-size: 1.0625rem; line-height: 1.62; }
   }
 
   .prose-body p {
-    color: var(--color-muted);
+    color: var(--muted);
+    font-size: 1rem;
     line-height: 1.72;
     margin-block: 0.9rem;
     max-width: 68ch;
   }
-  .prose-body strong { color: var(--color-ink); font-weight: 600; }
-  .prose-body em { color: var(--color-ink); }
+  @media (min-width: 768px) {
+    .prose-body p { font-size: 1.0625rem; }
+  }
+  .prose-body strong { color: var(--ink); font-weight: 600; }
+  .prose-body em { color: var(--ink); }
   .prose-body h3 { margin-top: 2rem; }
   .prose-body ul { margin-block: 1rem; padding-left: 1.1rem; list-style: none; }
   .prose-body li {
-    color: var(--color-muted);
+    color: var(--muted);
+    font-size: 1rem;
     line-height: 1.65;
-    margin-block: 0.45rem;
+    margin-block: 0.5rem;
     position: relative;
   }
   .prose-body li::before {
     content: '';
     position: absolute;
     left: -1rem;
-    top: 0.7em;
+    top: 0.72em;
     width: 5px;
     height: 1px;
-    background: var(--color-signal);
+    background: var(--signal);
   }
   .prose-body a {
-    color: var(--color-ink);
+    color: var(--ink);
     text-decoration: underline;
     text-underline-offset: 3px;
-    text-decoration-color: var(--color-line);
+    text-decoration-color: var(--line);
   }
-  .prose-body a:hover { text-decoration-color: var(--color-signal); }
+  .prose-body a:hover { text-decoration-color: var(--signal); }
 
   .panel {
-    background: linear-gradient(180deg, var(--color-panel) 0%, #0b0b0f 100%);
-    border: 1px solid var(--color-line);
+    background: var(--panel);
+    border: 1px solid var(--line);
     border-radius: 14px;
   }
 
-  .hairline { border-top: 1px solid var(--color-line-soft); }
+  .hairline { border-top: 1px solid var(--line-soft); }
 
   /* Grid and flex items are allowed to shrink below their content's min-content
-     size. Without this the 560px chart floor (below) propagates up through
+     size. Without this the chart min-width (below) propagates up through
      min-content sizing and pushes the whole page wider than the viewport —
      measured 606px of content in a 390px window on the job detail page. */
   .grid > *,
@@ -135,23 +195,21 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    min-height: 38px;
-    padding: 0 0.75rem;
-    border: 1px solid var(--color-line);
+    min-height: 40px;
+    padding: 0 0.85rem;
+    border: 1px solid var(--line);
     border-radius: 999px;
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--color-muted);
-    background: #101014;
+    color: var(--muted);
+    background: var(--panel);
     transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
   }
-  .chip:hover { color: var(--color-ink); border-color: #3a3a46; }
-  .chip[data-active='true'] {
-    color: #0a0a0a;
-    background: var(--color-ink);
-    border-color: var(--color-ink);
+  .chip:hover { color: var(--ink); border-color: var(--ink); }
+  @media (max-width: 639px) {
+    .chip { font-size: 0.78rem; }
   }
 
   .num {
@@ -161,38 +219,101 @@
   }
 
   .link-quiet {
-    color: var(--color-muted);
+    color: var(--muted);
     transition: color 140ms ease;
   }
-  .link-quiet:hover { color: var(--color-ink); }
+  .link-quiet:hover { color: var(--ink); }
+
+  /* A small mono label that has to stay legible on a phone. */
+  .micro {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: var(--faint);
+  }
+  @media (max-width: 639px) {
+    .micro { font-size: 0.7rem; }
+  }
+}
+
+.theme-sun { display: none; }
+[data-theme='light'] .theme-sun { display: block; }
+[data-theme='light'] .theme-moon { display: none; }
+
+
+/* ---- phone legibility ------------------------------------------------ */
+/*
+ * On a 390px screen the mono micro-type fell to 10.5px and a hundred elements
+ * sat under 12px — the "hardly readable" case. These are deliberate overrides
+ * of the small arbitrary sizes rather than a second design: nothing below 12px
+ * on a phone, body copy at 13–14px, and source chips get a 24px touch target
+ * (WCAG 2.5.8 minimum).
+ */
+@media (max-width: 639px) {
+  .text-\[9\.5px\],
+  .text-\[10px\],
+  .text-\[10\.5px\],
+  .text-\[11px\],
+  .text-\[11\.5px\] { font-size: 0.75rem; line-height: 1.45; }
+
+  .text-\[12px\],
+  .text-\[12\.5px\] { font-size: 0.8125rem; line-height: 1.5; }
+
+  .text-\[13px\],
+  .text-\[13\.5px\] { font-size: 0.875rem; line-height: 1.6; }
+
+  /* Source chips and footer links become real 24px targets. Keep this to
+     selectors that are never `hidden` — `a.font-mono` also matched the sources
+     pill, and `display:inline-flex` there overrode `hidden` and un-hid it on
+     phones. Text links get padding instead, which grows the hit area without
+     touching display. */
+  a.num,
+  .link-quiet {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+  }
+  a.font-mono,
+  a.eyebrow {
+    padding-block: 5px;
+  }
 }
 
 /* ---- charts ---------------------------------------------------------- */
 .chart-shell { font-family: var(--font-mono); }
-.chart-shell .recharts-cartesian-axis-tick-value { font-size: 10.5px; letter-spacing: 0.02em; }
+.chart-shell .recharts-cartesian-axis-tick-value {
+  font-size: 11.5px;
+  letter-spacing: 0.01em;
+  fill: var(--muted);
+}
 .chart-shell .recharts-label { font-family: var(--font-mono); }
 .recharts-surface:focus { outline: none; }
 .recharts-wrapper { margin-inline: auto; }
 
+/* A chart inside a 320px panel put its labels at ~4px. Give the plot a floor
+   and let the wrapper scroll instead of shrinking. */
+@media (max-width: 720px) {
+  .chart-scroll .chart-shell { min-width: 540px; }
+}
+
 .tt {
-  background: #101015;
-  border: 1px solid #32323d;
+  background: var(--tip-bg);
+  border: 1px solid var(--tip-line);
   border-radius: 10px;
   padding: 0.55rem 0.7rem;
-  box-shadow: 0 18px 40px -20px #000;
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.45);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 11.5px;
   line-height: 1.5;
   max-width: 240px;
 }
-.tt-k { color: #8f8f9c; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9.5px; }
-.tt-v { color: var(--color-ink); font-size: 13px; }
-
-/* A build-time/SSR chart inside a 320px panel puts its labels at ~4px.
-   Give the plot a floor and let the wrapper scroll instead of shrinking. */
-@media (max-width: 720px) {
-  .chart-scroll .chart-shell { min-width: 560px; }
+.tt-k {
+  color: var(--faint);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-size: 10px;
 }
+.tt-v { color: var(--ink); font-size: 13px; }
 
 /* ---- motion ---------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {

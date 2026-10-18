@@ -23,7 +23,7 @@ const headline = (j: (typeof jobs)[number]) => {
 ---
 
 <Base>
-  <section class="wrap pt-14 pb-10 sm:pt-20">
+  <section class="wrap pt-12 pb-8 sm:pt-20">
     <p class="eyebrow rise">Labour-market brief · {jobs.length} job profiles · 18 public sources</p>
     <h1 class="rise mt-5 max-w-[19ch] font-display">The work that stays.</h1>
     <p class="lede rise mt-6">
@@ -34,18 +34,18 @@ const headline = (j: (typeof jobs)[number]) => {
     <div class="rise mt-8 flex flex-wrap gap-3">
       <a
         href="/survives"
-        class="inline-flex min-h-[46px] items-center rounded-full bg-ink px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-void no-underline hover:bg-signal"
+        class="inline-flex min-h-[46px] items-center rounded-full bg-ink px-5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-void no-underline hover:bg-signal"
         >Start with what survives</a
       >
       <a
         href="/risk"
-        class="inline-flex min-h-[46px] items-center rounded-full border border-line px-5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:border-signal hover:text-ink"
+        class="inline-flex min-h-[46px] items-center rounded-full border border-line px-5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-muted no-underline hover:border-signal hover:text-ink"
         >See what is exposed</a
       >
     </div>
   </section>
 
-  <section class="wrap grid gap-4 pb-16 sm:grid-cols-2 lg:grid-cols-4">
+  <section class="wrap grid gap-4 pb-12 sm:grid-cols-2 lg:grid-cols-4">
     <StatCard
       value="1 in 4"
       label="workers worldwide are in an occupation with some generative-AI exposure — but only 3.3% sit in the highest exposure band."
@@ -72,39 +72,39 @@ const headline = (j: (typeof jobs)[number]) => {
     />
   </section>
 
-  <section class="wrap pb-16">
+  <section class="wrap pb-12">
     <div class="panel p-6 sm:p-8">
       <p class="eyebrow">The whole thing in three sentences</p>
       <div class="mt-5 grid gap-5 lg:grid-cols-3">
         <div>
           <h3 class="font-display text-[20px] leading-snug text-survive">Some jobs are hard to automate</h3>
-          <p class="mt-2 text-[13.5px] leading-relaxed text-muted">
+          <p class="mt-2 text-[14px] leading-relaxed text-muted">
             They need hands in a place that keeps changing, a person to answer for the result, or a
             relationship with someone. Care work, trades, teaching, medicine.
-            <a href="/survives" class="num text-[11px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see them</a>
+            <a href="/survives" class="num text-[11.5px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see them</a>
           </p>
         </div>
         <div>
           <h3 class="font-display text-[20px] leading-snug text-risk">Some are already shrinking</h3>
-          <p class="mt-2 text-[13.5px] leading-relaxed text-muted">
+          <p class="mt-2 text-[14px] leading-relaxed text-muted">
             Mostly routine office work — typing, filing, booking, first-draft writing. The loss lands
             hardest on people just starting out, because the entry-level version is the first to go.
-            <a href="/risk" class="num text-[11px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see the risk</a>
+            <a href="/risk" class="num text-[11.5px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see the risk</a>
           </p>
         </div>
         <div>
           <h3 class="font-display text-[20px] leading-snug text-emerge">New jobs are appearing</h3>
-          <p class="mt-2 text-[13.5px] leading-relaxed text-muted">
+          <p class="mt-2 text-[14px] leading-relaxed text-muted">
             Building AI, installing it inside a company, labelling and checking its output, and watching
             it once it is live. They pay well and they are growing fast.
-            <a href="/opportunity" class="num text-[11px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see them</a>
+            <a href="/opportunity" class="num text-[11.5px] text-ink underline decoration-[var(--color-line)] hover:decoration-signal">see them</a>
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap grid gap-10 pb-20 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+  <section class="wrap grid gap-10 pb-14 lg:grid-cols-[1fr_1.15fr] lg:items-start">
     <div>
       <p class="eyebrow">The short answer</p>
       <h2 class="mt-4">Tasks die. Jobs change shape.</h2>
@@ -140,18 +140,57 @@ const headline = (j: (typeof jobs)[number]) => {
     </div>
   </section>
 
-  <section class="wrap pb-20">
-    <Figure
-      eyebrow="Employer projections to 2030"
-      title="Jobs created and displaced, by technology driver"
-      sources={['wef-fastest']}
-      note="Survey of 1,000+ employers. Robots and autonomous systems have no published creation figure; the −5M is their net position after displacement."
-    >
-      <ChurnChart client:load />
-    </Figure>
+  <section class="wrap pb-14">
+    <div class="grid gap-6 lg:grid-cols-[1.55fr_1fr] lg:items-stretch">
+      <Figure
+        eyebrow="Employer projections to 2030"
+        title="Jobs created and displaced, by technology driver"
+        sources={['wef-fastest']}
+        note="Survey of 1,000+ employers. Net is created minus displaced. Robots and autonomous systems are shown as a net only — no creation figure was published, so that row is not comparable with the two above."
+      >
+        <ChurnChart client:load />
+      </Figure>
+
+      <div class="panel flex flex-col p-5 sm:p-6">
+        <p class="eyebrow">What to notice</p>
+        <ul class="mt-4 space-y-4">
+          <li>
+            <p class="text-[14px] leading-relaxed text-ink">
+              The biggest driver employers name is not AI at all — it is people getting online.
+            </p>
+            <p class="mt-1 text-[13px] leading-relaxed text-faint">
+              19M jobs created, 9M displaced, for broadening digital access.
+            </p>
+          </li>
+          <li class="hairline pt-4">
+            <p class="text-[14px] leading-relaxed text-ink">
+              In employers' own projections, AI adds more than it takes away.
+            </p>
+            <p class="mt-1 text-[13px] leading-relaxed text-faint">
+              11M created against 9M displaced — a net +2M, and still a forecast.
+            </p>
+          </li>
+          <li class="hairline pt-4">
+            <p class="text-[14px] leading-relaxed text-ink">
+              Robots are the only driver where displacement wins.
+            </p>
+            <p class="mt-1 text-[13px] leading-relaxed text-faint">
+              A net −5M, with no creation figure published to balance it.
+            </p>
+          </li>
+        </ul>
+        <div class="mt-auto hairline pt-4">
+          <a
+            href="/risk"
+            class="font-mono text-[11px] uppercase tracking-[0.12em] text-signal no-underline"
+            >What the damage looks like →</a
+          >
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="wrap pb-20">
+  <section class="wrap pb-14">
     <p class="eyebrow">The four tests</p>
     <h2 class="mt-4 max-w-[26ch]">Four things that keep a job out of a machine's reach.</h2>
     <p class="lede mt-5">
@@ -162,9 +201,9 @@ const headline = (j: (typeof jobs)[number]) => {
       {
         testLabels.map((t, i) => (
           <div class="panel p-5">
-            <div class="num text-[11px] text-faint">0{i + 1}</div>
+            <div class="num text-[11.5px] text-faint">0{i + 1}</div>
             <h3 class="mt-3 font-display text-[19px] leading-snug">{t.label}</h3>
-            <p class="mt-3 text-[13px] leading-relaxed text-muted">
+            <p class="mt-3 text-[14px] leading-relaxed text-muted">
               {i === 0 &&
                 'Work that changes shape daily, where a mistake injures someone. Robots reach about 13% of US work hours against 44% for software agents.'}
               {i === 1 &&
@@ -180,7 +219,7 @@ const headline = (j: (typeof jobs)[number]) => {
     </div>
   </section>
 
-  <section class="wrap grid gap-6 pb-20 lg:grid-cols-2">
+  <section class="wrap grid gap-6 pb-14 lg:grid-cols-2">
     <Figure
       eyebrow="Relative employment change since late 2022"
       title="Who is losing ground"
@@ -206,40 +245,40 @@ const headline = (j: (typeof jobs)[number]) => {
           </p>
         </div>
       </div>
-      <a href="/what-to-do" class="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline"
+      <a href="/what-to-do" class="mt-6 font-mono text-[11.5px] uppercase tracking-[0.14em] text-signal no-underline"
         >Apply the tests →</a
       >
     </div>
   </section>
 
-  <section class="wrap pb-20">
+  <section class="wrap pb-14">
     <p class="eyebrow">Where to go next</p>
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
         nav.slice(0, 4).map((item, i) => (
-          <a href={item.href} class="panel group p-5 no-underline transition-colors hover:border-[#3a3a46]">
-            <div class="num text-[11px] text-faint">0{i + 1}</div>
+          <a href={item.href} class="panel group p-5 no-underline transition-colors hover:border-[var(--color-ink)]">
+            <div class="num text-[11.5px] text-faint">0{i + 1}</div>
             <div class="mt-3 font-display text-[22px]">{item.label}</div>
-            <p class="mt-2 text-[13px] leading-relaxed text-muted">
+            <p class="mt-2 text-[14px] leading-relaxed text-muted">
               {i === 0 && 'Care, trades, accountability: the work with direct evidence behind it.'}
               {i === 1 && 'What is exposed, how exposure is measured, and why it is not displacement.'}
               {i === 2 && 'The roles being created, with the growth rates attached.'}
               {i === 3 && 'Four tests, one instruction, and the three ways this brief could be wrong.'}
             </p>
-            <span class="num mt-4 inline-block text-[11px] text-faint group-hover:text-signal">read →</span>
+            <span class="num mt-4 inline-block text-[11.5px] text-faint group-hover:text-signal">read →</span>
           </a>
         ))
       }
     </div>
   </section>
 
-  <section class="wrap pb-20">
+  <section class="wrap pb-14">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
         <p class="eyebrow">Profiles</p>
         <h2 class="mt-4">Six roles that carry the argument</h2>
       </div>
-      <a href="/jobs" class="font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline"
+      <a href="/jobs" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-signal no-underline"
         >All {jobs.length} profiles →</a
       >
     </div>

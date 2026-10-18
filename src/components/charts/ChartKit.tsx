@@ -1,17 +1,17 @@
 import type { ReactNode } from 'react';
 
 export const C = {
-  survive: '#6ee7b7',
-  risk: '#ff7d6e',
-  emerge: '#8ab4ff',
-  signal: '#dcf26e',
-  ink: '#f2efe9',
-  muted: '#a9a9b4',
-  faint: '#85858f',
-  grid: 'rgba(255,255,255,0.07)',
-  panel: '#0e0e12',
-  line: '#26262f',
-};
+  survive: 'var(--color-survive)',
+  risk: 'var(--color-risk)',
+  emerge: 'var(--color-emerge)',
+  signal: 'var(--color-signal)',
+  ink: 'var(--color-ink)',
+  muted: 'var(--color-muted)',
+  faint: 'var(--color-faint)',
+  grid: 'var(--chart-grid)',
+  panel: 'var(--color-panel)',
+  line: 'var(--color-line)',
+} as const;
 
 export const mono = 'JetBrains Mono Variable, ui-monospace, monospace';
 

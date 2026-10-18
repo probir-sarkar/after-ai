@@ -19,7 +19,7 @@ export default function Cite({ ids }: { ids: string }) {
           key={s.id}
           href={`/sources#${s.id}`} target="_blank" rel="noopener"
           title={`${s.title} — ${s.publisher}, ${s.year}`}
-          className="num rounded-[4px] border border-line bg-panel px-1 py-[1px] text-[10px] leading-none text-muted no-underline hover:border-signal hover:text-ink"
+          className="num rounded-[4px] border border-line bg-panel px-1 py-[1px] text-[11px] leading-none text-muted no-underline hover:border-signal hover:text-ink"
         >
           {s.short}
         </a>

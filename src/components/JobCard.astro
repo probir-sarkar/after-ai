@@ -21,12 +21,12 @@ const cats = [category];
   href={`/jobs/${id}`}
   data-verdict={verdict}
   data-category={category}
-  class="job-card panel group relative flex flex-col p-5 no-underline transition-colors hover:border-[#3a3a46]"
+  class="job-card panel group relative flex flex-col p-5 no-underline transition-colors hover:border-[var(--color-ink)]"
   style={`--vc:${v.color}`}
 >
   <div class="flex items-center gap-2">
     <span
-      class="num rounded-full border px-2 py-[3px] text-[9.5px] uppercase tracking-[0.12em]"
+      class="num rounded-full border px-2 py-[3px] text-[10.5px] uppercase tracking-[0.12em]"
       style={`border-color:${v.color}; color:${v.color}`}>{v.label}</span
     >
     <span class="eyebrow">{cats.map((c) => categoryMeta[c] ?? c).join(' · ')}</span>
@@ -34,7 +34,7 @@ const cats = [category];
 
   <h3 class="mt-4 min-h-[3.4em] font-display text-[21px] leading-[1.15] text-ink">{name}</h3>
 
-  <p class="mt-2 text-[13.5px] leading-relaxed text-muted">{oneLiner}</p>
+  <p class="mt-2 text-[14px] leading-relaxed text-muted">{oneLiner}</p>
 
   <div class="mt-auto flex items-end justify-between gap-3 pt-5">
     {
@@ -49,6 +49,6 @@ const cats = [category];
         <div class="eyebrow">No official projection</div>
       )
     }
-    <span class="num text-[11px] text-faint transition-colors group-hover:text-signal">read →</span>
+    <span class="num text-[11.5px] text-faint transition-colors group-hover:text-signal">read →</span>
   </div>
 </a>

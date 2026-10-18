@@ -35,7 +35,7 @@ const declining = [
 <Base title={entry.data.title} description={entry.data.standfirst}>
   <section class="wrap pt-14 pb-10 sm:pt-20">
     <div class="flex items-center gap-4">
-      <span class="num text-[11px] text-faint">{entry.data.eyebrow}</span>
+      <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
       <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
       <span class="eyebrow">{jobs.length} profiles</span>
     </div>
@@ -44,15 +44,15 @@ const declining = [
     <div class="mt-8 grid gap-4 sm:grid-cols-3">
       <div class="panel p-4">
         <div class="num text-[24px] text-risk">−16%</div>
-        <p class="mt-2 text-[12px] leading-relaxed text-faint">relative employment change, ages 22–25, most exposed occupations</p>
+        <p class="mt-2 text-[13px] leading-relaxed text-faint">relative employment change, ages 22–25, most exposed occupations</p>
       </div>
       <div class="panel p-4">
         <div class="num text-[24px] text-emerge">3.3%</div>
-        <p class="mt-2 text-[12px] leading-relaxed text-faint">of global employment sits in the highest GenAI exposure band</p>
+        <p class="mt-2 text-[13px] leading-relaxed text-faint">of global employment sits in the highest GenAI exposure band</p>
       </div>
       <div class="panel p-4">
         <div class="num text-[24px] text-ink">52%</div>
-        <p class="mt-2 text-[12px] leading-relaxed text-faint">of advertised jobs are being deskilled by AI, per PwC</p>
+        <p class="mt-2 text-[13px] leading-relaxed text-faint">of advertised jobs are being deskilled by AI, per PwC</p>
       </div>
     </div>
   </section>
@@ -63,7 +63,7 @@ const declining = [
     </div>
     <aside class="panel p-5">
       <div class="eyebrow">How to read an exposure score</div>
-      <div class="prose-body mt-3 text-[13px]">
+      <div class="prose-body mt-3 text-[14px]">
         <p>
           Every exposure index in the literature answers the same narrow question: how much of this
           job's activity set could a model do? None of them answers "will these people be fired".
@@ -74,7 +74,7 @@ const declining = [
         </p>
       </div>
       <div class="hairline mt-4 pt-4">
-        <a href="/sources#ilo-index" target="_blank" rel="noopener" class="font-mono text-[10.5px] uppercase tracking-[0.12em] text-signal no-underline"
+        <a href="/sources#ilo-index" target="_blank" rel="noopener" class="font-mono text-[11px] uppercase tracking-[0.12em] text-signal no-underline"
           >ILO 2025 →</a
         >
       </div>
@@ -116,16 +116,16 @@ const declining = [
           {
             declining.map((d, i) => (
               <li class="flex gap-4 px-5 py-[12px]">
-                <span class="num mt-[3px] w-6 shrink-0 text-[11px] text-risk">{String(i + 1).padStart(2, '0')}</span>
+                <span class="num mt-[3px] w-6 shrink-0 text-[11.5px] text-risk">{String(i + 1).padStart(2, '0')}</span>
                 <span class="min-w-0">
                   <span class="block text-[14.5px] leading-snug text-ink">{d.role}</span>
-                  <span class="mt-1 block text-[12px] leading-relaxed text-muted">{d.note}</span>
+                  <span class="mt-1 block text-[13px] leading-relaxed text-muted">{d.note}</span>
                 </span>
               </li>
             ))
           }
         </ul>
-        <div class="border-t border-line-soft px-5 py-3 text-[11.5px] leading-relaxed text-faint">
+        <div class="border-t border-line-soft px-5 py-3 text-[12.5px] leading-relaxed text-faint">
           Employers were asked which roles would decline in their own organisations — a direction, not
           a magnitude. No percentage is published per occupation, so none is shown here.
         </div>
@@ -144,7 +144,7 @@ const declining = [
   </section>
 
   <section class="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line-soft py-8">
-    <a href="/survives" class="font-mono text-[11px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← What survives</a>
-    <a href="/opportunity" class="font-mono text-[11px] uppercase tracking-[0.14em] text-signal no-underline">Next: what is coming →</a>
+    <a href="/survives" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← What survives</a>
+    <a href="/opportunity" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-signal no-underline">Next: what is coming →</a>
   </section>
 </Base>

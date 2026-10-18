@@ -19,14 +19,14 @@ const tone = side === 'most' ? 'var(--color-risk)' : 'var(--color-survive)';
     <h3 class="font-display text-[19px]">{title}</h3>
     <a
       href={`/sources#${src.id}`} target="_blank" rel="noopener"
-      class="num ml-auto rounded border border-line px-1.5 py-0.5 text-[9.5px] text-faint no-underline hover:border-signal hover:text-ink">{src.short}</a
+      class="num ml-auto rounded border border-line px-1.5 py-0.5 text-[10.5px] text-faint no-underline hover:border-signal hover:text-ink">{src.short}</a
     >
   </figcaption>
   <ul class="divide-y divide-[var(--color-line-soft)]">
     {
       list.map((item, i) => (
         <li class="flex items-baseline gap-4 px-5 py-[11px]">
-          <span class="num w-6 shrink-0 text-[11px]" style={`color:${tone}`}>
+          <span class="num w-6 shrink-0 text-[11.5px]" style={`color:${tone}`}>
             {String(i + 1).padStart(2, '0')}
           </span>
           <span class="text-[14.5px] leading-snug text-ink">{item}</span>
@@ -34,5 +34,5 @@ const tone = side === 'most' ? 'var(--color-risk)' : 'var(--color-survive)';
       ))
     }
   </ul>
-  <div class="border-t border-line-soft px-5 py-3 text-[11.5px] leading-relaxed text-faint">{caption}</div>
+  <div class="border-t border-line-soft px-5 py-3 text-[12.5px] leading-relaxed text-faint">{caption}</div>
 </figure>
