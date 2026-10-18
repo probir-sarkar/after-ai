@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // Fully prerendered: `output: 'static'` (default) + no adapter. The Worker only
@@ -10,6 +11,15 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://after-ai.probir.dev',
   build: { format: 'file' },
-  integrations: [react(), mdx()],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap({
+      // 404 is not a page anyone should index.
+      filter: (page) => !page.includes('/404'),
+      changefreq: 'monthly',
+      priority: 0.7,
+    }),
+  ],
   vite: { plugins: [tailwindcss()] },
 });

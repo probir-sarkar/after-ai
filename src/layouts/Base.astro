@@ -11,16 +11,58 @@ interface Props {
   title?: string;
   description?: string;
   eyebrow?: string;
+  /** Per-page schema; the site-level WebSite/Organization graph is always emitted. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** 'article' for a job profile, 'website' everywhere else. */
+  ogType?: 'website' | 'article';
+  /** Absolute or root-relative social image. */
+  image?: string;
+  noindex?: boolean;
 }
 
-const { title, description = site.description, eyebrow } = Astro.props;
+const {
+  title,
+  description = site.description,
+  jsonLd,
+  ogType = 'website',
+  image = '/og.png',
+  noindex = false,
+} = Astro.props;
+
+const base = Astro.site ?? new URL(site.url);
 
 // Astro.url.pathname is the build path with .html appended by build.format:'file',
 // so canonical/og:url have to come from the cleaned path, not the raw one.
 const path = cleanPath(Astro.url.pathname);
-const canonical = new URL(path, Astro.site ?? site.url).href;
+const canonical = new URL(path, base).href;
 const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
+const absImage = new URL(image, base).href;
 const active = (href: string) => path === href || path.startsWith(`${href}/`);
+const built = new Date().toISOString().slice(0, 10);
+
+const graph = [
+  {
+    '@type': 'WebSite',
+    '@id': `${base.origin}/#website`,
+    url: `${base.origin}/`,
+    name: site.name,
+    description: site.description,
+    inLanguage: 'en',
+    publisher: { '@id': `${base.origin}/#publisher` },
+  },
+  {
+    '@type': 'Organization',
+    '@id': `${base.origin}/#publisher`,
+    name: site.name,
+    url: `${base.origin}/`,
+    description: site.tagline,
+    sameAs: [site.repo],
+  },
+];
+
+const pageGraph = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const schema = { '@context': 'https://schema.org', '@graph': [...graph, ...pageGraph] };
+const schemaJson = JSON.stringify(schema).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
@@ -31,8 +73,13 @@ const active = (href: string) => path === href || path.startsWith(`${href}/`);
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1'} />
+    <meta name="author" content={site.name} />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#08080a" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f8f6f0" media="(prefers-color-scheme: light)" />
     <script is:inline>
@@ -50,16 +97,24 @@ const active = (href: string) => path === href || path.startsWith(`${href}/`);
       })();
     </script>
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/og.png', Astro.site ?? site.url).href} />
+    <meta property="og:image" content={absImage} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="After AI — which jobs survive, and which are being born" />
+    <meta property="og:image:alt" content={`${site.name} — ${site.tagline}`} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absImage} />
+    <meta name="twitter:image:alt" content={`${site.name} — ${site.tagline}`} />
+
+    <script type="application/ld+json" is:inline set:html={schemaJson} />
   </head>
   <body class="min-h-dvh">
     <a

@@ -79,6 +79,8 @@ export const collections = {
       title: z.string(),
       eyebrow: z.string(),
       standfirst: z.string(),
+      /** Longer, search-facing summary; falls back to the standfirst. */
+      description: z.string().optional(),
       order: z.number().default(99),
     }),
   }),

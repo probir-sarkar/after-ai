@@ -2,7 +2,7 @@ export const site = {
   name: 'After AI',
   tagline: 'Which jobs survive, and which are being born',
   description:
-    'A sourced, chart-heavy brief on the work that survives automation, the work that is exposed, and the roles being created — built from the 2025–26 labour-market evidence.',
+    'Which jobs survive automation, which are already exposed, and which are being created — with every figure cited to one of 18 public sources.',
   url: 'https://after-ai.probir.dev',
   repo: 'https://github.com/probir-sarkar/after-ai',
 } as const;

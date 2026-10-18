@@ -4,7 +4,7 @@ import Base from '@/layouts/Base.astro';
 import Cite from '@/components/Cite.tsx';
 import Figure from '@/components/Figure.astro';
 import { RankedBars, TestBars } from '@/components/charts/Index';
-import { categoryMeta, readProfile, verdictMeta } from '@/lib/site';
+import { categoryMeta, readProfile, verdictMeta, cleanPath, site } from '@/lib/site';
 import { getSource } from '@/data/sources';
 
 export async function getStaticPaths() {
@@ -32,6 +32,35 @@ const v = verdictMeta[d.verdict];
 const { Content } = await render(note);
 const profile = readProfile(d.tests, d.verdict);
 
+const url = new URL(cleanPath(Astro.url.pathname), Astro.site ?? site.url).href;
+const origin = new URL(url).origin;
+const built = new Date().toISOString().slice(0, 10);
+
+const jsonLd = [
+  {
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: d.name,
+    description: d.oneLiner,
+    articleSection: categoryMeta[d.category] ?? d.category,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${origin}/#website` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    author: { '@id': `${origin}/#publisher` },
+    publisher: { '@id': `${origin}/#publisher` },
+    dateModified: built,
+    about: { '@type': 'Occupation', name: d.name },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+      { '@type': 'ListItem', position: 2, name: 'All jobs', item: `${origin}/jobs` },
+      { '@type': 'ListItem', position: 3, name: d.short, item: url },
+    ],
+  },
+];
+
 const all = (await getCollection('jobs')).sort((a, b) => a.data.order - b.data.order);
 const index = all.findIndex((j) => j.id === job.id);
 const prev = index > 0 ? all[index - 1] : undefined;
@@ -51,7 +80,7 @@ const chartBars = growth
   : [];
 ---
 
-<Base title={d.name} description={d.oneLiner}>
+<Base title={d.name} description={d.oneLiner} ogType="article" jsonLd={jsonLd}>
   <article class="wrap pt-8 pb-16">
     <nav class="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-faint">
       <a href="/jobs" class="no-underline hover:text-ink">All jobs</a>

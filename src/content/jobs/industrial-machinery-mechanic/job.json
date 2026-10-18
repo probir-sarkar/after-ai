@@ -3,7 +3,7 @@
   "short": "Machinery mechanics",
   "verdict": "survives",
   "category": "trades",
-  "oneLiner": "When the automation breaks, someone has to take it apart.",
+  "oneLiner": "When the automation breaks, someone has to take it apart — which is a growing job.",
   "tests": {
     "body": 3,
     "accountability": 2,
