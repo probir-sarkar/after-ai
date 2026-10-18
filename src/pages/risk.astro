@@ -7,7 +7,7 @@ import Cite from '@/components/Cite.tsx';
 import Figure from '@/components/Figure.astro';
 import Spectrum from '@/components/Spectrum.astro';
 import JobCard from '@/components/JobCard.astro';
-import { EntryLevelChart, ExposureChart } from '@/components/charts/Index';
+import { EntryLevelChart, EntryLevelLevelsChart, ExposureChart, SeniorityChart } from '@/components/charts/Index';
 
 const entry = await section('risk');
 const { Content } = await render(entry);
@@ -65,8 +65,8 @@ const declining = [
     <p class="lede mt-5">{entry.data.standfirst}</p>
     <div class="mt-8 grid gap-4 sm:grid-cols-3">
       <div class="panel p-4">
-        <div class="num text-[24px] text-risk">−16%</div>
-        <p class="mt-2 text-[13px] leading-relaxed text-faint">relative employment change, ages 22–25, most exposed occupations</p>
+        <div class="num text-[24px] text-risk">−19%</div>
+        <p class="mt-2 text-[13px] leading-relaxed text-faint">shortfall for ages 22–25 in the most exposed occupations, up from 15% a year earlier</p>
       </div>
       <div class="panel p-4">
         <div class="num text-[24px] text-emerge">3.3%</div>
@@ -108,7 +108,7 @@ const declining = [
       eyebrow="Observed, not forecast"
       title="Who is losing ground"
       sources={['stanford-canaries']}
-      note="High-frequency US payroll data. The 16% is relative to less AI-exposed occupations; the adjustment came through hiring, not pay. The second row is a null result — employment there did not fall — not missing data."
+      note="High-frequency US payroll data through June 2026. The 19% is the shortfall against the path young workers in less-exposed jobs stayed on; the adjustment came through hiring, not pay. The second row is a null result, not missing data."
     >
       <EntryLevelChart client:load />
     </Figure>
@@ -119,6 +119,25 @@ const declining = [
       note="2,861 tasks scored by three models plus expert review. The first two rows are exposure bands; the last two are the share of all employment exposed in high- and low-income countries — a different cut of the same index."
     >
       <ExposureChart client:load />
+    </Figure>
+  </section>
+
+  <section class="wrap grid gap-6 pb-6 lg:grid-cols-2">
+    <Figure
+      eyebrow="In levels, since ChatGPT"
+      title="Two paths for the same age group"
+      sources={['stanford-canaries']}
+      note="Employment change from November 2022 to June 2026 for 22–25-year-olds: the two most AI-exposed quintiles fell about 11% while the three least-exposed grew about 10%."
+    >
+      <EntryLevelLevelsChart client:load />
+    </Figure>
+    <Figure
+      eyebrow="The same postings, tilted up the ladder"
+      title="Entry-level share against senior share"
+      sources={['indeed-pay']}
+      note="Share of US postings in the most AI-exposed occupations that are entry level versus senior. In the least-exposed occupations the tilt was about a third as large."
+    >
+      <SeniorityChart client:load />
     </Figure>
   </section>
 

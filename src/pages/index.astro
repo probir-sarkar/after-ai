@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '@/layouts/Base.astro';
+import { sources } from '@/data/sources';
 import Cite from '@/components/Cite.tsx';
 import Figure from '@/components/Figure.astro';
 import StatCard from '@/components/StatCard.astro';
@@ -24,7 +25,7 @@ const headline = (j: (typeof jobs)[number]) => {
 
 <Base>
   <section class="wrap pt-12 pb-8 sm:pt-20">
-    <p class="eyebrow rise">Labour-market brief · {jobs.length} job profiles · 18 public sources</p>
+    <p class="eyebrow rise">Labour-market brief · {jobs.length} job profiles · {sources.length} public sources</p>
     <h1 class="rise mt-5 max-w-[19ch] font-display">The work that stays.</h1>
     <p class="lede rise mt-6">
       AI is not wiping out jobs. It is splitting them: the same job can become more skilled and better
@@ -53,8 +54,8 @@ const headline = (j: (typeof jobs)[number]) => {
       tone="emerge"
     />
     <StatCard
-      value="−16%"
-      label="relative employment change for 22–25-year-olds in the most AI-exposed occupations. Experienced workers in the same jobs stayed flat."
+      value="−19%"
+      label="how far 22–25-year-olds in the most AI-exposed occupations sit below the path they were on. It was 15% a year earlier; experienced workers show no such gap."
       source="stanford-canaries"
       tone="risk"
     />
@@ -117,10 +118,10 @@ const headline = (j: (typeof jobs)[number]) => {
         </p>
         <p>
           The observed data is sharper and more uncomfortable. In payroll records, employment for
-          workers aged 22–25 in the most AI-exposed occupations fell 16% relative to less exposed
-          work, while experienced workers in those same jobs were stable. The adjustment came through
-          hiring rather than pay, and it concentrated where AI <em>automates</em> rather than
-          <em>augments</em>.<Cite ids="stanford-canaries" />
+          workers aged 22–25 in the most AI-exposed occupations now sit <em>19%</em> below where they
+          would be had they kept pace — up from 15% a year earlier — while experienced workers in those
+          same jobs show no comparable gap. The adjustment came through hiring rather than pay, and it
+          concentrated where AI <em>automates</em> rather than <em>augments</em>.<Cite ids="stanford-canaries" />
         </p>
         <p>
           So the useful question is not "is this job safe". It is <strong>which half of it
@@ -224,7 +225,7 @@ const headline = (j: (typeof jobs)[number]) => {
       eyebrow="Relative employment change since late 2022"
       title="Who is losing ground"
       sources={['stanford-canaries']}
-      note="High-frequency US payroll data. The 16% is relative to less AI-exposed occupations; adjustments came through hiring, not wages. The second row is a null result, not missing data."
+      note="High-frequency US payroll data through June 2026. The 19% is the shortfall against the path young workers in less-exposed jobs stayed on; adjustments came through hiring, not wages. The second row is a null result, not missing data."
     >
       <EntryLevelChart client:load />
     </Figure>

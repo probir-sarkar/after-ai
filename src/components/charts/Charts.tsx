@@ -259,7 +259,7 @@ export function ChurnChart() {
 }
 
 export function ExposureChart() {
-  return <RankedBars data={exposure} height={196} labelWidth={168} unitNote="Share of global employment by generative-AI exposure band" />;
+  return <RankedBars data={exposure} height={196} labelWidth={196} unitNote="Share of global employment by generative-AI exposure band" />;
 }
 
 /** PwC AI-skills wage premium by sector. */
@@ -519,6 +519,71 @@ export function DeltaRows({
           </div>
         );
       })}
+    </div>
+  );
+}
+
+/* ------------------------------------------------- seniority & pay */
+
+/**
+ * Indeed: the entry-level share of postings against the senior share, 2021 vs
+ * 2026, inside the most AI-exposed occupations. Two grouped bars say the thing
+ * the numbers say — the same postings tilted up the ladder.
+ */
+export function SeniorityShift({
+  data,
+}: {
+  data: { level: string; y2021: number; y2026: number; source: string }[];
+}) {
+  return (
+    <div>
+      <div className="mb-3 flex items-center gap-5">
+        <span className="flex items-center gap-2">
+          <span className="h-[9px] w-[9px] rounded-[2px]" style={{ background: C.emerge }} />
+          <span className="eyebrow">2021</span>
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="h-[9px] w-[9px] rounded-[2px]" style={{ background: C.signal }} />
+          <span className="eyebrow">2026</span>
+        </span>
+      </div>
+      <Plot height={220} label="Share of postings that are entry level or senior, 2021 and 2026, in the most AI-exposed occupations">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data} margin={{ top: 22, right: 8, bottom: 6, left: 0 }} barGap={6}>
+            <XAxis dataKey="level" axisLine={{ stroke: C.line }} tickLine={false} tick={{ ...tick, fontSize: 11.5 }} height={28} />
+            <YAxis
+              domain={[0, 60]}
+              ticks={[0, 20, 40, 60]}
+              tickFormatter={(v: number) => `${v}%`}
+              axisLine={false}
+              tickLine={false}
+              tick={{ ...tick, fontSize: 10.5 }}
+              width={40}
+            />
+            <Tooltip
+              cursor={{ fill: 'var(--chart-grid)' }}
+              content={({ active, payload }: TipProps) =>
+                active && payload?.length ? (
+                  <TipBox
+                    title={payload[0].payload.level}
+                    rows={[
+                      { k: '2021', v: `${payload[0].payload.y2021}%` },
+                      { k: '2026', v: `${payload[0].payload.y2026}%` },
+                      { k: 'source', v: payload[0].payload.source },
+                    ]}
+                  />
+                ) : null
+              }
+            />
+            <Bar dataKey="y2021" fill={C.emerge} fillOpacity={0.9} radius={[3, 3, 0, 0]} barSize={42} isAnimationActive={false}>
+              <LabelList dataKey="y2021" position="top" fill={C.ink} fontFamily={mono} fontSize={11.5} formatter={(v: number) => `${v}%`} />
+            </Bar>
+            <Bar dataKey="y2026" fill={C.signal} fillOpacity={0.95} radius={[3, 3, 0, 0]} barSize={42} isAnimationActive={false}>
+              <LabelList dataKey="y2026" position="top" fill={C.ink} fontFamily={mono} fontSize={11.5} formatter={(v: number) => `${v}%`} />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </Plot>
     </div>
   );
 }

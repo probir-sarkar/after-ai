@@ -6,7 +6,7 @@ import { cleanPath, site } from '@/lib/site';
 import Cite from '@/components/Cite.tsx';
 import Figure from '@/components/Figure.astro';
 import JobCard from '@/components/JobCard.astro';
-import { FdeChart, PremiumChart } from '@/components/charts/Index';
+import { FdeChart, PayDivergenceChart } from '@/components/charts/Index';
 
 const entry = await section('opportunity');
 const { Content } = await render(entry);
@@ -133,12 +133,12 @@ const clusters = [
       <FdeChart client:load />
     </Figure>
     <Figure
-      eyebrow="AI skills, priced"
-      title="The wage premium for AI skills"
-      sources={['pwc-release']}
-      note="Premium compares advertised wages for similar workers who differ only in whether the role requires AI skills. It does not control for education, experience or location."
+      eyebrow="Advertised pay since 2021"
+      title="Exposure has pulled pay up, not down"
+      sources={['indeed-pay']}
+      note="Median advertised salary on US postings, indexed to 2021 — a different measure from the AI-skills premium above. The exposure premium widens with seniority: largest for senior roles, negligible at entry level."
     >
-      <PremiumChart client:load />
+      <PayDivergenceChart client:load />
     </Figure>
   </section>
 

@@ -3,8 +3,8 @@
  * series it uses is fixed here. Bar height is derived from the row count so a
  * longer list cannot squash its labels.
  */
-import { DeltaRows, RankedBars, ZeroBars } from './Charts';
-import { blsAbsolute, blsGrowth, entryLevel, seniorised } from '@/data/series';
+import { DeltaRows, RankedBars, SeniorityShift, ZeroBars } from './Charts';
+import { blsAbsolute, blsGrowth, entryLevel, entryLevelLevels, payDivergence, seniorised, seniorityShift } from '@/data/series';
 
 const rowHeight = (n: number, min = 180) => Math.max(min, n * 27 + 24);
 
@@ -12,6 +12,31 @@ export function EntryLevelChart() {
   return (
     <DeltaRows
       rows={entryLevel.map((r) => ({ label: r.label, value: r.value, display: r.display, tone: r.tone }))}
+    />
+  );
+}
+
+export function EntryLevelLevelsChart() {
+  return (
+    <ZeroBars
+      data={entryLevelLevels}
+      height={252}
+      note="Employment change in levels, November 2022 to June 2026, for 22–25-year-olds"
+    />
+  );
+}
+
+export function SeniorityChart() {
+  return <SeniorityShift data={seniorityShift} />;
+}
+
+export function PayDivergenceChart() {
+  return (
+    <RankedBars
+      data={payDivergence}
+      height={150}
+      labelWidth={190}
+      unitNote="Growth in advertised pay since 2021, by AI exposure"
     />
   );
 }

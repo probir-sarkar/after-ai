@@ -39,16 +39,16 @@ export const churn: {
 export const exposure: Bar[] = [
   { label: 'Any exposure, worldwide', value: 25, display: '1 in 4', source: 'ilo-index', tone: 'signal' },
   { label: 'Highest exposure band', value: 3.3, display: '3.3%', source: 'ilo-index', tone: 'risk' },
-  { label: 'Any exposure — high-income', value: 34, display: '34%', source: 'ilo-index', tone: 'emerge' },
-  { label: 'Any exposure — low-income', value: 11, display: '11%', source: 'ilo-index', tone: 'survive' },
+  { label: 'High-income countries', value: 34, display: '34%', source: 'ilo-index', tone: 'emerge' },
+  { label: 'Low-income countries', value: 11, display: '11%', source: 'ilo-index', tone: 'survive' },
 ];
 
-/** Stanford: relative employment change since late 2022. */
+/** Stanford, August 2026 revision: the kept-pace shortfall, not a raw decline. */
 export const entryLevel: Bar[] = [
   {
     label: 'Ages 22–25, exposed',
-    value: -16,
-    display: '−16%',
+    value: -19,
+    display: '−19%',
     source: 'stanford-canaries',
     tone: 'risk',
   },
@@ -174,3 +174,26 @@ export const spectrum = {
   ],
   source: 'geekwire-ms',
 };
+
+/** Stanford: raw levels, Nov 2022 → Jun 2026, two most vs three least exposed quintiles. */
+export const entryLevelLevels: Bar[] = [
+  { label: '22–25, most exposed', value: -11, display: '−11%', source: 'stanford-canaries', tone: 'risk' },
+  { label: '22–25, least exposed', value: 10, display: '+10%', source: 'stanford-canaries', tone: 'survive' },
+];
+
+/** Indeed: entry-level vs senior share of postings in the most AI-exposed occupations. */
+export const seniorityShift: {
+  level: string;
+  y2021: number;
+  y2026: number;
+  source: string;
+}[] = [
+  { level: 'Entry level', y2021: 29, y2026: 10, source: 'indeed-pay' },
+  { level: 'Senior', y2021: 22, y2026: 47, source: 'indeed-pay' },
+];
+
+/** Indeed: advertised pay growth since 2021, by AI exposure. */
+export const payDivergence: Bar[] = [
+  { label: 'Most AI-exposed jobs', value: 46, display: '+46%', source: 'indeed-pay', tone: 'emerge' },
+  { label: 'Least AI-exposed jobs', value: 25, display: '+25%', source: 'indeed-pay', tone: 'survive' },
+];
