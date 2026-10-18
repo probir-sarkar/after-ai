@@ -2,8 +2,11 @@
 <!--
   Source for public/og.png. Rendered with headless Chrome at 1200x630:
     npm run assets
-  No counts are baked in: a number in an image cannot be derived at build time,
-  so it goes stale the moment the site grows.
+
+  No figures appear in this image, by design. A number baked into a PNG cannot be
+  derived at build time, so it goes stale the moment the data is refreshed — the
+  card that said "−16%" was a month behind the site. What is here is only what
+  does not move: the name, the claim, the three categories, and the domain.
 -->
 <html lang="en">
   <head>
@@ -31,7 +34,7 @@
         background: #08080a;
         color: #f2efe9;
         font-family: 'Inter V', system-ui, sans-serif;
-        padding: 62px 68px 54px;
+        padding: 60px 68px 52px;
         display: flex;
         flex-direction: column;
         position: relative;
@@ -39,23 +42,23 @@
       }
       .glow {
         position: absolute;
-        width: 760px;
-        height: 760px;
-        right: -240px;
-        top: -300px;
-        background: radial-gradient(circle, rgba(220, 242, 110, 0.16), rgba(8, 8, 10, 0) 62%);
+        width: 780px;
+        height: 780px;
+        right: -250px;
+        top: -310px;
+        background: radial-gradient(circle, rgba(220, 242, 110, 0.15), rgba(8, 8, 10, 0) 62%);
       }
       .eyebrow {
         font-family: 'Mono V', monospace;
         font-size: 15px;
         letter-spacing: 0.24em;
         text-transform: uppercase;
-        color: #71717e;
+        color: #8b8b97;
       }
       h1 {
         font-family: 'Instrument', Georgia, serif;
         font-weight: 400;
-        font-size: 116px;
+        font-size: 118px;
         line-height: 0.94;
         letter-spacing: -0.02em;
         margin-top: 26px;
@@ -63,74 +66,83 @@
       }
       .sub {
         margin-top: 20px;
-        font-size: 23px;
+        font-size: 24px;
         line-height: 1.4;
-        color: #a2a2ae;
-        max-width: 42ch;
+        color: #b6b6c1;
+        max-width: 40ch;
       }
       .domain {
-        margin-top: 22px;
+        margin-top: 20px;
         font-family: 'Mono V', monospace;
         font-size: 17px;
         letter-spacing: 0.02em;
         color: #dcf26e;
       }
-      .stats {
+      .tracks {
         margin-top: auto;
         display: flex;
-        gap: 54px;
+        gap: 46px;
         padding-top: 26px;
-        border-top: 1px solid #26262f;
-        position: relative;
+        border-top: 1px solid #2c2c35;
       }
-      .stat b {
+      .track { flex: 1; max-width: 330px; }
+      .track .label {
         font-family: 'Mono V', monospace;
-        font-size: 40px;
-        font-weight: 500;
-        letter-spacing: -0.03em;
-        display: block;
-      }
-      .stat span {
-        display: block;
-        margin-top: 8px;
         font-size: 14px;
-        color: #71717e;
-        max-width: 24ch;
-        line-height: 1.35;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
-      .survive { color: #6ee7b7; }
-      .risk { color: #ff7d6e; }
-      .signal { color: #dcf26e; }
-      .emerge { color: #8ab4ff; }
+      .dot { width: 11px; height: 11px; border-radius: 50%; display: block; }
+      .track p {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.42;
+        color: #9c9ca8;
+      }
+      .survive { color: #7ff0c2; }
+      .risk { color: #ff9385; }
+      .emerge { color: #9cc0ff; }
       .mark {
         position: absolute;
         right: 68px;
-        top: 60px;
+        top: 58px;
         display: flex;
         gap: 7px;
         align-items: flex-end;
         height: 46px;
       }
       .mark i { display: block; width: 11px; border-radius: 3px; }
-      .mark i:nth-child(1) { height: 18px; background: #6ee7b7; }
-      .mark i:nth-child(2) { height: 30px; background: #8ab4ff; }
+      .mark i:nth-child(1) { height: 18px; background: #7ff0c2; }
+      .mark i:nth-child(2) { height: 30px; background: #9cc0ff; }
       .mark i:nth-child(3) { height: 46px; background: #dcf26e; }
     </style>
   </head>
   <body>
     <div class="glow"></div>
     <div class="mark"><i></i><i></i><i></i></div>
-    <div class="eyebrow">Labour-market brief · 2025–26 evidence</div>
+    <div class="eyebrow">Labour-market brief</div>
     <h1>The work that stays.</h1>
     <p class="sub">
-      Which jobs survive automation, which are exposed, and which are being born. Every figure cited to a public source.
+      Which jobs survive automation, which are exposed, and which are being born — every figure
+      cited to a public source.
     </p>
     <div class="domain">after-ai.probir.dev</div>
-    <div class="stats">
-      <div class="stat"><b class="emerge">1 in 4</b><span>workers exposed to generative AI</span></div>
-      <div class="stat"><b class="risk">−19%</b><span>shortfall, ages 22–25, most exposed jobs</span></div>
-      <div class="stat"><b class="signal">+62%</b><span>wage premium for AI skills</span></div>
-      <div class="stat"><b class="survive">+847,300</b><span>care jobs projected by 2035</span></div>
+    <div class="tracks">
+      <div class="track">
+        <div class="label survive"><span class="dot" style="background:#7ff0c2"></span>Survives</div>
+        <p>Work that needs hands in a changing place, a person to answer for the result, or a relationship.</p>
+      </div>
+      <div class="track">
+        <div class="label risk"><span class="dot" style="background:#ff9385"></span>Exposed</div>
+        <p>Routine cognitive work — and the entry rung of jobs that used to train people into the rest.</p>
+      </div>
+      <div class="track">
+        <div class="label emerge"><span class="dot" style="background:#9cc0ff"></span>Emerging</div>
+        <p>Building AI, deploying it inside companies, labelling its output, and governing it.</p>
+      </div>
     </div>
   </body>
 </html>
