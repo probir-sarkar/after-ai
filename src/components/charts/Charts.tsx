@@ -424,38 +424,29 @@ export function TestBars({
   verdict: Verdict;
   reading: string;
 }) {
-  // Three states, no numbers: holds, partly, doesn't. A 0–3 scale needed a key,
-  // a total out of twelve and a caveat to decode — more apparatus than the
-  // content deserved. The mark carries the meaning.
-  const stateOf = (n: number) => (n >= 2 ? 'yes' : n === 1 ? 'partly' : 'no');
-
-  const mark = {
-    yes: { glyph: '✓', label: 'holds', color: 'var(--color-ink)' },
-    partly: { glyph: '~', label: 'partly', color: 'var(--color-muted)' },
-    no: { glyph: '✕', label: 'does not hold', color: 'var(--color-faint)' },
-  } as const;
+  // A word, not a number or a glyph: the mark tells you how much each test
+  // applies, in the same words you would use answering it about a job.
+  const words = [
+    { word: 'not at all', color: 'var(--color-faint)' },
+    { word: 'a little', color: 'var(--color-muted)' },
+    { word: 'yes', color: 'var(--color-ink)' },
+    { word: 'very much', color: 'var(--color-signal)' },
+  ];
 
   return (
     <div>
       <ul className="grid gap-2.5">
         {testLabels.map((t) => {
-          const state = stateOf(tests[t.key] ?? 0);
-          const m = mark[state];
+          const score = tests[t.key] ?? 0;
+          const m = words[Math.min(score, 3)];
           return (
-            <li key={t.key} className="flex items-baseline gap-3">
-              <span
-                aria-hidden="true"
-                className="w-[14px] shrink-0 text-center text-[13px] leading-none"
-                style={{ color: m.color }}
-              >
-                {m.glyph}
+            <li key={t.key} className="text-[13.5px] leading-snug">
+              <span className="text-muted">{t.short}</span>
+              <span className="text-faint"> — </span>
+              <span className="font-medium" style={{ color: m.color }}>
+                {m.word}
               </span>
-              <span
-                className={`text-[13.5px] leading-snug ${state === 'no' ? 'text-faint' : 'text-ink'}`}
-              >
-                {t.short}
-                <span className="sr-only"> — {m.label}</span>
-              </span>
+              <span className="sr-only"> ({m.word})</span>
             </li>
           );
         })}
@@ -465,7 +456,7 @@ export function TestBars({
         {reading}
       </p>
       <p className="mt-2 text-[11.5px] leading-relaxed text-faint">
-        ✓ holds · ~ partly · ✕ doesn’t. Our reading of the job, not a measurement — the evidence is below.
+        Our reading of the job, not a measurement — the evidence is below.
       </p>
     </div>
   );
