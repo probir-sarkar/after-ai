@@ -14,6 +14,7 @@ const OPTIONS: { value: Verdict | 'all'; label: string }[] = [
   { value: 'at-risk', label: verdictMeta['at-risk'].label },
   { value: 'emerging', label: verdictMeta.emerging.label },
   { value: 'mixed', label: verdictMeta.mixed.label },
+  { value: 'possible', label: verdictMeta.possible.label },
 ];
 
 export default function JobFilter({ counts }: { counts: Record<string, number> }) {

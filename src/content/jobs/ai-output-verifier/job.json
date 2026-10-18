@@ -1,0 +1,33 @@
+{
+  "name": "AI output verifier",
+  "short": "AI output verifier",
+  "verdict": "possible",
+  "category": "cognitive",
+  "oneLiner": "The quiet rate-limiter on every agent deployment: a person who can tell when the machine is wrong, at volume, in their own domain.",
+  "tests": {
+    "body": 0,
+    "accountability": 2,
+    "relationship": 1,
+    "bundle": 1
+  },
+  "why": [
+    "Reviewing outputs, handling exceptions and assuring quality is the work AI creates alongside the work it does",
+    "Even in the most AI-applicable occupations, the human share concentrates in checking, judging and communicating"
+  ],
+  "threats": [
+    "Verifier models \u2014 AI checking AI \u2014 could take the volume and leave only the exceptions",
+    "The work may remain a task inside every job rather than becoming a job of its own"
+  ],
+  "claims": [
+    {
+      "text": "McKinsey's agents work treats human oversight \u2014 reviewing outputs, handling exceptions, assuring quality, documenting decisions \u2014 as the standing obligation that comes with deployment.",
+      "source": "mckinsey-agents"
+    },
+    {
+      "text": "Microsoft's study of 200,000 anonymised Copilot conversations found the highest-applicability occupations keep humans on the tasks AI helps with least: verification, judgement and communication.",
+      "source": "ms-applicability"
+    }
+  ],
+  "horizon": "not yet a title",
+  "order": 44
+}

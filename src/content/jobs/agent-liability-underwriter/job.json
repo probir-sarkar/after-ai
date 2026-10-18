@@ -1,0 +1,24 @@
+{
+  "name": "Agent liability underwriter",
+  "short": "Agent liability underwriter",
+  "verdict": "possible",
+  "category": "judgement",
+  "oneLiner": "When an agent books the slot or signs the order, someone has to price the mistake. No market for that exists yet.",
+  "tests": {
+    "body": 0,
+    "accountability": 3,
+    "relationship": 2,
+    "bundle": 2
+  },
+  "why": [
+    "Delegating real actions \u2014 payments, bookings, orders \u2014 to agents creates a liability question every deployment currently answers informally",
+    "Insurance has a track record of turning new technologies into priced products"
+  ],
+  "threats": [
+    "Contract law may absorb the question by pinning liability on existing roles",
+    "Agents that log everything may make the risk priceable enough that no human underwriter is needed"
+  ],
+  "claims": [],
+  "horizon": "not yet a title",
+  "order": 45
+}

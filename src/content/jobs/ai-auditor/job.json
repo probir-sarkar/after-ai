@@ -1,0 +1,29 @@
+{
+  "name": "AI auditor",
+  "short": "AI auditor",
+  "verdict": "possible",
+  "category": "judgement",
+  "oneLiner": "The build half of AI hiring runs about seven to one ahead of the governance half. Someone has to close that gap, and the role has no settled name.",
+  "tests": {
+    "body": 0,
+    "accountability": 3,
+    "relationship": 1,
+    "bundle": 2
+  },
+  "why": [
+    "Regulation attaches a permanent audit function to deployed AI",
+    "The hiring ratio says governance is understaffed relative to build"
+  ],
+  "threats": [
+    "It may arrive as a specialisation inside existing audit and compliance professions rather than a new title",
+    "If regulation thins out, the pressure behind the role thins with it"
+  ],
+  "claims": [
+    {
+      "text": "A vendor study of 3,519 AI-related postings across eight EU countries found companies hire roughly seven people to build AI for every one hired to govern it \u2014 with the stated caveat that the study's author sells governance hiring.",
+      "source": "axipro"
+    }
+  ],
+  "horizon": "not yet a title",
+  "order": 43
+}

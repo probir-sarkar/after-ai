@@ -17,6 +17,7 @@
   --color-survive: var(--survive);
   --color-risk: var(--risk);
   --color-emerge: var(--emerge);
+  --color-possible: var(--possible);
   --color-signal: var(--signal);
 
   --font-display: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
@@ -43,6 +44,7 @@
   --survive: #7ff0c2;
   --risk: #ff9385;
   --emerge: #9cc0ff;
+  --possible: #c9a8ff;
   --signal: #dcf26e;
 
   --chart-grid: rgba(255, 255, 255, 0.09);
@@ -64,6 +66,7 @@
   --survive: #0b6b4f;
   --risk: #a92f1c;
   --emerge: #1c4f9c;
+  --possible: #6b4fd8;
   --signal: #55660a;
 
   --chart-grid: rgba(20, 20, 15, 0.12);

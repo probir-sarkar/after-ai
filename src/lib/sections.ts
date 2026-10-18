@@ -6,7 +6,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
  * and the schema enum makes the four valid keys a build-time check.
  */
 export async function section(
-  key: 'survives' | 'risk' | 'opportunity' | 'what-to-do'
+  key: 'survives' | 'risk' | 'opportunity' | 'what-to-do' | 'possibilities'
 ): Promise<CollectionEntry<'sections'>> {
   const all = await getCollection('sections');
   const entry = all.find((s) => s.data.key === key);

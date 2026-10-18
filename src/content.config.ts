@@ -44,7 +44,7 @@ export const collections = {
     schema: z.object({
       name: z.string(),
       short: z.string(),
-      verdict: z.enum(['survives', 'at-risk', 'emerging', 'mixed']),
+      verdict: z.enum(['survives', 'at-risk', 'emerging', 'mixed', 'possible']),
       category: z.enum(['care', 'trades', 'judgement', 'frontline', 'cognitive', 'platform']),
       oneLiner: z.string(),
       /** Editorial reading of the task profile — labelled as such in the UI. */
@@ -75,7 +75,7 @@ export const collections = {
   sections: defineCollection({
     loader: glob({ pattern: 'sections/*.{md,mdx}', base: './src/content' }),
     schema: z.object({
-      key: z.enum(['survives', 'risk', 'opportunity', 'what-to-do']),
+      key: z.enum(['survives', 'risk', 'opportunity', 'what-to-do', 'possibilities']),
       title: z.string(),
       eyebrow: z.string(),
       standfirst: z.string(),

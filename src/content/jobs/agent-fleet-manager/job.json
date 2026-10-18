@@ -1,0 +1,33 @@
+{
+  "name": "Agent fleet manager",
+  "short": "Agent fleet manager",
+  "verdict": "possible",
+  "category": "platform",
+  "oneLiner": "No one holds this title yet. The pattern it would run \u2014 one coordinator delegating work to a fleet of subagents \u2014 is already shipping in software.",
+  "tests": {
+    "body": 0,
+    "accountability": 2,
+    "relationship": 1,
+    "bundle": 3
+  },
+  "why": [
+    "Coordinator agents that delegate to subagents already run in production coding tools",
+    "Someone has to own the outcomes of a fleet: the goal, the budget, the review"
+  ],
+  "threats": [
+    "The coordinator agent itself may absorb the management layer, the way it absorbed delegation",
+    "It may never be a title \u2014 the work may fold into existing engineering management"
+  ],
+  "claims": [
+    {
+      "text": "McKinsey's Global Institute argues that as agents deploy, human work shifts toward partnering with and supervising AI systems rather than competing task-for-task.",
+      "source": "mckinsey-agents"
+    },
+    {
+      "text": "AI and machine-learning specialists rank among the fastest-growing roles in the WEF's employer survey, with AI and information processing expected to create more roles than it displaces by 2030.",
+      "source": "wef-jobs-2025"
+    }
+  ],
+  "horizon": "not yet a title",
+  "order": 41
+}

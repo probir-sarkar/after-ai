@@ -1,0 +1,33 @@
+{
+  "name": "Robot fleet supervisor",
+  "short": "Robot fleet supervisor",
+  "verdict": "possible",
+  "category": "trades",
+  "oneLiner": "Every robot that arrives creates people who watch, fix and redirect it. The fleet-scale version of that shift has no title yet.",
+  "tests": {
+    "body": 2,
+    "accountability": 2,
+    "relationship": 0,
+    "bundle": 2
+  },
+  "why": [
+    "Employers expect robots to displace more work than they create \u2014 and deployed fleets need supervision, maintenance and exception handling",
+    "The nearest existing job, industrial machinery mechanic, already carries a strong official projection"
+  ],
+  "threats": [
+    "Robots that maintain robots would hollow the role from underneath",
+    "The work may stay distributed across existing technician jobs rather than becoming a title"
+  ],
+  "claims": [
+    {
+      "text": "McKinsey estimates robots reach about 13% of US work hours today, against 44% for software agents \u2014 the physical fleet is early, and supervised by people where it exists.",
+      "source": "mckinsey-agents"
+    },
+    {
+      "text": "In the WEF employer survey, robotics engineers are among the fastest-growing roles, while robots and autonomous systems are the one technology driver expected to displace more jobs than they create by 2030 \u2014 a net \u22125 million.",
+      "source": "wef-jobs-2025"
+    }
+  ],
+  "horizon": "not yet a title",
+  "order": 42
+}

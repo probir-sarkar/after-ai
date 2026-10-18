@@ -11,12 +11,13 @@ export const nav = [
   { href: '/survives', label: 'Survives' },
   { href: '/risk', label: 'Risk' },
   { href: '/opportunity', label: 'Opportunity' },
+  { href: '/possibilities', label: 'Possibilities' },
   { href: '/what-to-do', label: 'What to do' },
   { href: '/jobs', label: 'All jobs' },
   { href: '/sources', label: 'Sources' },
 ] as const;
 
-export type Verdict = 'survives' | 'at-risk' | 'emerging' | 'mixed';
+export type Verdict = 'survives' | 'at-risk' | 'emerging' | 'mixed' | 'possible';
 
 export const verdictMeta: Record<
   Verdict,
@@ -45,6 +46,13 @@ export const verdictMeta: Record<
     blurb: 'Splitting in two: a version that got more expert, and a version that got deskilled.',
     color: 'var(--color-signal)',
     tone: 'signal',
+  },
+  possible: {
+    label: 'Possible',
+    blurb:
+      'Not a real job yet. A pattern the evidence suggests could become one — our reading, labelled as speculation.',
+    color: 'var(--color-possible)',
+    tone: 'possible',
   },
 };
 

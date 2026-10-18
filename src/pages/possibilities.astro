@@ -1,0 +1,86 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import { section } from '@/lib/sections';
+import { cleanPath, site } from '@/lib/site';
+import JobCard from '@/components/JobCard.astro';
+
+const entry = await section('possibilities');
+const { Content } = await render(entry);
+
+const url = new URL(cleanPath(Astro.url.pathname), Astro.site ?? site.url).href;
+const origin = new URL(url).origin;
+const jsonLd = [
+  {
+    '@type': 'WebPage',
+    '@id': url,
+    url,
+    name: entry.data.title,
+    description: entry.data.standfirst,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${origin}/#website` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${origin}/` },
+      { '@type': 'ListItem', position: 2, name: entry.data.title, item: url },
+    ],
+  },
+];
+
+const jobs = (await getCollection('jobs'))
+  .filter((j) => j.data.verdict === 'possible')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title={entry.data.title}
+  description={entry.data.description ?? entry.data.standfirst}
+  jsonLd={jsonLd}
+>
+  <section class="wrap section-tight sm:pt-16">
+    <div class="flex items-center gap-4">
+      <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
+      <span class="h-px flex-1 bg-[var(--color-line-soft)]"></span>
+      <span class="eyebrow">{jobs.length} patterns</span>
+    </div>
+    <h1 class="mt-6 max-w-[18ch] font-display">{entry.data.title}</h1>
+    <p class="lede mt-5">{entry.data.standfirst}</p>
+  </section>
+
+  <section class="wrap grid gap-10 section-tight lg:grid-cols-[1fr_320px] lg:items-start">
+    <div class="prose-body max-w-[70ch]">
+      <Content />
+    </div>
+    <aside class="hairline pt-6 lg:sticky lg:top-20">
+      <div class="eyebrow">How to read this page</div>
+      <div class="mt-4 space-y-4">
+        <p class="text-[13px] leading-relaxed text-muted">
+          These are patterns, not predictions. Each one is visible in deployed products or hiring data
+          today; none has a job title.
+        </p>
+        <p class="hairline pt-4 text-[13px] leading-relaxed text-muted">
+          No salary or growth figures appear anywhere on this page, because inventing numbers for jobs
+          nobody has would be the one thing this site refuses to do.
+        </p>
+        <div class="hairline pt-4">
+          <a href="/what-to-do" class="font-mono text-[11px] uppercase tracking-[0.12em] text-signal no-underline"
+            >What to actually do →</a
+          >
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="wrap section-tight">
+    <div class="grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
+      {jobs.map((j) => <JobCard {...j.data} id={j.id} />)}
+    </div>
+  </section>
+
+  <section class="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line-soft py-8">
+    <a href="/opportunity" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-muted no-underline hover:text-ink">← Jobs being born now</a>
+    <a href="/what-to-do" class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-signal no-underline">Next: what to do →</a>
+  </section>
+</Base>
