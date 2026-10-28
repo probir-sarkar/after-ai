@@ -94,7 +94,7 @@ function parseYaml(text) {
 }
 
 // ---------- job entries ----------
-const testWords = (v) => (v === 2 ? "yes" : v === 1 ? "a little" : "no");
+const testWords = (v) => ({ 0: "not at all", 1: "a little", 2: "yes", 3: "very much" }[v] ?? "not at all");
 
 const jobEntries = jobs
   .map((j) => {
@@ -121,7 +121,7 @@ const jobEntries = jobs
       <h2>${esc(j.name)}</h2>
       <p class="e-lede">${esc(j.oneLiner)}</p>
       <p class="e-protect">${esc(protectionWord(profile.total))} — ${esc(profile.reading)}</p>
-      <ul class="e-tests">${tests}</ul>
+      <p class="e-legend">The four tests — how much each property protects the job: not at all · a little · yes · very much. More protection, not more importance.</p><ul class="e-tests">${tests}</ul>
       ${metrics ? `<div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics">${metrics}</ul></div>` : ""}
       ${claims ? `<div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list">${claims}</ul></div>` : ""}
       ${why ? `<div class="e-block"><p class="b-h">What holds</p><ul class="e-list">${why}</ul></div>` : ""}
@@ -217,7 +217,8 @@ const html = `<!doctype html>
   .essay h2 { font-size: 17pt; line-height: 1.2; margin: 0 0 4mm; }
   .e-lede { font-size: 11.5pt; line-height: 1.4; margin: 0 0 3mm; color: #3c3c37; }
   .e-protect { font-size: 9pt; margin: 0 0 3mm; color: #5d5d55; }
-  .e-tests { list-style: none; padding: 2.5mm 0 0; margin: 0 0 2mm; border-top: 0.3pt solid #d8d5cb; }
+  .e-legend { font-size: 7.4pt; color: #8b8b83; margin: 0 0 1mm; }
+  .e-tests { list-style: none; padding: 1mm 0 0; margin: 0 0 2mm; border-top: 0.3pt solid #d8d5cb; }
   .e-tests li { font-size: 8.6pt; margin: 0 0 1mm; color: #3c3c37; }
   .t-word { display: inline-block; min-width: 18mm; font-weight: bold; }
   .e-block { margin: 4mm 0 0; }
