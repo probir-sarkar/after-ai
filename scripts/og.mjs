@@ -10,11 +10,19 @@
 // and no server. Run: node scripts/og.mjs   (then `npm run build`)
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const OUT = join(ROOT, 'public', 'og');
+// Cards live in R2, not in the repo: 30 PNGs in git is 3 MB of binary that no
+// one can diff. The URL map is committed so a plain build still has previews.
+const OUT = join(ROOT, 'node_modules', '.og-out');
 const TMP = join(ROOT, 'node_modules', '.og-tmp');
+const MAP = join(ROOT, 'src', 'data', 'og.json');
+const CACHE = join(ROOT, 'node_modules', '.og-hashes.json');
+const BUCKET = 'browserstay-assets';
+const PUBLIC = 'https://pub-73ba21a85584404aad016046b7da70d7.r2.dev';
+const PREFIX = 'after-ai/og';
 mkdirSync(OUT, { recursive: true });
 mkdirSync(TMP, { recursive: true });
 
@@ -164,4 +172,38 @@ for (const file of readdirSync(sectionsDir)) {
   made++;
 }
 
-console.log(`og: ${made} cards written to public/og/`);
+console.log(`og: ${made} cards rendered`);
+
+
+// ---- upload to R2, and record the URLs the pages use ----
+const hashes = existsSync(CACHE) ? JSON.parse(readFileSync(CACHE, 'utf8')) : {};
+const map = existsSync(MAP) ? JSON.parse(readFileSync(MAP, 'utf8')) : {};
+let uploaded = 0;
+
+for (const file of readdirSync(OUT).filter((f) => f.endsWith('.png'))) {
+  const slug = file.replace(/\.png$/, '');
+  const path = join(OUT, file);
+  const hash = createHash('sha256').update(readFileSync(path)).digest('hex');
+  const key = `${PREFIX}/${slug}.png`;
+  const url = `${PUBLIC}/${key}`;
+
+  if (hashes[slug] === hash && map[slug] === url) {
+    continue; // unchanged and already public
+  }
+  try {
+    execFileSync('npx', ['wrangler', 'r2', 'object', 'put', `${BUCKET}/${key}`, '--file', path, '--content-type', 'image/png', '--remote'], {
+      cwd: ROOT,
+      stdio: 'ignore',
+      env: { ...process.env, PATH: `${process.env.HOME}/.bun/bin:${process.env.PATH}` }
+    });
+    hashes[slug] = hash;
+    uploaded++;
+  } catch {
+    console.warn(`og: upload failed for ${slug} — keeping the previous URL`);
+  }
+  map[slug] = url;
+}
+
+writeFileSync(MAP, JSON.stringify(map, null, 2) + '\n');
+writeFileSync(CACHE, JSON.stringify(hashes, null, 2) + '\n');
+console.log(`og: ${uploaded} uploaded to R2, ${Object.keys(map).length} URLs in src/data/og.json`);

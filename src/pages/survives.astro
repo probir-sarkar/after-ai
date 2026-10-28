@@ -8,6 +8,7 @@ import Figure from '@/components/Figure.astro';
 import Spectrum from '@/components/Spectrum.astro';
 import JobCard from '@/components/JobCard.astro';
 import { BlsAbsoluteChart, BlsGrowthChart } from '@/components/charts/Index';
+import ogUrls from '@/data/og.json';
 
 const entry = await section('survives');
 const { Content } = await render(entry);
@@ -53,7 +54,7 @@ const totalJobs = withProjection.reduce(
 <Base
   title={entry.data.title}
   description={entry.data.description ?? entry.data.standfirst}
- image="/og/survives.png">
+ image={ogUrls['survives' as keyof typeof ogUrls] ?? '/og.png'}>
   <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>

@@ -8,6 +8,7 @@ import Figure from '@/components/Figure.astro';
 import Spectrum from '@/components/Spectrum.astro';
 import JobCard from '@/components/JobCard.astro';
 import { EntryLevelChart, EntryLevelLevelsChart, ExposureChart, SeniorityChart } from '@/components/charts/Index';
+import ogUrls from '@/data/og.json';
 
 const entry = await section('risk');
 const { Content } = await render(entry);
@@ -54,7 +55,7 @@ const declining = [
 ];
 ---
 
-<Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst} image="/og/risk.png">
+<Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst} image={ogUrls['risk' as keyof typeof ogUrls] ?? '/og.png'}>
   <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>

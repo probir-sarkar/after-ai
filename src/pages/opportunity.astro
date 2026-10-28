@@ -7,6 +7,7 @@ import Cite from '@/components/Cite.tsx';
 import Figure from '@/components/Figure.astro';
 import JobCard from '@/components/JobCard.astro';
 import { FdeChart, PayDivergenceChart } from '@/components/charts/Index';
+import ogUrls from '@/data/og.json';
 
 const entry = await section('opportunity');
 const { Content } = await render(entry);
@@ -75,7 +76,7 @@ const clusters = [
 ];
 ---
 
-<Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst} image="/og/opportunity.png">
+<Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst} image={ogUrls['opportunity' as keyof typeof ogUrls] ?? '/og.png'}>
   <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>

@@ -12,3 +12,6 @@ node_modules/
 # logs and OS noise
 *.log
 .DS_Store
+
+# OG cards live in R2 (browserstay-assets/after-ai/og); see scripts/og.mjs
+public/og/
