@@ -10,7 +10,8 @@
     "check": "node scripts/check.mjs",
     "seo": "node scripts/seo.mjs",
     "assets": "node scripts/make-assets.mjs",
-    "deploy": "npm run build && wrangler deploy"
+    "og": "node scripts/og.mjs",
+    "deploy": "npm run og && npm run build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.6",

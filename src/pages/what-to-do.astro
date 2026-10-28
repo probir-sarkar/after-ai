@@ -53,7 +53,7 @@ const evidence: Record<string, { text: string; source: string }> = {
 };
 ---
 
-<Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst}>
+<Base title={entry.data.title} jsonLd={jsonLd} description={entry.data.description ?? entry.data.standfirst} image="/og/what-to-do.png">
   <section class="wrap section-tight sm:pt-16">
     <div class="flex items-center gap-4">
       <span class="num text-[11.5px] text-faint">{entry.data.eyebrow}</span>
