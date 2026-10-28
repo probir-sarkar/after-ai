@@ -15,23 +15,64 @@
     "Volume is high and the interaction is text or voice, both native to AI"
   ],
   "threats": [],
-  "metrics": [],
+  "metrics": [
+    {
+      "label": "Employment in the most AI-exposed jobs, workers aged 22–25, year on year (September 2026)",
+      "display": "−3.7%",
+      "value": -3.7,
+      "unit": "percent",
+      "source": "adp-canaries-sep26"
+    },
+    {
+      "label": "Same age group, least AI-exposed jobs",
+      "display": "+0.2%",
+      "value": 0.2,
+      "unit": "percent",
+      "source": "adp-canaries-sep26"
+    },
+    {
+      "label": "Consecutive months of year-over-year decline in that first figure",
+      "display": "36",
+      "value": 36,
+      "unit": "count",
+      "source": "adp-canaries-sep26"
+    },
+    {
+      "label": "Entry-level share of postings in the most exposed roles, 2021 to 2026",
+      "display": "10%",
+      "value": 10,
+      "unit": "percent",
+      "source": "indeed-pay"
+    }
+  ],
   "claims": [
     {
-      "text": "Customer service representatives are among the most affected occupations in Microsoft's usage-based analysis.",
+      "text": "In the year to September 2026, employment in the most AI-exposed US occupations fell 0.5% while the least-exposed grew 1.0%. For workers aged 22–25 the exposed group fell 3.7% and the least-exposed group rose 0.2%.",
+      "source": "adp-canaries-sep26"
+    },
+    {
+      "text": "September was the 36th consecutive month of year-over-year decline for 22–25-year-olds in highly exposed occupations, a run that began in October 2023. For workers aged 26–30 the exposed group is now 2.8% below a year earlier, against growth of 0.9% in the least-exposed group.",
+      "source": "adp-canaries-sep26"
+    },
+    {
+      "text": "Early-career workers aged 22–25 in the most AI-exposed occupations sit 19% below their kept-pace path in the August 2026 revision of the Stanford paper. That is a level gap, not the 3.7% annual rate above, and the two cannot be added.",
+      "source": "stanford-canaries"
+    },
+    {
+      "text": "In France, permanent-contract hires for 21–29-year-olds in the most AI-exposed fifth of occupations were about 28% below their November 2022 level by March 2026, against 8% in the least-exposed fifth. Terminations fell by about 23% and 6%, so the adjustment is slower hiring and turnover rather than layoffs.",
+      "source": "bdf-463"
+    },
+    {
+      "text": "In the most exposed occupations the entry-level share of US postings fell from 29% to 10% between 2021 and 2026, while the senior share rose from 22% to 47%.",
+      "source": "indeed-pay"
+    },
+    {
+      "text": "Customer service representatives are among the most affected occupations in Microsoft’s usage-based analysis of Copilot conversations.",
       "source": "geekwire-ms"
-    },
-    {
-      "text": "Early-career workers aged 22–25 in the most AI-exposed occupations — including customer service representatives and software developers — now sit 19% below their kept-pace path (15% a year earlier), while experienced workers in the same occupations stayed stable.",
-      "source": "stanford-canaries"
-    },
-    {
-      "text": "Employment declines concentrate in applications where AI automates work rather than augments it.",
-      "source": "stanford-canaries"
     }
   ],
   "series": [],
-  "horizon": "2022–2025",
+  "horizon": "2021–2026",
   "order": 22,
   "featured": true
 }

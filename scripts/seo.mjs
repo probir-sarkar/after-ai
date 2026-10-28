@@ -148,8 +148,13 @@ const robotsFile = join(DIST, 'robots.txt');
 if (!existsSync(robotsFile)) fail('dist/robots.txt is missing');
 else {
   const robots = readFileSync(robotsFile, 'utf8');
-  if (!/Sitemap:\s*https:\/\/after-ai\.probir\.dev\/sitemap-index\.xml/.test(robots)) {
-    fail('robots.txt does not point at sitemap-index.xml');
+  // Derived from ORIGIN: a hardcoded host survived a domain move and failed every
+  // build afterwards while the site itself was fine.
+  const expectedSitemap = new RegExp(
+    `Sitemap:\\s*${ORIGIN.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}/sitemap-index\\.xml`
+  );
+  if (!expectedSitemap.test(robots)) {
+    fail(`robots.txt does not point at ${ORIGIN}/sitemap-index.xml`);
   } else ok('robots.txt allows crawling and references the sitemap');
 }
 

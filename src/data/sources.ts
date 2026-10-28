@@ -242,6 +242,26 @@ export const sources = [
     url: 'https://globenewswire.com/fr/news-release/2026/07/13/3326317/0/en/new-axipro-study-eu-companies-hire-seven-people-to-build-ai-for-every-one-hired-to-govern-it.html',
     note: 'Vendor study of 3,519 AI-related postings across eight EU countries. Directionally useful; company has a commercial interest in governance hiring.',
   },
+  {
+    id: 'adp-canaries-sep26',
+    short: 'ADP/Stanford Oct 2026',
+    title: 'Canaries Dashboard: Employment in AI-exposed occupations shrank in September',
+    publisher: 'ADP Research with the Stanford Digital Economy Lab',
+    year: 2026,
+    kind: 'statistics',
+    url: 'https://www.adpresearch.com/research/canaries-dashboard-employment-in-ai-exposed-occupations-shrank-in-september',
+    note: 'Payroll records of millions of workers across more than 730 occupations at tens of thousands of US employers, read through an occupational AI-exposure score. September 2026 results, published 21 October 2026. Rates only: no counts, occupations, confidence intervals or revision history.',
+  },
+  {
+    id: 'bdf-463',
+    short: 'Banque de France 2026',
+    title: 'Generative AI: the first changes in the labour market are affecting young people (Bulletin No. 463)',
+    publisher: 'Banque de France',
+    year: 2026,
+    kind: 'study',
+    url: 'https://www.banque-france.fr/en/publications-and-statistics/publications/generative-ai-first-changes-labour-market-are-affecting-young-people',
+    note: 'French administrative data on permanent-contract hires and terminations, January 2019 to March 2026, against an exposure index built over 1,500 occupations in France Travail’s ROME directory. Measures hiring and separations, not total employment.',
+  },
 ] as const satisfies readonly Source[];
 
 export type SourceId = (typeof sources)[number]['id'];

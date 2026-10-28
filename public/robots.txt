@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# No crawl-delay: the whole site is static assets on Cloudflare.
-Sitemap: https://after-ai.probir.dev/sitemap-index.xml
+Sitemap: https://after-ai.browserstay.com/sitemap-index.xml
