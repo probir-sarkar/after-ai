@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>After AI — the jobs report, October 2026</title>
+<meta name="author" content="After AI">
+<meta name="description" content="24 jobs, 35 numbers and 5 essays on what AI is doing to work, with every claim sourced.">
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 20mm 20mm;
+    @bottom-center { content: counter(page); font-family: Georgia, serif; font-size: 8.5pt; color: #8b8b83; }
+    @top-right { content: "After AI · October 2026"; font-family: Georgia, serif; font-size: 7.5pt; letter-spacing: 0.08em; color: #9a9a92; }
+  }
+  @page cover { margin: 0; @bottom-center { content: none } @top-right { content: none } }
+  @page plain { @top-right { content: none } }
+
+  body { font-family: Georgia, "Times New Roman", serif; color: #22221f; line-height: 1.5; margin: 0; font-size: 10pt; }
+  h1, h2 { font-weight: 600; }
+
+  .cover { page: cover; height: 297mm; padding: 0; display: flex; flex-direction: column; }
+  .cover-top { background: #101b17; color: #f2efe6; padding: 28mm 22mm 20mm; }
+  .cover-kicker { font-size: 8pt; letter-spacing: 0.3em; text-transform: uppercase; color: #9db894; margin: 0 0 14mm; font-family: Georgia, serif; }
+  .cover h1 { font-size: 42pt; line-height: 1.04; margin: 0 0 8mm; color: #fdfbf3; }
+  .cover-sub { font-size: 12pt; line-height: 1.45; max-width: 110mm; margin: 0 0 8mm; color: #d9d6c8; }
+  .cover-note { font-size: 9pt; color: #9db894; margin: 0; }
+  .cover-band { flex: 1; background: #f0ece1; display: flex; flex-direction: column; justify-content: center; padding: 12mm 22mm; gap: 3mm; }
+  .cover-band .big { font-family: Georgia, serif; font-size: 15pt; color: #22221f; margin: 0; }
+  .cover-band .small { font-size: 9pt; color: #5d5d55; margin: 0; }
+  .cover-foot { background: #101b17; color: #9db894; padding: 6mm 22mm; display: flex; justify-content: space-between; font-size: 7.4pt; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .front { page: plain; break-before: page; }
+  .front h1 { font-size: 19pt; margin: 0 0 4mm; }
+  .front p { max-width: 122mm; margin: 0 0 3.2mm; }
+
+  .tally-h, .tbl-h { font-size: 15pt; margin: 8mm 0 3mm; }
+  ul.tally { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4mm 8mm; }
+  ul.tally li { font-size: 10pt; }
+
+  table.metrics { width: 100%; border-collapse: collapse; font-size: 8.4pt; }
+  table.metrics td, table.metrics th { text-align: left; padding: 1.6mm 2mm 1.6mm 0; border-bottom: 0.3pt solid #d8d5cb; vertical-align: top; }
+  table.metrics td.num { white-space: nowrap; font-weight: bold; }
+  table.metrics td.src, table.metrics th.src { color: #8b8b83; white-space: nowrap; }
+
+  .entry, .essay { break-before: page; }
+  .e-k { font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: #8b8b83; margin: 0 0 2mm; }
+  .entry h2 { font-size: 19pt; line-height: 1.12; margin: 0 0 2.5mm; string-set: entrytitle content(); break-after: avoid; }
+  .essay h2 { font-size: 17pt; line-height: 1.2; margin: 0 0 4mm; }
+  .e-lede { font-size: 11.5pt; line-height: 1.4; margin: 0 0 3mm; color: #3c3c37; }
+  .e-protect { font-size: 9pt; margin: 0 0 3mm; color: #5d5d55; }
+  .e-tests { list-style: none; padding: 2.5mm 0 0; margin: 0 0 2mm; border-top: 0.3pt solid #d8d5cb; }
+  .e-tests li { font-size: 8.6pt; margin: 0 0 1mm; color: #3c3c37; }
+  .t-word { display: inline-block; min-width: 18mm; font-weight: bold; }
+  .e-block { margin: 4mm 0 0; }
+  .b-h { font-size: 7pt; letter-spacing: 0.18em; text-transform: uppercase; color: #8b8b83; margin: 0 0 1.5mm; }
+  .e-block p { margin: 0 0 2.4mm; }
+  ul.e-list, ul.footnotes { list-style: none; padding: 0; margin: 0; }
+  ul.e-list li { font-size: 9pt; line-height: 1.45; margin: 0 0 1.8mm; }
+  .m-display { font-weight: bold; }
+  .m-src, sup { color: #8b8b83; font-size: 0.85em; }
+  ul.footnotes { margin: 3mm 0 0; border-top: 0.3pt solid #d8d5cb; padding-top: 2mm; }
+  ul.footnotes li { font-size: 7.6pt; color: #8b8b83; margin: 0 0 1mm; }
+  sup a, a { color: inherit; text-decoration: none; }
+
+  .credits, .sources { page: plain; break-before: page; }
+  .sources h1, .credits h1 { font-size: 19pt; margin: 0 0 4mm; }
+  ul.sources-list { list-style: none; padding: 0; margin: 0; }
+  ul.sources-list li { font-size: 8.4pt; line-height: 1.45; padding: 1.6mm 0; border-bottom: 0.3pt solid #e0ddd4; }
+  .s-short { font-weight: bold; }
+  .s-url { color: #8b8b83; font-size: 0.92em; }
+  .s-note { color: #6b6b62; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-top">
+    <p class="cover-kicker">After AI · Monthly report</p>
+    <h1>The jobs report:<br>October 2026</h1>
+    <p class="cover-sub">What the data says about which work AI is changing — 24 jobs, 35 numbers, 5 essays. Every claim carries its source.</p>
+    <p class="cover-note">after-ai.browserstay.com · free · nothing collected</p>
+  </div>
+  <div class="cover-band">
+    <p class="big">5 jobs are at risk on today's evidence. 8 hold. 4 exist because of AI.</p>
+    <p class="small">Verdicts come from four tests — a body, accountability, a relationship, and whether the role holds together — read against the published data, not from opinion. This report reprints every number with the study it came from.</p>
+  </div>
+  <div class="cover-foot"><span>after-ai.browserstay.com</span><span>October 2026</span></div>
+</section>
+
+<section class="front">
+  <h1>How to read this report</h1>
+  <p>Every job on After AI is scored against four questions. They are not a score out of twelve and they are not a grade; they are the four things that have actually kept work out of a machine's reach so far. The work needs a body, in a place that keeps changing; A person is legally or morally answerable for the result; It depends on a relationship with a person; The role is one job, not a pile of tasks.</p>
+  <p>Each job also carries a verdict — survives, at risk, mixed, emerging, or possible — and the verdict is part of the reading: an AI-native job scores low on protection because it never needed protecting, which is not the same as being exposed.</p>
+  <p>Nothing in this report is a forecast of our own. The numbers are transcribed from the studies named beside them, and where a study measures exposure or applicability rather than job loss, the caption says so. The full bibliography is at the back.</p>
+
+  <h1 class="tally-h">The month at a glance</h1>
+  <ul class="tally"><li><b>8</b> Survives</li><li><b>5</b> Exposed</li><li><b>2</b> In flux</li><li><b>4</b> Emerging</li><li><b>5</b> Possible</li></ul>
+  <p>Across 24 tracked jobs: 8 keep their shape, 7 are exposed in whole or in part, 4 are AI-native, and 5 are watching briefs.</p>
+
+  <h1 class="tbl-h">Every number in the report</h1>
+  <table class="metrics">
+    <tr><th>Job</th><th>Measure</th><th>Value</th><th class="src">Source</th></tr>
+    <tr><td>Home health aides</td><td>Projected growth, 2025–35</td><td class="num">+18.1%</td><td class="src">BLS 2026</td></tr>
+<tr><td>Home health aides</td><td>Jobs added</td><td class="num">+847,300</td><td class="src">BLS 2026</td></tr>
+<tr><td>Home health aides</td><td>Median annual pay</td><td class="num">$35,800</td><td class="src">BLS 2026</td></tr>
+<tr><td>Home health aides</td><td>Openings a year</td><td class="num">760,500</td><td class="src">BLS 2026</td></tr>
+<tr><td>Nurse practitioners</td><td>Projected growth, 2025–35</td><td class="num">+41.0%</td><td class="src">BLS 2026</td></tr>
+<tr><td>Nurse practitioners</td><td>Jobs added</td><td class="num">+137,800</td><td class="src">BLS 2026</td></tr>
+<tr><td>Nurse practitioners</td><td>Median annual pay</td><td class="num">$132,300</td><td class="src">BLS 2026</td></tr>
+<tr><td>Solar installers</td><td>Projected growth, 2025–35</td><td class="num">+36.5%</td><td class="src">BLS 2026</td></tr>
+<tr><td>Solar installers</td><td>Jobs added</td><td class="num">+11,300</td><td class="src">BLS 2026</td></tr>
+<tr><td>Solar installers</td><td>Median annual pay</td><td class="num">$53,140</td><td class="src">BLS 2026</td></tr>
+<tr><td>Wind technicians</td><td>Projected growth, 2025–35</td><td class="num">+29.5%</td><td class="src">BLS 2026</td></tr>
+<tr><td>Wind technicians</td><td>Jobs added</td><td class="num">+3,500</td><td class="src">BLS 2026</td></tr>
+<tr><td>Wind technicians</td><td>Median annual pay</td><td class="num">$64,120</td><td class="src">BLS 2026</td></tr>
+<tr><td>Machinery mechanics</td><td>Projected growth, 2025–35</td><td class="num">+17.8%</td><td class="src">BLS 2026</td></tr>
+<tr><td>Machinery mechanics</td><td>Jobs added</td><td class="num">+79,700</td><td class="src">BLS 2026</td></tr>
+<tr><td>Machinery mechanics</td><td>Median annual pay</td><td class="num">$64,520</td><td class="src">BLS 2026</td></tr>
+<tr><td>Firefighters</td><td>Median annual pay</td><td class="num">$59,280</td><td class="src">Resume Now 2026</td></tr>
+<tr><td>Firefighters</td><td>Rank on Resume Now's list</td><td class="num">#1</td><td class="src">Resume Now 2026</td></tr>
+<tr><td>Radiologists</td><td>Reading time cut for juniors</td><td class="num">−18.5%</td><td class="src">McKinsey 2025</td></tr>
+<tr><td>Customer service</td><td>Employment in the most AI-exposed jobs, workers aged 22–25, year on year (September 2026)</td><td class="num">−3.7%</td><td class="src">ADP/Stanford Oct 2026</td></tr>
+<tr><td>Customer service</td><td>Same age group, least AI-exposed jobs</td><td class="num">+0.2%</td><td class="src">ADP/Stanford Oct 2026</td></tr>
+<tr><td>Customer service</td><td>Consecutive months of year-over-year decline in that first figure</td><td class="num">36</td><td class="src">ADP/Stanford Oct 2026</td></tr>
+<tr><td>Customer service</td><td>Entry-level share of postings in the most exposed roles, 2021 to 2026</td><td class="num">10%</td><td class="src">Indeed Sep 2026</td></tr>
+<tr><td>Junior analysts</td><td>Growth of 'seniorised' junior roles</td><td class="num">+35%</td><td class="src">PwC 2026</td></tr>
+<tr><td>Junior analysts</td><td>Growth of other entry-level roles</td><td class="num">−10%</td><td class="src">PwC 2026</td></tr>
+<tr><td>Junior analysts</td><td>CEO expectation of less junior hiring</td><td class="num">49%</td><td class="src">PwC 2026</td></tr>
+<tr><td>AI engineer</td><td>AI-specialist postings growth, 2025</td><td class="num">+68.9%</td><td class="src">PwC 2026</td></tr>
+<tr><td>AI engineer</td><td>All-jobs postings growth, 2025</td><td class="num">+8.6%</td><td class="src">PwC 2026</td></tr>
+<tr><td>AI engineer</td><td>Average AI-skills wage premium</td><td class="num">+62%</td><td class="src">PwC 2026</td></tr>
+<tr><td>Forward deployed engineer</td><td>Postings, April 2025</td><td class="num">643</td><td class="src">Exponent 2026</td></tr>
+<tr><td>Forward deployed engineer</td><td>Postings, April 2026</td><td class="num">5,330</td><td class="src">Exponent 2026</td></tr>
+<tr><td>Forward deployed engineer</td><td>Median base salary</td><td class="num">≈$174,000</td><td class="src">Exponent 2026</td></tr>
+<tr><td>AI governance</td><td>Builders hired per governance hire (EU)</td><td class="num">≈7 : 1</td><td class="src">Axipro 2026</td></tr>
+<tr><td>AI governance</td><td>Consultant day rate in mature markets</td><td class="num">$800–2,000</td><td class="src">Axipro 2026</td></tr>
+<tr><td>AI governance</td><td>AI-related postings analysed</td><td class="num">3,519</td><td class="src">Axipro 2026</td></tr>
+  </table>
+</section>
+
+
+    <section class="entry" id="job-home-health-aide">
+      <p class="e-k">Survives · care · 2025–2035</p>
+      <h2>Home health and personal care aides</h2>
+      <p class="e-lede">The largest source of new jobs in the US economy — and the one AI helps least.</p>
+      <p class="e-protect">Well protected — Most of these hold. A machine cannot do this work on its own, so the job keeps its shape.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+18.1%</span> Projected growth, 2025–35 <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">+847,300</span> Jobs added <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">$35,800</span> Median annual pay <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">760,500</span> Openings a year <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Adds more jobs than any other occupation published by the US Bureau of Labor Statistics. <span class="m-src">[BLS 2026]</span></li><li>About 760,500 openings a year, most of them replacing workers who leave rather than new positions. <span class="m-src">[BLS 2026]</span></li><li>AI's documented value in care is documentation, scheduling and monitoring; experts across the care workforce reject it as a substitute for physical assistance or human relationships. <span class="m-src">[ACL 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Hands-on physical assistance: lifting, transferring, bathing, gait belts</li><li>The work is a relationship, and the client can tell the difference</li><li>Licensing, liability and dignity keep a human accountable for the outcome</li><li>Demand is driven by demographics, not by software adoption</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Median pay is $35,800 — a job-quality crisis, not an AI story</li><li>Most openings replace workers who leave, not new growth</li><li>Charting, scheduling and vitals logging will leave the human's plate</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>It is the least fashionable answer and the biggest one. <strong>Home health and personal care aides add more jobs than any other occupation the US Bureau of Labor Statistics tracks</strong> — 847,300 of them to 2035, about one in every seven jobs the economy is projected to create.[1]</p>
+<p>The reason is not that the work is unskilled. It is that the work is <em>unbundleable</em>. A caregiver lifts a person out of a chair, notices a change in how they are breathing, and is trusted not to steal from them. When the care workforce was asked directly where AI helps, the answer was documentation, scheduling and monitoring — and the answer to "can it replace this?" was no.[2]</p>
+<p>Two honest caveats. Median pay is $35,800, and most of those openings are replacements for people who leave, which means the growth is partly a measure of turnover. If AI takes the charting and the scheduling, the occupation gets <em>more</em> physical and <em>less</em> paid — the wrong direction for job quality even as headcount rises.</p></div>
+      <ul class="footnotes"><li id="fn-job-home-health-aide-1"><sup>[1]</sup> BLS 2026</li><li id="fn-job-home-health-aide-2"><sup>[2]</sup> ACL 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-nurse-practitioner">
+      <p class="e-k">Survives · care · 2025–2035</p>
+      <h2>Nurse practitioners</h2>
+      <p class="e-lede">The fastest-growing occupation in the BLS table, at 41% — more than ten times the economy-wide rate.</p>
+      <p class="e-protect">Well protected — Most of these hold. A machine cannot do this work on its own, so the job keeps its shape.</p>
+      <ul class="e-tests"><li><span class="t-word">yes</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+41.0%</span> Projected growth, 2025–35 <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">+137,800</span> Jobs added <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">$132,300</span> Median annual pay <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>The fastest-growing occupation in BLS projections to 2035, at 41%, against 3.5% for all occupations. <span class="m-src">[BLS 2026]</span></li><li>Providers are relying more on these roles to deliver care under collaborative, team-based models. <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Prescribing and diagnosing means legal accountability, which cannot be delegated to a model</li><li>Care teams are being restructured around these roles, not away from them</li><li>The clinical relationship carries the outcome; a wrong call is a harmed patient</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Documentation and routine triage shrink the administrative half of the role</li><li>Training pipelines still depend on supervised hours that AI is not replacing</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>The durability here is not physical, it is <em>legal</em>. Someone has to sign the prescription, carry the liability, and make the judgement call at 3am when the protocol does not cover the case in front of them. That is the definition of work where a human stays in the loop because removing them transfers risk nobody wants.</p>
+<p>It helps that AI lands on the administrative half. The clinical-trial evidence on AI-assisted radiology is instructive: junior radiologists' reading time fell 18.5% and report quality rose, which shifted their work from drafting to reviewing and correcting.[1] The drafting was never the job. The accountability was.</p></div>
+      <ul class="footnotes"><li id="fn-job-nurse-practitioner-1"><sup>[1]</sup> McKinsey 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-solar-installer">
+      <p class="e-k">Survives · trades · 2025–2035</p>
+      <h2>Solar photovoltaic installers</h2>
+      <p class="e-lede">Physical work in a place that changes every day, on a roof that does not read specifications.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+36.5%</span> Projected growth, 2025–35 <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">+11,300</span> Jobs added <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">$53,140</span> Median annual pay <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Second-fastest-growing occupation in BLS projections to 2035, at 36.5%. <span class="m-src">[BLS 2026]</span></li><li>Climate and energy-storage trends put renewable energy and environmental engineering roles among the fastest-growing, and environmental stewardship entered the top-10 fastest-growing skills for the first time. <span class="m-src">[WEF 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Every site is different: roof pitch, timber, weather, wiring</li><li>Fine motor control and safety judgement on ladders and live arrays</li><li>The energy transition is the demand driver, not AI</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Robotics, if dexterity and cost change, is the only real threat here</li><li>Pay is moderate for outdoor, hazardous work</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>McKinsey's current-capability estimate is the load-bearing number for every trade on this page: software agents could touch about 44% of US work hours, but <strong>robots only about 13%</strong>, because machines still lack fine motor control and real-time physical judgement.[1]</p>
+<p>A roof is the strongest possible counterexample to the "AI does everything" story. Nothing about installing an array is stable enough to specify in advance — the layout changes when the timber under the shingle is rotten. The work is not safe because it is manual; it is safe because it is <em>variable</em> and a mistake injures someone.</p></div>
+      <ul class="footnotes"><li id="fn-job-solar-installer-1"><sup>[1]</sup> McKinsey 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-wind-technician">
+      <p class="e-k">Survives · trades · 2025–2035</p>
+      <h2>Wind turbine service technicians</h2>
+      <p class="e-lede">Eighty metres up a tower, on a machine that is not coming to you.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+29.5%</span> Projected growth, 2025–35 <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">+3,500</span> Jobs added <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">$64,120</span> Median annual pay <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Fourth-fastest-growing occupation in BLS projections, at 29.5% — but only 3,500 net new jobs. <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Confined, high-altitude, hazardous — no teleoperation on this timeline</li><li>Diagnosis on a variable physical asset, not on a document</li><li>Small workforce, growing industry, hard to offshore</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Remote diagnostics and condition monitoring shrink the inspection half of the job</li><li>Very small absolute numbers: this is a niche, not a lifeboat</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>Percentage growth and job volume are different things, and this one shows why ranking by percent is misleading. A 29.5% growth rate on a workforce of 11,800 people produces <strong>3,500 jobs in total</strong>.[1] It is a good career and a rounding error in the labour market.</p>
+<p>Read it as a category signal rather than an opportunity: the physical maintenance of the energy transition is one of the few places where both demand <em>and</em> task shape point the same way.</p></div>
+      <ul class="footnotes"><li id="fn-job-wind-technician-1"><sup>[1]</sup> BLS 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-industrial-machinery-mechanic">
+      <p class="e-k">Survives · trades · 2025–2035</p>
+      <h2>Industrial machinery mechanics</h2>
+      <p class="e-lede">When the automation breaks, someone has to take it apart — which is a growing job.</p>
+      <p class="e-protect">Well protected — Most of these hold. A machine cannot do this work on its own, so the job keeps its shape.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+17.8%</span> Projected growth, 2025–35 <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">+79,700</span> Jobs added <span class="m-src">[BLS 2026]</span></li><li><span class="m-display">$64,520</span> Median annual pay <span class="m-src">[BLS 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Projected to grow 17.8% to 2035, adding 79,700 jobs — one of the largest absolute additions in the fastest-growing table. <span class="m-src">[BLS 2026]</span></li><li>Demand is rising for complementary skills alongside AI fluency — quality assurance, process optimisation, teaching, and physical skills such as nursing and electrical work. <span class="m-src">[McKinsey 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Every automation programme creates maintenance work</li><li>Fault diagnosis on real metal, in situ, under production pressure</li><li>446,900 people already do this — 79,700 more are projected</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Predictive maintenance removes some scheduled-inspection work</li><li>Employer-funded training is the bottleneck, not demand</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>The counter-intuitive consequence of automating a factory is that it needs <em>more</em> people who can fix the automation. McKinsey's skill analysis puts electrical work and quality assurance among the complementary skills employers are asking for more of as AI fluency rises.[1]</p>
+<p>This is the general pattern behind trades on this list: they are not untouched by AI, they are <em>downstream</em> of it.</p></div>
+      <ul class="footnotes"><li id="fn-job-industrial-machinery-mechanic-1"><sup>[1]</sup> McKinsey 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-firefighter">
+      <p class="e-k">Survives · frontline</p>
+      <h2>Firefighters</h2>
+      <p class="e-lede">Ranked the single most AI-proof occupation in a study of O*NET physical abilities.</p>
+      <p class="e-protect">Well protected — Most of these hold. A machine cannot do this work on its own, so the job keeps its shape.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">$59,280</span> Median annual pay <span class="m-src">[Resume Now 2026]</span></li><li><span class="m-display">#1</span> Rank on Resume Now's list <span class="m-src">[Resume Now 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>First on a ranking of occupations that rely most on six O*NET abilities: stamina, static strength, reaction time, spatial orientation, time sharing and problem sensitivity. <span class="m-src">[Resume Now 2026]</span></li><li>The distinguishing feature is that the work requires recognising problems, interpreting changing conditions, deciding under unpredictable conditions — and that a wrong call injures someone. <span class="m-src">[Resume Now 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Stamina, static strength, reaction time, spatial orientation, danger detection</li><li>Someone has to be accountable when the decision kills or saves</li><li>The environment changes faster than any specification can describe</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Dispatch, mapping and paperwork are already being automated around the role</li><li>Public-sector pay and staffing are political, not technological, risks</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>The one ranking here that measures <em>abilities</em> rather than exposure is the most useful of the lot, because it explains the pattern instead of describing it. Firefighting scores highest on stamina, static strength, reaction time, spatial orientation, time sharing and problem sensitivity.[1]</p>
+<p>Note what that combination implies: <strong>unpredictability plus consequence</strong>. The interviewed expert's version of the argument is blunt — when something goes wrong in a life-or-death situation, "you don't necessarily want an AI agent making that final call."[2]</p>
+<p>That is the test to apply to any role, not just this one.</p></div>
+      <ul class="footnotes"><li id="fn-job-firefighter-1"><sup>[1]</sup> Resume Now 2026</li><li id="fn-job-firefighter-2"><sup>[2]</sup> Resume Now 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-radiologist">
+      <p class="e-k">Survives · judgement</p>
+      <h2>Radiologists</h2>
+      <p class="e-lede">The profession everyone predicted would vanish first, which instead got better at its hard half.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">−18.5%</span> Reading time cut for juniors <span class="m-src">[McKinsey 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>In a clinical trial, AI-generated report drafts cut junior radiologists' reading time by 18.5% and improved report quality, shifting work from drafting to reviewing, validating and correcting. <span class="m-src">[McKinsey 2025]</span></li><li>PwC classifies radiologists as professionalised by AI: routine tasks automated away, human expertise emphasised, and professionalised roles growing twice as fast as democratised ones. <span class="m-src">[PwC 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>The job is a bundle: drafting reports was never the valuable part</li><li>Diagnostic accountability sits with a named clinician</li><li>AI output needs verification, and verification is expert work</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>The drafting rung of the training ladder is disappearing</li><li>Radiology took 20 years of warnings and did not shrink — that is evidence, not comfort</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>This is the clearest case in the literature that <strong>exposure is not displacement</strong>. Expert opinion on both sides spent two decades predicting the end of radiology. What happened is in the trial data: less drafting, more reviewing and validating, and harder cases getting more human attention.[1]</p>
+<p>It is also the template for the whole site. PwC's framework calls it <em>professionalised</em> — AI takes the routine work and leaves the expert work, so the role demands more skill and pays more, and those roles are growing twice as fast as the ones AI deskills.[2]</p></div>
+      <ul class="footnotes"><li id="fn-job-radiologist-1"><sup>[1]</sup> McKinsey 2025</li><li id="fn-job-radiologist-2"><sup>[2]</sup> PwC 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-teacher">
+      <p class="e-k">Survives · judgement</p>
+      <h2>Teachers</h2>
+      <p class="e-lede">Real-time reading of other humans, in a room, with a duty of care.</p>
+      <p class="e-protect">Well protected — Most of these hold. A machine cannot do this work on its own, so the job keeps its shape.</p>
+      <ul class="e-tests"><li><span class="t-word">yes</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>McKinsey places teachers among occupations with lower disruption because the work depends heavily on physical presence, regulation and human interaction. <span class="m-src">[McKinsey 2025]</span></li><li>Occupations are bundles of interdependent activities, and some are indivisible — every school still requires a principal, every hospital a medical director. <span class="m-src">[McKinsey 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>A teacher reads the room continuously and changes plan mid-sentence</li><li>Parents and institutions require a responsible adult in the building</li><li>The role is indivisible: every school still needs the seat filled</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Lesson prep, marking and reporting are all being automated around the role</li><li>Clickwork tutoring products compete at the margins of the job</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>The indivisibility argument is the strongest defence of a whole class of roles. Occupations are not lists of tasks; they are bundles, and some of them cannot be split — the argument McKinsey makes with the principal and the medical director.[1]</p>
+<p>Automating the individual activities (planning, marking, reporting) changes the job's texture without removing the seat. What survives is the part that needs a person in the room making judgement calls in real time.</p></div>
+      <ul class="footnotes"><li id="fn-job-teacher-1"><sup>[1]</sup> McKinsey 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-data-entry-clerk">
+      <p class="e-k">Exposed · cognitive · to 2030</p>
+      <h2>Data entry keyers</h2>
+      <p class="e-lede">Fully specified input, verifiable output, no judgement — the pure case of automatable work.</p>
+      <p class="e-protect">Barely protected — Almost none of these hold, so nothing here keeps the work out of a machine’s reach.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Data entry clerks appear on the World Economic Forum's list of fastest-declining job roles to 2030. <span class="m-src">[WEF 2025]</span></li><li>The ILO's highest exposure gradient is dominated by clerical roles: data entry clerks, typists, accounting and bookkeeping clerks and general office clerks. <span class="m-src">[ILO 2025]</span></li><li>In Microsoft's analysis of real AI usage, the most common and most successful AI-assisted activities are information work — creating, processing and communicating information. <span class="m-src">[Microsoft Research 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>The task is the whole job</li><li>Every step is already codified in a system the machine can reach</li><li>Nothing is lost by removing the human</li></ul></div>
+      
+      <div class="e-block"><p class="b-h">The close reading</p><p>If you want one role that explains the risk side of this site, it is this one. Every property that protects the jobs above is absent here: no body in a variable world, no accountability, no relationship, no indivisible bundle. The job <em>is</em> the task.</p>
+<p>Both of the independent exposure measures converge. The World Economic Forum's employers put data entry among the fastest-declining roles to 2030.[1] The ILO's task-level scoring puts clerical work in the top exposure gradient, and Microsoft's analysis of actual AI use finds information processing is what the tools are already best at.[2][3]</p>
+<p>None of that is a forecast of a firing date. It is a description of a task profile with nothing on the defensive side of the ledger.</p></div>
+      <ul class="footnotes"><li id="fn-job-data-entry-clerk-1"><sup>[1]</sup> WEF 2025</li><li id="fn-job-data-entry-clerk-2"><sup>[2]</sup> ILO 2025</li><li id="fn-job-data-entry-clerk-3"><sup>[3]</sup> Microsoft Research 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-bookkeeping-clerk">
+      <p class="e-k">Exposed · cognitive · to 2030</p>
+      <h2>Bookkeeping, accounting and auditing clerks</h2>
+      <p class="e-lede">Rule-based verification of numbers, at high volume, in a digitised system.</p>
+      <p class="e-protect">Weakly protected — Almost none of these hold, so nothing here keeps the work out of a machine’s reach.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">a little</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">a little</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Employers expect a sharp fall in accounting and auditing clerk roles to 2030, alongside cashiers, ticket clerks and administrative assistants. <span class="m-src">[WEF 2025]</span></li><li>Accounting and bookkeeping clerks sit in the ILO's highest generative-AI exposure gradient. <span class="m-src">[ILO 2025]</span></li><li>The ILO finds strongly digitised occupations have increased in exposure as models gained multimodal and agentic capability. <span class="m-src">[ILO 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Reconciliation is pattern matching against rules the machine already holds</li><li>High volume and routine, so savings per hour are large</li></ul></div>
+      
+      <div class="e-block"><p class="b-h">The close reading</p><p>The uncomfortable lesson from the ILO's 2025 re-scoring is that <strong>exposure is not fixed</strong>. Between the 2023 and 2025 versions, financial analysts, web and multimedia developers and applications programmers moved <em>up</em> the exposure gradients, because models acquired multimodal and agentic capability in the interim.[1]</p>
+<p>Which means: a role's safety is a claim about today's model capabilities, and that claim has a shelf life.</p></div>
+      <ul class="footnotes"><li id="fn-job-bookkeeping-clerk-1"><sup>[1]</sup> ILO 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-customer-service-rep">
+      <p class="e-k">Exposed · cognitive · 2021–2026</p>
+      <h2>Customer service representatives</h2>
+      <p class="e-lede">The clearest case of AI eating the entry rung rather than the ladder.</p>
+      <p class="e-protect">Weakly protected — One of them holds, which is usually what survives of a job after its routine half is automated.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">a little</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">a little</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">−3.7%</span> Employment in the most AI-exposed jobs, workers aged 22–25, year on year (September 2026) <span class="m-src">[ADP/Stanford Oct 2026]</span></li><li><span class="m-display">+0.2%</span> Same age group, least AI-exposed jobs <span class="m-src">[ADP/Stanford Oct 2026]</span></li><li><span class="m-display">36</span> Consecutive months of year-over-year decline in that first figure <span class="m-src">[ADP/Stanford Oct 2026]</span></li><li><span class="m-display">10%</span> Entry-level share of postings in the most exposed roles, 2021 to 2026 <span class="m-src">[Indeed Sep 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>In the year to September 2026, employment in the most AI-exposed US occupations fell 0.5% while the least-exposed grew 1.0%. For workers aged 22–25 the exposed group fell 3.7% and the least-exposed group rose 0.2%. <span class="m-src">[ADP/Stanford Oct 2026]</span></li><li>September was the 36th consecutive month of year-over-year decline for 22–25-year-olds in highly exposed occupations, a run that began in October 2023. For workers aged 26–30 the exposed group is now 2.8% below a year earlier, against growth of 0.9% in the least-exposed group. <span class="m-src">[ADP/Stanford Oct 2026]</span></li><li>Early-career workers aged 22–25 in the most AI-exposed occupations sit 19% below their kept-pace path in the August 2026 revision of the Stanford paper. That is a level gap, not the 3.7% annual rate above, and the two cannot be added. <span class="m-src">[Stanford 2026]</span></li><li>In France, permanent-contract hires for 21–29-year-olds in the most AI-exposed fifth of occupations were about 28% below their November 2022 level by March 2026, against 8% in the least-exposed fifth. Terminations fell by about 23% and 6%, so the adjustment is slower hiring and turnover rather than layoffs. <span class="m-src">[Banque de France 2026]</span></li><li>In the most exposed occupations the entry-level share of US postings fell from 29% to 10% between 2021 and 2026, while the senior share rose from 22% to 47%. <span class="m-src">[Indeed Sep 2026]</span></li><li>Customer service representatives are among the most affected occupations in Microsoft’s usage-based analysis of Copilot conversations. <span class="m-src">[GeekWire 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Front-line resolution of routine enquiries is exactly what agents do well</li><li>Volume is high and the interaction is text or voice, both native to AI</li></ul></div>
+      
+      <div class="e-block"><p class="b-h">The close reading</p><p>This is where the clearest empirical finding in the field lands. Stanford's payroll-data study shows the damage is concentrated on the <strong>entry rung</strong>: 22–25-year-olds in the most AI-exposed occupations sit 19% below where they would be had they kept pace — 15% a year earlier — while experienced workers in those same occupations show no such gap.[1]</p>
+<p>The monthly update of the same dashboard, published 21 October 2026, turns a snapshot into a run. In the year to September, employment in the most AI-exposed occupations fell 0.5% while the least-exposed grew 1.0%. For 22–25-year-olds the exposed group fell 3.7% against a 0.2% rise in the least-exposed group. September was the <strong>36th consecutive month</strong> of year-over-year decline for that group: the run starts in October 2023, twelve months after ChatGPT's public release. It is also spreading upward — for workers aged 26 to 30, exposed employment is 2.8% below a year earlier.[2]</p>
+<p>Two numbers on this page are easy to confuse, and adding them together would be wrong. The 19% is a level gap: where young employment sits against a counterfactual path. The 3.7% is an annual rate of change. One is the size of the hole; the other is how fast it is still being dug.</p>
+<p>The posting data says the same thing from the other side. In the most exposed occupations, the entry-level share of US postings fell from 29% to 10% between 2021 and 2026, while the senior share rose from 22% to 47%.[3]</p>
+<p>Outside the US the mechanism is easier to see, because measuring hires is cheaper than measuring employment. French administrative data put permanent-contract hires for 21–29-year-olds in the most AI-exposed fifth of occupations about 28% below their November 2022 level by March 2026, against 8% in the least-exposed fifth. Terminations fell too, by about 23% and 6%, and total employment at firms reporting intensive AI use does not differ significantly from other firms. That is a hiring slowdown and lower turnover rather than a wave of redundancies — which is exactly why counting headline employment would miss it. [4]</p>
+<p>So the loss is not "customer service is gone". It is that the apprenticeship into customer service stopped admitting anyone: three years running, and now one age band further up.</p></div>
+      <ul class="footnotes"><li id="fn-job-customer-service-rep-1"><sup>[1]</sup> Stanford 2026</li><li id="fn-job-customer-service-rep-2"><sup>[2]</sup> ADP/Stanford Oct 2026</li><li id="fn-job-customer-service-rep-3"><sup>[3]</sup> Indeed Sep 2026</li><li id="fn-job-customer-service-rep-4"><sup>[4]</sup> Banque de France 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-interpreter-translator">
+      <p class="e-k">Exposed · cognitive · 2024–2025</p>
+      <h2>Interpreters and translators</h2>
+      <p class="e-lede">Ranked the single most AI-affected occupation in Microsoft's usage data.</p>
+      <p class="e-protect">Weakly protected — One of them holds, which is usually what survives of a job after its routine half is automated.</p>
+      <ul class="e-tests"><li><span class="t-word">a little</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">a little</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">a little</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Interpreters and translators rank first on Microsoft's list of occupations most affected by generative AI, based on 200,000 real AI conversations. <span class="m-src">[GeekWire 2025]</span></li><li>The ILO finds translations among the occupations that increased in exposure as model capability widened. <span class="m-src">[ILO 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Long-form text translation is a solved problem for current models</li><li>The work product is text, and text is what the machine produces</li></ul></div>
+      
+      <div class="e-block"><p class="b-h">The close reading</p><p>The methodological caveat belongs here, because it is the one the researchers themselves insist on. An applicability score measures *overlap between AI capability and the activities a job contains*. It is not a headcount forecast — the Microsoft authors point out that historical automation has sometimes raised employment in affected sectors, and that bank tellers survived ATMs by changing what the job contained.[1]</p>
+<p>Read this entry as "the text half of translation is gone", not "no one will interpret a court hearing".</p></div>
+      <ul class="footnotes"><li id="fn-job-interpreter-translator-1"><sup>[1]</sup> GeekWire 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-software-developer">
+      <p class="e-k">In flux · platform · 2021–2025</p>
+      <h2>Software developers</h2>
+      <p class="e-lede">Split in two: the ones who direct agents are thriving; the ones who wrote boilerplate are not.</p>
+      <p class="e-protect">Weakly protected — One title, two jobs: the part that got more skilled is protected, the part that got simpler is not.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">a little</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>PwC's 2026 Barometer lists software developers among the roles AI democratises: it automates higher-expertise tasks and leaves the role requiring less expertise, with lower barriers to entry and falling wages. <span class="m-src">[PwC 2026]</span></li><li>Democratised jobs make up 52% of advertised roles and are growing half as fast as professionalised roles, with 42% slower wage growth since 2021. <span class="m-src">[PwC 2026]</span></li><li>Software developers are among the AI-exposed occupations in which 22–25-year-old employment fell sharply. <span class="m-src">[Stanford 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>System-level design and trade-off decisions still need a human</li><li>Someone must own an outage</li><li>The profession absorbed a generational tool change before and refactored around it</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>PwC classifies software developers as *democratised* — AI takes the expert tasks and leaves simpler work</li><li>Entry-level hiring in these occupations is where the Stanford decline shows up</li><li>The task-level exposure keeps rising as models get agentic</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>The interesting thing about this entry is that the popular story and the measured story disagree. The popular story is "AI writes code, developers are fine because they do architecture". PwC's billion-advertisement analysis puts software developers in the <strong>democratised</strong> bucket — the one where AI takes the harder tasks and leaves work that requires <em>less</em> expertise, with lower barriers to entry and weaker wage growth.[1]</p>
+<p>The 52% of advertised jobs that are being democratised grew half as fast as the 22% being professionalised, and lag 42% on wage growth since 2021.[2] And Stanford's data shows the entry-level version of this job is where the decline actually shows up.[3]</p>
+<p>So: not a dying profession, a <em>redistributing</em> one. The seat is still there. The on-ramp narrowed.</p></div>
+      <ul class="footnotes"><li id="fn-job-software-developer-1"><sup>[1]</sup> PwC 2026</li><li id="fn-job-software-developer-2"><sup>[2]</sup> PwC 2026</li><li id="fn-job-software-developer-3"><sup>[3]</sup> Stanford 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-admin-assistant">
+      <p class="e-k">Exposed · cognitive · to 2030</p>
+      <h2>Administrative assistants and executive assistants</h2>
+      <p class="e-lede">Scheduling, drafting and coordinating — the exact activities appearing most in real AI usage.</p>
+      <p class="e-protect">Partly protected — One of them holds, which is usually what survives of a job after its routine half is automated.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Administrative assistants appear among the roles employers expect to decline sharply to 2030. <span class="m-src">[WEF 2025]</span></li><li>The most common and most successful AI-assisted activities are information work — creating, processing and communicating information. <span class="m-src">[Microsoft Research 2025]</span></li><li>The ILO's refined index places clerical support work in the highest exposure gradients. <span class="m-src">[ILO 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Trust and discretion still matter: the assistant knows things the org chart does not</li><li>Someone must coordinate people who will not coordinate themselves</li></ul></div>
+      
+      <div class="e-block"><p class="b-h">The close reading</p><p>This one is genuinely two jobs wearing one title. The part that is calendar Tetris, document formatting and travel booking is directly exposed. The part that is *knowing what the boss does not want to hear in front of the board* is not.</p>
+<p>That is the split PwC formalises across the whole labour market, and it is why the useful question is never "is this job safe" but "which half of it survives".</p></div>
+      
+    </section>
+
+    <section class="entry" id="job-junior-analyst">
+      <p class="e-k">In flux · cognitive · since 2019</p>
+      <h2>Junior data analysts</h2>
+      <p class="e-lede">The role that proves the entry level is being redesigned rather than deleted.</p>
+      <p class="e-protect">Partly protected — One title, two jobs: the part that got more skilled is protected, the part that got simpler is not.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+35%</span> Growth of 'seniorised' junior roles <span class="m-src">[PwC 2026]</span></li><li><span class="m-display">−10%</span> Growth of other entry-level roles <span class="m-src">[PwC 2026]</span></li><li><span class="m-display">49%</span> CEO expectation of less junior hiring <span class="m-src">[PwC 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Entry-level roles that now require more than ten traditionally senior skills are growing at 35%, while other entry-level roles decline. <span class="m-src">[PwC 2026]</span></li><li>The most AI-exposed entry-level roles are seven times more likely than the least exposed to demand traditionally senior skills such as leadership, strategic decision-making and stakeholder management. <span class="m-src">[PwC 2026]</span></li><li>49% of CEOs expect AI adoption to decrease junior hiring over the next three years, against 12% for senior hiring. <span class="m-src">[PwC 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>AI-exposed junior roles redesigned to demand senior skills are growing</li><li>Interpretation and framing of a result is now the visible half of the work</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Globally, entry-level postings in highly AI-exposed roles have flatlined</li><li>49% of CEOs expect AI adoption to reduce junior hiring in the next three years</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>This is the most actionable finding in the entire literature, and it is a genuinely optimistic one. PwC split AI-exposed entry-level roles by whether they had been redesigned to demand senior skills. Those that had: <strong>+35% growth since 2019.</strong> Those that had not: <strong>−10%.</strong>[1]</p>
+<p>The mechanism is that AI removed the routine work that used to serve as the apprenticeship, so the remaining work <em>is</em> the senior work, and employers are now asking juniors for judgement, stakeholder management and leadership years earlier than they used to.[2]</p>
+<p>The threat is real and should be stated next to the opportunity: 49% of CEOs expect AI to reduce junior hiring in the next three years, against 12% for senior hiring.[3] The safe conclusion is not "juniors are fine". It is that junior roles that stay <em>junior</em> in scope are the ones disappearing.</p></div>
+      <ul class="footnotes"><li id="fn-job-junior-analyst-1"><sup>[1]</sup> PwC 2026</li><li id="fn-job-junior-analyst-2"><sup>[2]</sup> PwC 2026</li><li id="fn-job-junior-analyst-3"><sup>[3]</sup> PwC 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-ai-engineer">
+      <p class="e-k">Emerging · platform · 2025</p>
+      <h2>AI engineer (applied / LLM)</h2>
+      <p class="e-lede">The single fastest-growing job title in the US, two years running.</p>
+      <p class="e-protect">Weakly protected — Not protected, and that is expected: this job exists because of AI, so it never needed protecting. That is not the same as being at risk.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">a little</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">+68.9%</span> AI-specialist postings growth, 2025 <span class="m-src">[PwC 2026]</span></li><li><span class="m-display">+8.6%</span> All-jobs postings growth, 2025 <span class="m-src">[PwC 2026]</span></li><li><span class="m-display">+62%</span> Average AI-skills wage premium <span class="m-src">[PwC 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>AI engineer ranks first among LinkedIn's fastest-growing US job titles, having held the top spot for a second year. <span class="m-src">[LinkedIn 2026]</span></li><li>AI-specialist job postings grew 68.9% in 2025 while total job growth was 8.6%; globally there are now 10.7 AI specialist postings for every one in 2012. <span class="m-src">[PwC 2026]</span></li><li>The average wage premium for workers with AI skills reached 62%, up from 57% a year earlier. <span class="m-src">[PwC 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Integration and evaluation work that requires judgement about reliability</li><li>Every AI deployment creates maintenance and monitoring obligations</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Titles age fast in this space — the same work was 'ML engineer' five years ago</li><li>A crowded on-ramp: it demands production engineering skill, not curiosity</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>Two things are true at once here and they are easy to confuse. The <em>demand</em> is unambiguous — AI specialist postings grew nearly eight times as fast as the overall jobs market in 2025, and the skills premium is real at 62%.[1]</p>
+<p>The <em>role</em>, though, is not research. It is production engineering with models in it: retrieval pipelines, evaluation, chasing drift, deciding when an output is reliable enough to ship. That is why the adjacent roles on this page — the ones about deploying and governing rather than building — are growing even faster off a smaller base.</p></div>
+      <ul class="footnotes"><li id="fn-job-ai-engineer-1"><sup>[1]</sup> PwC 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-forward-deployed-engineer">
+      <p class="e-k">Emerging · platform · Apr 2025 → Apr 2026</p>
+      <h2>Forward deployed engineer</h2>
+      <p class="e-lede">Postings up 729% in a year: the job that exists because AI projects fail for organisational reasons.</p>
+      <p class="e-protect">Partly protected — Not protected, and that is expected: this job exists because of AI, so it never needed protecting. That is not the same as being at risk.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">643</span> Postings, April 2025 <span class="m-src">[Exponent 2026]</span></li><li><span class="m-display">5,330</span> Postings, April 2026 <span class="m-src">[Exponent 2026]</span></li><li><span class="m-display">≈$174,000</span> Median base salary <span class="m-src">[Exponent 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Job postings grew from 643 in April 2025 to 5,330 in April 2026 — a 729% increase — on hiring data compiled by Exponent. <span class="m-src">[Exponent 2026]</span></li><li>The role exists because enterprise AI deployments often fail for organisational rather than technical reasons, and an embedded engineer clears those blockers faster than a traditional vendor model. <span class="m-src">[Exponent 2026]</span></li><li>Roughly 70% of postings include equity, and the median base across postings is about $174,000. <span class="m-src">[Exponent 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Enterprise AI deployments fail on process and data politics, not model quality</li><li>The role sits inside the customer, so the human relationship is the product</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Vendor-published and job-board counts are not official occupational statistics</li><li>Highly concentrated in a handful of AI labs and consultancies</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>The blurb for this one is the most useful sentence in the new-jobs literature: these projects fail for <strong>organisational reasons rather than technical ones</strong>, so the job is an engineer embedded inside the customer's building, clearing blockers that a support ticket cannot reach.[1]</p>
+<p>It is also where the "AI makes work more human" claim stops being a slogan. The role is mostly software engineering and almost entirely relationship management, and postings for it grew 729% in a single year.[2] Treat the exact number as a job-board count of one title — real, but not an occupational statistic.</p></div>
+      <ul class="footnotes"><li id="fn-job-forward-deployed-engineer-1"><sup>[1]</sup> Exponent 2026</li><li id="fn-job-forward-deployed-engineer-2"><sup>[2]</sup> Exponent 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-data-annotator">
+      <p class="e-k">Emerging · platform · 2023–2025</p>
+      <h2>Data annotators and AI trainers</h2>
+      <p class="e-lede">The most accessible on-ramp into AI work, and the one that rewards domain expertise over coding.</p>
+      <p class="e-protect">Weakly protected — Not protected, and that is expected: this job exists because of AI, so it never needed protecting. That is not the same as being at risk.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">a little</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Data annotator ranks fourth among LinkedIn's fastest-growing US job titles for 2026. <span class="m-src">[LinkedIn 2026]</span></li><li>The work is reviewing and labelling data to specified guidelines and running quality checks so that training datasets are accurate. <span class="m-src">[LinkedIn 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Labeled data and preference feedback are inputs the models cannot generate for themselves</li><li>Domain knowledge (medicine, law, finance) is the scarce input, not programming</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Individual-contributor annotation is hourly, insecure and often outsourced</li><li>Automated labelling compresses the bottom of the market over time</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>Every capability claim in this field rests on labour of this kind: people who label, grade and correct model output against a standard. LinkedIn's platform data puts the title fourth among the fastest-growing roles in the US.[1]</p>
+<p>The honest framing: the junior form of this work is precarious hourly gig labour, easily outsourced and likely to be partly automated. The senior form — designing the feedback loops and quality processes for a domain-specific model — is expert work that pays like it. Same title, different jobs, which is the recurring pattern on this site.</p></div>
+      <ul class="footnotes"><li id="fn-job-data-annotator-1"><sup>[1]</sup> LinkedIn 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-ai-governance-lead">
+      <p class="e-k">Emerging · platform · 2026</p>
+      <h2>AI governance, risk and audit</h2>
+      <p class="e-lede">Regulation creates a function; the function creates the jobs.</p>
+      <p class="e-protect">Partly protected — Not protected, and that is expected: this job exists because of AI, so it never needed protecting. That is not the same as being at risk.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      <div class="e-block"><p class="b-h">The numbers</p><ul class="e-list metrics"><li><span class="m-display">≈7 : 1</span> Builders hired per governance hire (EU) <span class="m-src">[Axipro 2026]</span></li><li><span class="m-display">$800–2,000</span> Consultant day rate in mature markets <span class="m-src">[Axipro 2026]</span></li><li><span class="m-display">3,519</span> AI-related postings analysed <span class="m-src">[Axipro 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>Across eight EU countries, companies are hiring roughly seven professionals to build AI systems for every one hired to govern them. <span class="m-src">[Axipro 2026]</span></li><li>Independent AI governance consultants in mature markets command day rates of $800–$2,000, with demand up 150% year over year. <span class="m-src">[Axipro 2026]</span></li><li>Governing work is a permanent function once regulation attaches to it: EU AI Act obligations, NIST AI RMF and ISO/IEC 42001 all need evidence that someone checked the system. <span class="m-src">[Axipro 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Independently checking the work is the whole point — the builder cannot audit the builder</li><li>Conformity obligations need named owners and documented evidence</li><li>Insurers and boards are asking for both</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>The headline ratios come from a vendor study with a commercial interest in governance hiring</li><li>Enforcement timelines keep moving, which delays hiring plans</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>This is the category that grows out of the <em>fourth</em> test — accountability. If an organisation must show a regulator, a board and an insurer that a model was checked, the checking cannot be done by the team that built it.</p>
+<p>The evidence here is the weakest on the site and is labelled as such: one vendor study of 3,519 postings across eight EU countries, from a company that sells governance tooling.[1] What it measures is a hiring ratio — roughly seven builders per governance hire — and it is corroborated in direction, though not in magnitude, by the regulatory calendar those organisations are hiring against.</p></div>
+      <ul class="footnotes"><li id="fn-job-ai-governance-lead-1"><sup>[1]</sup> Axipro 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-agent-fleet-manager">
+      <p class="e-k">Possible · platform · not yet a title</p>
+      <h2>Agent fleet manager</h2>
+      <p class="e-lede">No one holds this title yet. The pattern it would run — one coordinator delegating work to a fleet of subagents — is already shipping in software.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">no</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>McKinsey's Global Institute argues that as agents deploy, human work shifts toward partnering with and supervising AI systems rather than competing task-for-task. <span class="m-src">[McKinsey 2025]</span></li><li>AI and machine-learning specialists rank among the fastest-growing roles in the WEF's employer survey, with AI and information processing expected to create more roles than it displaces by 2030. <span class="m-src">[WEF 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Coordinator agents that delegate to subagents already run in production coding tools</li><li>Someone has to own the outcomes of a fleet: the goal, the budget, the review</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>The coordinator agent itself may absorb the management layer, the way it absorbed delegation</li><li>It may never be a title — the work may fold into existing engineering management</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>--- ---</p>
+<p>Nobody is hired under this title today, and we are not predicting that they will be next year. What exists is the pattern. Coding tools now ship [1] a coordinator that plans work, delegates it to as many subagents as needed, and brings the finished work back for review — months-long projects run as a fleet, not a conversation. The pattern is the job description waiting for a name.</p>
+<p>The human version of that role would not write code. It would own the goal, the budget, the review bar and the decision about what a fleet is allowed to touch — the parts of management that are about accountability rather than task execution. That is why the profile reads high on the bundle test and low on body: the seat is indivisible even if every task inside it is delegable.</p>
+<p>Two endings are possible, and honesty requires naming both. The role could arrive as a title — the way "forward-deployed engineer" did, which went from obscure to thousands of postings in a year [2]. Or the coordinator layer could absorb the management work the way it absorbed delegation, leaving the job inside existing engineering management. The signal to watch is hiring language: the first job postings that say "manage a fleet of agents" will be the moment this stops being a possibility.</p></div>
+      <ul class="footnotes"><li id="fn-job-agent-fleet-manager-1"><sup>[1]</sup> McKinsey 2025</li><li id="fn-job-agent-fleet-manager-2"><sup>[2]</sup> Exponent 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-robot-fleet-supervisor">
+      <p class="e-k">Possible · trades · not yet a title</p>
+      <h2>Robot fleet supervisor</h2>
+      <p class="e-lede">Every robot that arrives creates people who watch, fix and redirect it. The fleet-scale version of that shift has no title yet.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">yes</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">no</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>McKinsey estimates robots reach about 13% of US work hours today, against 44% for software agents — the physical fleet is early, and supervised by people where it exists. <span class="m-src">[McKinsey 2025]</span></li><li>In the WEF employer survey, robotics engineers are among the fastest-growing roles, while robots and autonomous systems are the one technology driver expected to displace more jobs than they create by 2030 — a net −5 million. <span class="m-src">[WEF 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Employers expect robots to displace more work than they create — and deployed fleets need supervision, maintenance and exception handling</li><li>The nearest existing job, industrial machinery mechanic, already carries a strong official projection</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Robots that maintain robots would hollow the role from underneath</li><li>The work may stay distributed across existing technician jobs rather than becoming a title</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>--- ---</p>
+<p>Robots are the slow half of automation. Software agents already reach an estimated 44% of US work hours; robots reach about 13% [1] — but the direction is not in doubt, and the WEF's employer survey expects robots and autonomous systems to be the one technology driver that displaces more work than it creates, a net −5 million by 2030 [2].</p>
+<p>Displacement numbers hide the counterpart: a deployed fleet does not run itself. It needs people who watch throughput, clear exceptions, perform physical maintenance and decide when a machine's judgement should be overridden. Today that work hides inside existing titles — warehouse lead, mechanic, site supervisor. The possibility is that fleet-scale robotics concentrates it into a recognisable role, the same way "drone operator" condensed from hobbyists into a military and commercial profession.</p>
+<p>The profile scores high on body for a reason: the job is at the site, with the machines, where conditions change. That is also its defence — this is the rare future-facing role where the four tests point the same way as the history of every previous machine fleet.</p></div>
+      <ul class="footnotes"><li id="fn-job-robot-fleet-supervisor-1"><sup>[1]</sup> McKinsey 2025</li><li id="fn-job-robot-fleet-supervisor-2"><sup>[2]</sup> WEF 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-ai-auditor">
+      <p class="e-k">Possible · judgement · not yet a title</p>
+      <h2>AI auditor</h2>
+      <p class="e-lede">The build half of AI hiring runs about seven to one ahead of the governance half. Someone has to close that gap, and the role has no settled name.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>A vendor study of 3,519 AI-related postings across eight EU countries found companies hire roughly seven people to build AI for every one hired to govern it — with the stated caveat that the study's author sells governance hiring. <span class="m-src">[Axipro 2026]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Regulation attaches a permanent audit function to deployed AI</li><li>The hiring ratio says governance is understaffed relative to build</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>It may arrive as a specialisation inside existing audit and compliance professions rather than a new title</li><li>If regulation thins out, the pressure behind the role thins with it</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>--- ---</p>
+<p>The strongest signal here is arithmetic. One study of AI hiring across eight EU countries counted roughly seven people hired to build AI for every one hired to govern it [1]. The same study is honest about its own conflict of interest — its author sells governance hiring — so we treat the ratio as directional, not exact. But the direction is what matters: governance demand is growing from a very low base, attached to regulation that does not evaporate when models improve.</p>
+<p>The job, when it arrives, is closer to financial audit than to engineering: sample an agent's decisions, test them against the rules the operator claims to follow, and put a professional signature on the result. That is why the profile reads 3 on accountability — the entire value of the role is a person being answerable for a judgement about a machine.</p>
+<p>The realistic threat is not that the work disappears but that it never becomes a separate title. It may land as an AI specialisation inside existing audit, compliance and legal professions — which would still be new work, just not a new word. Watch for the first audit firms selling "AI assurance" as a named practice; several have started.</p></div>
+      <ul class="footnotes"><li id="fn-job-ai-auditor-1"><sup>[1]</sup> Axipro 2026</li></ul>
+    </section>
+
+    <section class="entry" id="job-ai-output-verifier">
+      <p class="e-k">Possible · cognitive · not yet a title</p>
+      <h2>AI output verifier</h2>
+      <p class="e-lede">The quiet rate-limiter on every agent deployment: a person who can tell when the machine is wrong, at volume, in their own domain.</p>
+      <p class="e-protect">Weakly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">yes</span> A person is legally or morally answerable for the result</li><li><span class="t-word">a little</span> It depends on a relationship with a person</li><li><span class="t-word">a little</span> The role is one job, not a pile of tasks</li></ul>
+      
+      <div class="e-block"><p class="b-h">What the evidence says</p><ul class="e-list"><li>McKinsey's agents work treats human oversight — reviewing outputs, handling exceptions, assuring quality, documenting decisions — as the standing obligation that comes with deployment. <span class="m-src">[McKinsey 2025]</span></li><li>Microsoft's study of 200,000 anonymised Copilot conversations found the highest-applicability occupations keep humans on the tasks AI helps with least: verification, judgement and communication. <span class="m-src">[Microsoft Research 2025]</span></li></ul></div>
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Reviewing outputs, handling exceptions and assuring quality is the work AI creates alongside the work it does</li><li>Even in the most AI-applicable occupations, the human share concentrates in checking, judging and communicating</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Verifier models — AI checking AI — could take the volume and leave only the exceptions</li><li>The work may remain a task inside every job rather than becoming a job of its own</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>--- ---</p>
+<p>Every agent deployment creates a standing obligation: someone must review outputs, handle exceptions, assure quality and document what happened [1]. Today that obligation is spread invisibly across existing jobs — the editor checking the draft, the analyst checking the model's numbers, the support lead checking the bot's answers.</p>
+<p>Microsoft's study of 200,000 real AI conversations found the same thing from the other side: in the most AI-applicable occupations, the work that stays most human is exactly this — verification, judgement, communication [2]. The possibility is that this distributed task concentrates into a profession: domain experts paid specifically to certify machine output at volume, the way quality assurance condensed out of manufacturing.</p>
+<p>The threat is the interesting part. Verifier models — AI checking AI — are already being built, and they will take the volume. What they cannot take is responsibility: a signed human judgement about whether the system is fit to operate. So the durable version of this job is narrower than the name suggests — less "check the output", more "own the decision to trust the checker".</p></div>
+      <ul class="footnotes"><li id="fn-job-ai-output-verifier-1"><sup>[1]</sup> McKinsey 2025</li><li id="fn-job-ai-output-verifier-2"><sup>[2]</sup> Microsoft Research 2025</li></ul>
+    </section>
+
+    <section class="entry" id="job-agent-liability-underwriter">
+      <p class="e-k">Possible · judgement · not yet a title</p>
+      <h2>Agent liability underwriter</h2>
+      <p class="e-lede">When an agent books the slot or signs the order, someone has to price the mistake. No market for that exists yet.</p>
+      <p class="e-protect">Partly protected — Some of these hold. The job stays, but its routine half moves to AI.</p>
+      <ul class="e-tests"><li><span class="t-word">no</span> The work needs a body, in a place that keeps changing</li><li><span class="t-word">no</span> A person is legally or morally answerable for the result</li><li><span class="t-word">yes</span> It depends on a relationship with a person</li><li><span class="t-word">yes</span> The role is one job, not a pile of tasks</li></ul>
+      
+      
+      <div class="e-block"><p class="b-h">What holds</p><ul class="e-list"><li>Delegating real actions — payments, bookings, orders — to agents creates a liability question every deployment currently answers informally</li><li>Insurance has a track record of turning new technologies into priced products</li></ul></div>
+      <div class="e-block"><p class="b-h">What could still go wrong</p><ul class="e-list"><li>Contract law may absorb the question by pinning liability on existing roles</li><li>Agents that log everything may make the risk priceable enough that no human underwriter is needed</li></ul></div>
+      <div class="e-block"><p class="b-h">The close reading</p><p>--- ---</p>
+<p>This is the most speculative profile on the site, and the only one with no claim attached — because no public data describes a market that does not exist. What exists is the question. Agents are starting to take real actions in the world: booking the appointment, sending the payment link, confirming the order [1]. Every deployment currently answers "who pays when the agent is wrong?" informally — a term of service, a human in the loop, a hope.</p>
+<p>Industries have a way of answering that question formally. Insurance exists because unfamiliar risk eventually gets priced. An underwriter for agent actions would read an operator's logs, guardrails and rollback design the way a car insurer reads a driving record, and put a number on the residual risk of delegation.</p>
+<p>Why include something this speculative? Because the four tests read unusually well: total accountability, a relationship with the insured, an indivisible seat. If delegation keeps growing, the scarcity is not technical — it is people willing to stake a professional judgement on a machine's behaviour. That scarcity is the job.</p></div>
+      <ul class="footnotes"><li id="fn-job-agent-liability-underwriter-1"><sup>[1]</sup> McKinsey 2025</li></ul>
+    </section>
+
+<section class="front">
+  <h1>The essays</h1>
+  <p>Five short pieces on what the numbers mean together: what is at risk, what survives, what to do, what is coming, and where the opportunity sits. Each is reprinted from the site with its citations intact.</p>
+</section>
+
+    <section class="essay" id="section-survives">
+      <p class="e-k">01 · What survives</p>
+      <h2>Work that a machine cannot close the loop on.</h2>
+      <p>Four properties keep turning up in the data. A role is durable to the extent it has at least one of them — and fragile to the extent it has none.</p>
+<p><strong>It needs a body in a variable world.</strong> Not "blue collar" as a slogan, but physical work in environments that change faster than a specification can describe. Robots can currently reach about 13% of US work hours against 44% for software agents, because they lack fine motor control and real-time physical judgement.[1]</p>
+<p><strong>Someone must be accountable.</strong> Occupations are bundles, and some bundles are indivisible: every school still needs a principal, every hospital a medical director.[2] Nobody insures a model or puts one on the stand.</p>
+<p><strong>The work is a relationship.</strong> New tasks added to AI-exposed roles since 2022 are 2.5× more likely to depend on empathy, presence, judgement, creativity or leadership.[3] Care workers say it in their own words: AI helps with documentation and scheduling, and cannot hand someone a glass of water.[4]</p>
+<p><strong>The job is a bundle, not a task list.</strong> Most of today's skills apply to work that could be automated <em>and</em> work that cannot.[5] Radiology got less drafting and more judgement; the job changed shape rather than disappearing.[6]</p>
+<p>The entries below are ranked by strength of evidence, not by how quotable they are. Where a role has official projections, they are shown; where it does not, we say so instead of inventing a number.</p>
+      <ul class="footnotes"><li id="fn-section-survives-1"><sup>[1]</sup> McKinsey 2025</li><li id="fn-section-survives-2"><sup>[2]</sup> McKinsey 2025</li><li id="fn-section-survives-3"><sup>[3]</sup> PwC 2026</li><li id="fn-section-survives-4"><sup>[4]</sup> ACL 2026</li><li id="fn-section-survives-5"><sup>[5]</sup> McKinsey 2025</li><li id="fn-section-survives-6"><sup>[6]</sup> McKinsey 2025</li></ul>
+    </section>
+
+    <section class="essay" id="section-risk">
+      <p class="e-k">02 · What is exposed</p>
+      <h2>Exposure is not displacement. It is a description of a task profile.</h2>
+      <p>The most important correction in this whole literature: an AI applicability score measures overlap between what a model can do and what a job contains. It is not a headcount forecast. The Microsoft researchers who produced the most-cited version say so explicitly, and point at bank tellers, whose numbers held up after ATMs arrived.[1]</p>
+<p>What <em>is</em> observable is narrower and sharper. Payroll data through June 2026 shows employment for <strong>22–25-year-olds in the most AI-exposed occupations sitting 19% below</strong> where it would be had it kept pace — 15% a year earlier. In levels, the two most exposed quintiles fell about 11% since November 2022 while the three least exposed grew about 10%. Experienced workers show no comparable gap. The adjustment came through hiring rather than pay, and it concentrated where AI substitutes for tasks rather than complementing them.[2]</p>
+<p>The exposure itself is clustered. One in four workers globally is in an occupation with some generative-AI exposure, but only 3.3% sit in the highest exposure band, and clerical work dominates it.[3] Employers' own projections put data entry, clerical and administrative roles at the fast end of decline to 2030.[4]</p>
+<p>The clearest new evidence on <em>how</em> this happens is a split by seniority. In the most AI-exposed occupations, the entry-level share of US postings fell from 29% to 10% between 2021 and 2026, while the senior share rose from 22% to 47% — and the tilt was about a third as large in the least-exposed occupations.[5] The same employers are hiring, just not at the bottom of the ladder.</p>
+<p>Two honest counterweights. First, not all of this is AI: the OECD notes that the unemployment risk facing young university graduates has been rising since well before generative AI spread, which points at more than one cause.[6] Second, the overall market is not collapsing — US postings are up 0.7% year on year as of September 2026, the first positive annual reading in almost four years.[7] What is changing is <em>who</em> gets hired, not how many jobs exist in total.</p>
+<p>The lab that produces the headline number now publishes it monthly, so the figure on this page is a snapshot that will move.[8]</p>
+      <ul class="footnotes"><li id="fn-section-risk-1"><sup>[1]</sup> GeekWire 2025</li><li id="fn-section-risk-2"><sup>[2]</sup> Stanford 2026</li><li id="fn-section-risk-3"><sup>[3]</sup> ILO 2025</li><li id="fn-section-risk-4"><sup>[4]</sup> WEF 2025</li><li id="fn-section-risk-5"><sup>[5]</sup> Indeed Sep 2026</li><li id="fn-section-risk-6"><sup>[6]</sup> OECD 2026</li><li id="fn-section-risk-7"><sup>[7]</sup> Indeed Sep 2026</li><li id="fn-section-risk-8"><sup>[8]</sup> Canaries dashboard</li></ul>
+    </section>
+
+    <section class="essay" id="section-opportunity">
+      <p class="e-k">03 · What is coming</p>
+      <h2>New work arrives as a layer on top of the old work, not as a replacement for it.</h2>
+      <p>Five clusters show up consistently in the 2025–26 data, in rough order of evidence strength.</p>
+<p><strong>Build it.</strong> AI specialist postings grew 68.9% in 2025 against 8.6% for all jobs, with a 62% average wage premium for AI skills.[1] AI engineer has been the fastest-growing US job title for two years running.[2]</p>
+<p><strong>Deploy it inside someone else's building.</strong> Forward-deployed engineering postings grew from 643 to 5,330 in a year, because enterprise AI projects fail for organisational reasons rather than technical ones.[3]</p>
+<p><strong>Feed and teach it.</strong> Data annotation and evaluation, ranked fourth among LinkedIn's fastest-growing US roles, and the one entry point that rewards domain knowledge over coding.[4]</p>
+<p><strong>Govern it.</strong> Roughly seven builders are hired per governance hire across the EU postings one study examined, and independent governance consultants charge $800–$2,000 a day.[5]</p>
+<p><strong>Supervise it.</strong> As agents take routine work, someone reviews outputs, handles exceptions, assures quality and documents decisions. AI rarely removes work without creating oversight obligations.[6] This is where most net new employment is actually landing.</p>
+      <ul class="footnotes"><li id="fn-section-opportunity-1"><sup>[1]</sup> PwC 2026</li><li id="fn-section-opportunity-2"><sup>[2]</sup> LinkedIn 2026</li><li id="fn-section-opportunity-3"><sup>[3]</sup> Exponent 2026</li><li id="fn-section-opportunity-4"><sup>[4]</sup> LinkedIn 2026</li><li id="fn-section-opportunity-5"><sup>[5]</sup> Axipro 2026</li><li id="fn-section-opportunity-6"><sup>[6]</sup> McKinsey 2025</li></ul>
+    </section>
+
+    <section class="essay" id="section-what-to-do">
+      <p class="e-k">04 · What to do about it</p>
+      <h2>Four tests, applied to any role you are considering — plus the three ways to be wrong.</h2>
+      <p><strong>Test 1 — Does it need a body in an unpredictable place?</strong> If conditions change daily and a mistake injures someone, it is durable for a long while yet. The strongest evidence is the ability ranking: stamina, strength, reaction time, spatial orientation and problem sensitivity in settings where conditions change.[1]</p>
+<p><strong>Test 2 — Is a human legally or morally on the hook?</strong> Accountability roles grow as automation grows, because someone must own the output. Regulation makes it explicit: the builder cannot be the auditor.[2]</p>
+<p><strong>Test 3 — Would a customer be upset to learn no human was involved?</strong> Care, teaching, therapy, negotiation. That discomfort is a moat, and the data agrees — new tasks in AI-exposed roles lean 2.5× harder on empathy, presence and judgement.[3]</p>
+<p><strong>Test 4 — Is the job a bundle with an indivisible core?</strong> The safest jobs are the ones the org chart requires the seat for, not just the tasks.[4]</p>
+<p>Then act on the one finding with a clear instruction in it. AI-exposed entry-level roles that were redesigned to demand senior skills grew 35% since 2019; those that were not shrank 10%.[5] The move is not to avoid AI-exposed fields. It is to enter them at the expert end, which now means demonstrating judgement years before the career ladder would once have handed it to you.</p>
+<p><strong>Anti-test:</strong> if the job is "produce a first draft of a document", it is already gone — not the profession, the rung. One in seven US workers has a direct skills pathway from a shrinking occupation into a growing one.[6] The jobs exist. The bridge is the bottleneck.</p>
+<p>None of this is a forecast of which future arrives. The World Economic Forum's own 2026 scenario work sets out four plausible 2030s depending on how fast capability advances and how ready the workforce is — from <em>Supercharged Progress</em> to <em>Stalled Progress</em> — and declines to pick one.[7] The tests above are useful in all four, which is the most any advice can honestly claim.</p>
+      <ul class="footnotes"><li id="fn-section-what-to-do-1"><sup>[1]</sup> Resume Now 2026</li><li id="fn-section-what-to-do-2"><sup>[2]</sup> Axipro 2026</li><li id="fn-section-what-to-do-3"><sup>[3]</sup> PwC 2026</li><li id="fn-section-what-to-do-4"><sup>[4]</sup> McKinsey 2025</li><li id="fn-section-what-to-do-5"><sup>[5]</sup> PwC 2026</li><li id="fn-section-what-to-do-6"><sup>[6]</sup> McKinsey 2025</li><li id="fn-section-what-to-do-7"><sup>[7]</sup> WEF 2026</li></ul>
+    </section>
+
+    <section class="essay" id="section-possibilities">
+      <p class="e-k">Possibilities · labelled as speculation · Jobs that don't exist yet</p>
+      <h2>Five roles nobody is hired for today, and the sourced signals behind each one. This page is our reading of the evidence, not a forecast — the difference matters, so we keep saying it.</h2>
+      <p>Every other page on this site describes work that exists: someone is paid for it today, and the numbers come from a survey or a payroll file. This page is different, and it says so up front. Each profile here is a <strong>pattern with a signal behind it</strong> — something already visible in the labour market that has no job title attached yet. If the pattern holds, a title eventually follows. If it doesn't, nothing is lost by having watched for it.</p>
+<p>The bar for inclusion: a pattern must already be visible in deployed products or hiring data, and at least one public source must describe the pressure that would turn it into paid work. What we refuse to do is attach invented salary figures or growth percentages to jobs nobody has. Where a number would normally sit, these cards say so instead.</p>
+      
+    </section>
+
+<section class="sources">
+  <h1>Sources</h1>
+  <ul class="sources-list"><li><span class="s-short">[WEF 2025]</span> Future of Jobs Report 2025 — World Economic Forum, 2025. <span class="s-url">https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf</span><br><span class="s-note">Survey of 1,000+ employers across 22 industry clusters, representing 14 million workers. Projections to 2030. Employer expectations, not observed outcomes.</span></li>
+<li><span class="s-short">[WEF 2025]</span> Future of Jobs Report 2025: the fastest growing and declining jobs — World Economic Forum, 2025. <span class="s-url">https://www.weforum.org/stories/2025/01/future-of-jobs-report-2025-the-fastest-growing-and-declining-jobs</span></li>
+<li><span class="s-short">[Microsoft Research 2025]</span> Working with AI: Measuring the Applicability of Generative AI to Occupations — Microsoft Research (arXiv:2507.07935), 2025. <span class="s-url">https://arxiv.org/abs/2507.07935</span><br><span class="s-note">Classifies 200,000 anonymised Bing Copilot conversations against O*NET work activities. Measures capability overlap with work, not job loss.</span></li>
+<li><span class="s-short">[GeekWire 2025]</span> Microsoft study shows jobs most — and least — impacted by generative AI — GeekWire, 2025. <span class="s-url">https://www.geekwire.com/2025/microsoft-study-shows-jobs-most-and-least-impacted-by-generative-ai</span><br><span class="s-note">Carries the ranked lists of most and least affected occupations, and the authors’ caveat that applicability is not displacement.</span></li>
+<li><span class="s-short">[ILO 2025]</span> Generative AI and Jobs: A Refined Global Index of Occupational Exposure — International Labour Organization, 2025. <span class="s-url">https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure</span><br><span class="s-note">2,861 tasks scored across three LLMs plus expert review. Four exposure gradients; clerical work highest, physical work lowest.</span></li>
+<li><span class="s-short">[Stanford 2026]</span> Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence (August 2026 revision) — Stanford Digital Economy Lab, 2026. <span class="s-url">https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf</span><br><span class="s-note">ADP payroll microdata through June 2026. Young workers (22–25) in AI-exposed occupations sit 19% below their kept-pace path (15% at the July 2025 vintage); experienced workers show no comparable gap. Descriptive, not causal.</span></li>
+<li><span class="s-short">[Canaries dashboard]</span> Canaries Dashboard — AI Economic Indicators — Stanford Digital Economy Lab with ADP Research, 2026. <span class="s-url">https://digitaleconomy.stanford.edu/project/indicators/canaries-dashboard/</span><br><span class="s-note">Monthly update of the Canaries results; the paper it extends is the August 2026 revision above.</span></li>
+<li><span class="s-short">[Indeed Sep 2026]</span> AI Exposure Isn’t Squeezing Advertised Pay in the US — It’s Boosting It — Indeed Hiring Lab, 2026. <span class="s-url">https://hiringlab.indeed.com/2026/09/17/ai-exposure-isnt-squeezing-advertised-pay-in-the-us-its-boosting-it</span><br><span class="s-note">Advertised salary on millions of US postings. +46% in the most AI-exposed occupations since 2021 vs +25% in the least exposed; the premium widens with seniority and is negligible at entry level.</span></li>
+<li><span class="s-short">[Indeed Sep 2026]</span> US Labor Market Snapshot — September 2026 — Indeed Hiring Lab, 2026. <span class="s-url">https://hiringlab.indeed.com/2026/09/24/us-labor-market-snapshot-september-2026</span><br><span class="s-note">Job Postings Index 103.5 on 18 September 2026, +0.7% year on year — the first positive annual reading in almost four years.</span></li>
+<li><span class="s-short">[OECD 2026]</span> OECD Employment Outlook 2026: Geographic Disparities in Jobs and Incomes — OECD, 2026. <span class="s-url">https://www.oecd.org/en/publications/oecd-employment-outlook-2026_7e710f54-en.html</span><br><span class="s-note">OECD unemployment 4.9% in May 2026. Young university graduates face a rising unemployment risk — a trend the OECD notes began well before generative AI, which is why it is not attributed to AI here.</span></li>
+<li><span class="s-short">[WEF 2026]</span> Four Futures for Jobs in the New Economy: AI and Talent in 2030 — World Economic Forum, 2026. <span class="s-url">https://www.weforum.org/publications/four-futures-for-jobs-in-the-new-economy-ai-and-talent-in-2030/</span><br><span class="s-note">Scenarios, not projections: four plausible 2030 futures at the intersection of AI advancement and workforce readiness. Used here only for the uncertainty section.</span></li>
+<li><span class="s-short">[McKinsey 2025]</span> Agents, robots, and us: Skill partnerships in the age of AI — McKinsey Global Institute, 2025. <span class="s-url">https://www.mckinsey.com/~/media/mckinsey/mckinsey%20global%20institute/our%20research/agents%20robots%20and%20us%20skill%20partnerships%20in%20the%20age%20of%20ai/agents-robots-and-us-skill-partnerships-in-the-age-of-ai.pdf</span><br><span class="s-note">Technical potential, not a forecast: about 57% of US work hours could in theory be automated today (44% by agents, 13% by robots).</span></li>
+<li><span class="s-short">[McKinsey 2025]</span> Workforce in motion: Skills and pathways to future jobs in the United States — McKinsey Global Institute, 2025. <span class="s-url">https://www.mckinsey.com/mgi/our-research/workforce-in-motion-skills-and-pathways-to-future-jobs-in-the-united-states</span><br><span class="s-note">Occupations as bundles of interdependent activities; only about one in seven US workers has a direct skills pathway to a growing occupation.</span></li>
+<li><span class="s-short">[PwC 2026]</span> 2026 Global AI Jobs Barometer — PwC, 2026. <span class="s-url">https://pwc.com/gx/en/issues/artificial-intelligence/job-barometer/2026/2026-global-ai-jobs-barometer-full-report.pdf</span><br><span class="s-note">Over one billion job advertisements in 27 countries. Splits occupations into professionalised, democratised and low-exposure tracks.</span></li>
+<li><span class="s-short">[PwC 2026]</span> AI reshapes global labour market into two distinct paths, rewarding human skills — PwC press release, 2026. <span class="s-url">https://pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html</span></li>
+<li><span class="s-short">[BLS 2026]</span> Fastest growing occupations, 2025 and projected 2035 — US Bureau of Labor Statistics, 2026. <span class="s-url">https://www.bls.gov/emp/tables/fastest-growing-occupations.htm</span><br><span class="s-note">Official projections. Includes median annual wage, which is a current wage, not a projection.</span></li>
+<li><span class="s-short">[BLS 2026]</span> Industry and occupational employment projections overview, 2024–34 — BLS Monthly Labor Review, 2026. <span class="s-url">https://www.bls.gov/opub/mlr/2026/article/industry-and-occupational-employment-projections-overview.htm</span></li>
+<li><span class="s-short">[BLS 2026]</span> Occupational Outlook Handbook: Home Health and Personal Care Aides — US Bureau of Labor Statistics, 2026. <span class="s-url">https://www.bls.gov/ooh/healthcare/home-health-aides-and-personal-care-aides.htm</span><br><span class="s-note">About 760,500 openings a year projected, most from replacement rather than growth.</span></li>
+<li><span class="s-short">[LinkedIn 2026]</span> Jobs on the Rise 2026: the 25 fastest-growing roles in the US — LinkedIn, via ZDNET, 2026. <span class="s-url">https://www.zdnet.com/article/fastest-growing-ai-jobs-in-the-us-linkedin/</span><br><span class="s-note">Ranked by growth in member job postings, Jan 2023 – Jul 2025. Platform data, not a representative labour-market survey.</span></li>
+<li><span class="s-short">[Exponent 2026]</span> What is a Forward Deployed Engineer? (hiring data compiled by Exponent) — Forward Deployed Engineer job board, 2026. <span class="s-url">https://fde-engineers.com/articles/what-is-a-forward-deployed-engineer</span><br><span class="s-note">Postings grew from 643 in April 2025 to 5,330 in April 2026. A job-board count of one title, not an O*NET occupation.</span></li>
+<li><span class="s-short">[Resume Now 2026]</span> The top 10 “AI-proof” jobs that require uniquely human skills — Resume Now, via CNBC, 2026. <span class="s-url">https://www.cnbc.com/2026/08/10/the-top-ai-proof-jobs-that-require-uniquely-human-skills.html</span><br><span class="s-note">Ranks occupations on six O*NET abilities: stamina, static strength, reaction time, spatial orientation, time sharing, problem sensitivity.</span></li>
+<li><span class="s-short">[ACL 2026]</span> A New Era of Care: Beyond the Algorithm — Administration for Community Living, 2026. <span class="s-url">https://acl.gov/sites/default/files/Direct%20Care%20Workforce/dcw-ai-beyond-the-algorithm.pdf</span><br><span class="s-note">Expert interviews across the direct-care workforce. AI useful for documentation and scheduling; rejected as a substitute for physical assistance or relationships.</span></li>
+<li><span class="s-short">[Axipro 2026]</span> EU companies hire seven people to build AI for every one hired to govern it — Axipro study, via GlobeNewswire, 2026. <span class="s-url">https://globenewswire.com/fr/news-release/2026/07/13/3326317/0/en/new-axipro-study-eu-companies-hire-seven-people-to-build-ai-for-every-one-hired-to-govern-it.html</span><br><span class="s-note">Vendor study of 3,519 AI-related postings across eight EU countries. Directionally useful; company has a commercial interest in governance hiring.</span></li>
+<li><span class="s-short">[ADP/Stanford Oct 2026]</span> Canaries Dashboard: Employment in AI-exposed occupations shrank in September — ADP Research with the Stanford Digital Economy Lab, 2026. <span class="s-url">https://www.adpresearch.com/research/canaries-dashboard-employment-in-ai-exposed-occupations-shrank-in-september</span><br><span class="s-note">Payroll records of millions of workers across more than 730 occupations at tens of thousands of US employers, read through an occupational AI-exposure score. September 2026 results, published 21 October 2026. Rates only: no counts, occupations, confidence intervals or revision history.</span></li>
+<li><span class="s-short">[Banque de France 2026]</span> Generative AI: the first changes in the labour market are affecting young people (Bulletin No. 463) — Banque de France, 2026. <span class="s-url">https://www.banque-france.fr/en/publications-and-statistics/publications/generative-ai-first-changes-labour-market-are-affecting-young-people</span><br><span class="s-note">French administrative data on permanent-contract hires and terminations, January 2019 to March 2026, against an exposure index built over 1,500 occupations in France Travail’s ROME directory. Measures hiring and separations, not total employment.</span></li></ul>
+</section>
+
+</body>
+</html>
