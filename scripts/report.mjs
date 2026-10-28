@@ -193,9 +193,9 @@ const html = `<!doctype html>
   .cover h1 { font-size: 42pt; line-height: 1.04; margin: 0 0 8mm; color: #fdfbf3; }
   .cover-sub { font-size: 12pt; line-height: 1.45; max-width: 110mm; margin: 0 0 8mm; color: #d9d6c8; }
   .cover-note { font-size: 9pt; color: #9db894; margin: 0; }
-  .cover-band { flex: 1; background: #f0ece1; display: flex; flex-direction: column; justify-content: center; padding: 12mm 22mm; gap: 3mm; }
-  .cover-band .big { font-family: Georgia, serif; font-size: 15pt; color: #22221f; margin: 0; }
-  .cover-band .small { font-size: 9pt; color: #5d5d55; margin: 0; }
+  .cover-band { flex: 1; background: #f0ece1; display: flex; flex-direction: column; justify-content: center; padding: 14mm 22mm 10mm; }
+  .cover-band .big { font-family: Georgia, serif; font-size: 14.5pt; line-height: 1.45; color: #22221f; margin: 0 0 4mm; }
+  .cover-band .small { font-size: 10pt; line-height: 1.55; color: #3c3c37; margin: 0; max-width: 130mm; }
   .cover-foot { background: #101b17; color: #9db894; padding: 6mm 22mm; display: flex; justify-content: space-between; font-size: 7.4pt; letter-spacing: 0.12em; text-transform: uppercase; }
 
   .front { page: plain; break-before: page; }
@@ -250,8 +250,8 @@ const html = `<!doctype html>
     <p class="cover-note">after-ai.browserstay.com · free · nothing collected</p>
   </div>
   <div class="cover-band">
-    <p class="big">${verdictTally["at-risk"] ?? 0} jobs are at risk on today's evidence. ${verdictTally["survives"] ?? 0} hold. ${verdictTally["emerging"] ?? 0} exist because of AI.</p>
-    <p class="small">Verdicts come from four tests — a body, accountability, a relationship, and whether the role holds together — read against the published data, not from opinion. This report reprints every number with the study it came from.</p>
+    <p class="big">Of ${jobs.length} jobs: ${verdictTally["at-risk"] ?? 0} at risk, ${verdictTally["survives"] ?? 0} hold, ${verdictTally["mixed"] ?? 0} split in two, ${verdictTally["possible"] ?? 0} watching briefs, ${verdictTally["emerging"] ?? 0} born of AI.</p>
+    <p class="small">The verdicts come from four tests — a body, accountability, a relationship, and whether the role holds together — read against the published data, not from opinion. Every number in this report is reprinted with the study it came from.</p>
   </div>
   <div class="cover-foot"><span>after-ai.browserstay.com</span><span>${MONTH}</span></div>
 </section>
