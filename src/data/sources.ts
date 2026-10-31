@@ -262,6 +262,26 @@ export const sources = [
     url: 'https://www.banque-france.fr/en/publications-and-statistics/publications/generative-ai-first-changes-labour-market-are-affecting-young-people',
     note: 'French administrative data on permanent-contract hires and terminations, January 2019 to March 2026, against an exposure index built over 1,500 occupations in France Travail’s ROME directory. Measures hiring and separations, not total employment.',
   },
+  {
+    id: 'statcan-hiring-2026',
+    short: 'StatCan Oct 2026',
+    title: 'Hiring and job separation rates in the era of generative artificial intelligence: Early evidence',
+    publisher: 'Statistics Canada, Economic and Social Reports',
+    year: 2026,
+    kind: 'study',
+    url: 'https://www150.statcan.gc.ca/n1/pub/36-28-0001/2026010/article/00003-eng.htm',
+    note: 'Labour Force Survey data for employees aged 15 to 64, January 2006 to August 2026, split by the complementarity-adjusted AI occupational exposure index (C-AIOE). Hiring rate is new hires as a share of employees, not a headcount; separations are derived from hires and net employment change. Rates only: no counts, no confidence intervals. Published 28 October 2026.',
+  },
+  {
+    id: 'indeed-seniority',
+    short: 'Indeed Jul 2026',
+    title: 'The Labor Market Is Tilting Toward Seniority',
+    publisher: 'Indeed Hiring Lab',
+    year: 2026,
+    kind: 'report',
+    url: 'https://hiringlab.indeed.com/2026/07/23/the-labor-market-is-tilting-toward-seniority/',
+    note: 'US postings coded entry, mid or senior by algorithmic text classification of the posting text (about 99% coverage, roughly 95% accuracy on a manual sample). Software development: 4.5% entry-level and 69.3% senior in Q1 2026; whole labour market 46% entry-level and about 14% senior in May 2026.',
+  },
 ] as const satisfies readonly Source[];
 
 export type SourceId = (typeof sources)[number]['id'];

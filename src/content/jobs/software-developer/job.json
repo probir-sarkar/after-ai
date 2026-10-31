@@ -16,27 +16,61 @@
     "The profession absorbed a generational tool change before and refactored around it"
   ],
   "threats": [
-    "PwC classifies software developers as *democratised* — AI takes the expert tasks and leaves simpler work",
-    "Entry-level hiring in these occupations is where the Stanford decline shows up",
+    "PwC classifies software developers as democratised — AI takes the expert tasks and leaves work requiring less expertise",
+    "Only 4.5% of US software development postings were entry-level in the first quarter of 2026, against 46% across the whole labour market",
+    "New hires into coding jobs fell from 2.5% to 1.9% while separations rose, and the fall began before ChatGPT shipped",
     "The task-level exposure keeps rising as models get agentic"
   ],
-  "metrics": [],
+  "metrics": [
+    {
+      "label": "New hires as a share of coding jobs, ages 15–29",
+      "display": "1.9%",
+      "value": 1.9,
+      "unit": "percent",
+      "source": "statcan-hiring-2026"
+    },
+    {
+      "label": "New hires in jobs AI barely touches, ages 15–29",
+      "display": "3.3%",
+      "value": 3.3,
+      "unit": "percent",
+      "source": "statcan-hiring-2026"
+    },
+    {
+      "label": "Entry-level share of US software postings",
+      "display": "4.5%",
+      "value": 4.5,
+      "unit": "percent",
+      "source": "indeed-seniority"
+    },
+    {
+      "label": "Senior share of US software postings",
+      "display": "69.3%",
+      "value": 69.3,
+      "unit": "percent",
+      "source": "indeed-seniority"
+    }
+  ],
   "claims": [
     {
       "text": "PwC's 2026 Barometer lists software developers among the roles AI democratises: it automates higher-expertise tasks and leaves the role requiring less expertise, with lower barriers to entry and falling wages.",
       "source": "pwc-barometer"
     },
     {
-      "text": "Democratised jobs make up 52% of advertised roles and are growing half as fast as professionalised roles, with 42% slower wage growth since 2021.",
-      "source": "pwc-barometer"
+      "text": "In Canada, the monthly hiring rate for 15–29-year-olds in coding-intensive occupations fell from 2.5% to 1.9% between the six months to November 2022 and the six months to August 2026, while their separation rate rose from 2.4% to 3.5%, a series the authors call volatile on a small sample.",
+      "source": "statcan-hiring-2026"
     },
     {
-      "text": "Software developers are among the AI-exposed occupations in which 22–25-year-old employment fell sharply.",
-      "source": "stanford-canaries"
+      "text": "The same study finds hiring rates fell furthest where AI exposure is lowest (4.0% to 3.3%), that coding hiring started falling in early 2022, and that separation rates were flat across exposure groups — so it does not attribute the coding decline to AI.",
+      "source": "statcan-hiring-2026"
+    },
+    {
+      "text": "In the first quarter of 2026, 4.5% of US software development postings were entry-level and 69.3% were senior, against 46% entry-level and about 14% senior across the whole US labour market.",
+      "source": "indeed-seniority"
     }
   ],
   "series": [],
-  "horizon": "2021–2025",
+  "horizon": "2022–2026",
   "order": 24,
   "featured": true
 }
