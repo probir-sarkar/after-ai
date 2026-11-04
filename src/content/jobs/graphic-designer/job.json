@@ -1,0 +1,85 @@
+{
+  "name": "Graphic designers",
+  "short": "Graphic design",
+  "verdict": "mixed",
+  "category": "cognitive",
+  "oneLiner": "Split in two: the poster is being automated, and the brand system behind it is not.",
+  "tests": {
+    "body": 0,
+    "accountability": 1,
+    "relationship": 2,
+    "bundle": 1
+  },
+  "why": [
+    "The work that survives is the brief, the system and the argument for a choice, not the artwork",
+    "Someone is still answerable when a logo, a claim or an accessibility failure ships",
+    "Taste is negotiated with a client, not specified in a prompt, and the negotiation is the job"
+  ],
+  "threats": [
+    "US employment is projected to shrink 2% to 2035, and every projected opening is a replacement, not growth",
+    "UK entry-level postings for graphic designers fell 28% in the year to April 2026",
+    "Freelance image-creation posts fell 17% within eight months of image generators",
+    "The production half of the role splits off cleanly, which is what makes it automatable"
+  ],
+  "metrics": [
+    {
+      "label": "US employment change, 2025–35",
+      "display": "−2%",
+      "value": -2,
+      "unit": "percent",
+      "source": "bls-graphic-designers"
+    },
+    {
+      "label": "UK entry-level hiring, year to April 2026",
+      "display": "−28%",
+      "value": -28,
+      "unit": "percent",
+      "source": "dsit-entry-level-uk"
+    },
+    {
+      "label": "Art directors, US change 2025–35",
+      "display": "+4%",
+      "value": 4,
+      "unit": "percent",
+      "source": "bls-art-directors"
+    },
+    {
+      "label": "Freelance image-creation posts, eight months after image AI",
+      "display": "−17%",
+      "value": -17,
+      "unit": "percent",
+      "source": "ms-freelance-image"
+    }
+  ],
+  "claims": [
+    {
+      "text": "The US Bureau of Labor Statistics projects graphic designer employment to fall 2% between 2025 and 2035, from 253,100 jobs — a loss of 4,200 — and names automated design tools such as AI as a factor that makes designers more productive and reduces the need for them.",
+      "source": "bls-graphic-designers"
+    },
+    {
+      "text": "About 16,000 graphic design openings are projected each year to 2035, and BLS expects all of them to come from replacing workers who leave the occupation rather than from growth.",
+      "source": "bls-graphic-designers"
+    },
+    {
+      "text": "The adjacent design occupations are not shrinking: BLS projects art directors to grow 4% (5,900 jobs, $114,850 median) and web developers and digital designers 5%, with a $104,000 median for web and digital interface designers.",
+      "source": "bls-art-directors"
+    },
+    {
+      "text": "In the UK, entry-level graphic designer hiring fell 28% in the year to April 2026, the second-steepest decline of 38 tracked occupations after accountants at −29% — though the authors note these roles are also hiring less at every seniority level and call this not yet causal evidence of AI.",
+      "source": "dsit-entry-level-uk"
+    },
+    {
+      "text": "Across a large freelancing platform, job posts for image creation fell 17% within eight months of image-generating AI arriving, and the work that remained was more complex and better paid.",
+      "source": "ms-freelance-image"
+    },
+    {
+      "text": "Canva's November 2026 restructure affects 1,271 roles, 22% of its workforce, through cuts, role changes and relocations; the chief executive's note attributes it to slowing growth, collapsed layers and co-location, and does not name AI.",
+      "source": "canva-note"
+    }
+  ],
+  "series": [],
+  "horizon": "2022–2035",
+  "wage": "$62,960",
+  "order": 27,
+  "featured": true
+}

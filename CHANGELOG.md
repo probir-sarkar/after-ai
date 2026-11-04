@@ -35,3 +35,22 @@ and no change is better than an invented one. One page per day, small diffs.
   Q1 2026, against 46% / ~14% nationally). Also removed literal `*democratised*` asterisks that were
   rendering in the page's threat list, and moved the horizon to 2022–2026. New sources:
   `statcan-hiring-2026`, `indeed-seniority`.
+
+- **2026-11-04** — `graphic-designer`: new profile, the clearest case on the site of one role splitting
+  in two. BLS (Occupational Outlook Handbook, last modified 29 October 2026) projects graphic designer
+  employment down 2% from 253,100 jobs between 2025 and 2035 — 4,200 jobs — with all ~16,000 annual
+  openings coming from replacement rather than growth, and names automated design tools such as AI as a
+  productivity factor that reduces the need for these workers. Against that, the adjacent roles grow:
+  art directors +4% (+5,900, $114,850 median), web developers and digital designers +5% (interface
+  designers $104,000). The entry rung is where the damage is: UK entry-level graphic design hiring fell
+  28% in the year to April 2026 (DSIT with LinkedIn, second-steepest of 38 occupations behind
+  accountants at −29%), though the authors say the roles are hiring less at every seniority level and
+  that this is not yet causal evidence of AI. Freelance image-creation posts fell 17% within eight
+  months of image generators (Demirci, Hannane and Zhu, Management Science). The page carries the
+  counter-case as prominently: Canva's November 2026 restructure affected 1,271 roles, 22% of staff,
+  and its chief executive's note cites slowing growth and collapsed layers — it does not mention AI.
+  New sources: `bls-graphic-designers`, `bls-art-directors`, `bls-web-designers`,
+  `dsit-entry-level-uk`, `ms-freelance-image`, `canva-note`, `guardian-canva`. Dropped: the −18.49%
+  graphic-design figure that aggregator posts attribute to the Management Science paper — the paper's
+  own abstract states 17% for image creation, and the decimal figure appears to belong to a different
+  paper's appendix, so only the verified number went on the site.
