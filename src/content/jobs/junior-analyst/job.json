@@ -3,7 +3,7 @@
   "short": "Junior analysts",
   "verdict": "mixed",
   "category": "cognitive",
-  "oneLiner": "The role that proves the entry level is being redesigned rather than deleted.",
+  "oneLiner": "Hiring for the work is up. What a first job in it asks of you is not what it asked in 2019.",
   "tests": {
     "body": 0,
     "accountability": 2,
@@ -11,44 +11,66 @@
     "bundle": 3
   },
   "why": [
-    "AI-exposed junior roles redesigned to demand senior skills are growing",
-    "Interpretation and framing of a result is now the visible half of the work"
+    "AI-exposed junior roles redesigned to demand senior skills are growing at 35%, while other entry-level roles fall",
+    "Interpretation and framing of a result is now the visible half of the work",
+    "Demand for the category is intact: consulting and technical services added 33,000 jobs in October 2026 alone"
   ],
   "threats": [
     "Globally, entry-level postings in highly AI-exposed roles have flatlined",
-    "49% of CEOs expect AI adoption to reduce junior hiring in the next three years"
+    "49% of CEOs expect AI adoption to reduce junior hiring in the next three years",
+    "Where AI's losses do show up they are concentrated: insurance payrolls are down 89,700 over the year",
+    "A junior who only produces the artefact is now competing with the tool that produces it"
   ],
   "metrics": [
     {
-      "label": "Growth of 'seniorised' junior roles",
+      "label": "Professional, scientific and technical services, one month",
+      "display": "+33,000",
+      "value": 33000,
+      "unit": "jobs",
+      "source": "bls-employment-oct26"
+    },
+    {
+      "label": "Insurance payrolls, year to October 2026",
+      "display": "−89,700",
+      "value": -89700,
+      "unit": "jobs",
+      "source": "cepr-oct26"
+    },
+    {
+      "label": "Growth of 'seniorised' junior roles, 2019–2025",
       "display": "+35%",
       "value": 35,
       "unit": "percent",
       "source": "pwc-barometer"
     },
     {
-      "label": "Growth of other entry-level roles",
-      "display": "−10%",
-      "value": -10,
+      "label": "Hiring managers reporting fewer entry-level hires",
+      "display": "26%",
+      "value": 26,
       "unit": "percent",
-      "source": "pwc-release"
-    },
-    {
-      "label": "CEO expectation of less junior hiring",
-      "display": "49%",
-      "value": 49,
-      "unit": "percent",
-      "source": "pwc-barometer"
+      "source": "northeastern-hiring-2026"
     }
   ],
   "claims": [
     {
-      "text": "Entry-level roles that now require more than ten traditionally senior skills are growing at 35%, while other entry-level roles decline.",
+      "text": "In October 2026 professional and business services added 70,000 jobs against a twelve-month average of 15,000; professional, scientific and technical services alone added 33,000, and the wider sector has added 269,000 jobs since its October 2025 low.",
+      "source": "bls-employment-oct26"
+    },
+    {
+      "text": "Analysis of the same release finds professional and technical services had its biggest one-month gain since October 2022 — while insurance lost 89,700 jobs over the year (−3.0%), publishing 23,500 (−2.6%) and motion pictures 19,600 (−5.6%), and concludes there is still little evidence of a broad AI effect on employment.",
+      "source": "cepr-oct26"
+    },
+    {
+      "text": "Entry-level roles that now require more than ten traditionally senior skills are growing at 35%, while other entry-level roles decline by around 10%.",
       "source": "pwc-barometer"
     },
     {
-      "text": "The most AI-exposed entry-level roles are seven times more likely than the least exposed to demand traditionally senior skills such as leadership, strategic decision-making and stakeholder management.",
+      "text": "The most AI-exposed entry-level roles are seven times more likely than the least exposed to demand traditionally senior skills such as leadership, strategic decision-making and stakeholder management — 52% of the new skills listed, against 7% for the least exposed.",
       "source": "pwc-barometer"
+    },
+    {
+      "text": "In Northeastern University's AI & Society Survey of 8,174 people with a say in hiring, 26% of those who said AI affected their decisions reported hiring fewer entry-level candidates, against 7% hiring more; 54% use AI to screen résumés, rising to 83% in technology.",
+      "source": "northeastern-hiring-2026"
     },
     {
       "text": "49% of CEOs expect AI adoption to decrease junior hiring over the next three years, against 12% for senior hiring.",
@@ -63,7 +85,7 @@
       "source": "pwc-barometer"
     }
   ],
-  "horizon": "since 2019",
+  "horizon": "2019–2026",
   "order": 26,
   "featured": true
 }

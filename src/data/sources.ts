@@ -352,6 +352,36 @@ export const sources = [
     url: 'https://www.theguardian.com/australia-news/2026/nov/04/canva-layoffs-job-cuts-restructure',
     note: 'Independent reporting of the same figures, plus the observation that Canva, unlike Atlassian, Block and WiseTech, did not mention AI in its restructure announcement.',
   },
+  {
+    id: 'bls-employment-oct26',
+    short: 'BLS Nov 2026',
+    title: 'The Employment Situation — October 2026',
+    publisher: 'US Bureau of Labor Statistics',
+    year: 2026,
+    kind: 'statistics',
+    url: 'https://www.bls.gov/news.release/empsit.nr0.htm',
+    note: 'Released 6 November 2026. Establishment and household surveys for October; payroll changes, industry detail and revisions. The primary release every commentary in this window is built on.',
+  },
+  {
+    id: 'cepr-oct26',
+    short: 'CEPR Nov 2026',
+    title: 'October Jobs Report Shows Mixed Labor Market',
+    publisher: 'Centre for Economic and Policy Research',
+    year: 2026,
+    kind: 'report',
+    url: 'https://cepr.net/publications/october-2026-jobs-report/',
+    note: 'Independent reading of the October release, 6 November 2026. Carries the year-on-year industry changes BLS does not state in the release itself (insurance, publishing, motion pictures) and the author’s judgement that AI’s measurable losses remain confined to small sectors.',
+  },
+  {
+    id: 'northeastern-hiring-2026',
+    short: 'Northeastern Nov 2026',
+    title: 'Is AI in Hiring Shutting Out Entry-Level Job Seekers?',
+    publisher: 'Northeastern University AI & Society Survey',
+    year: 2026,
+    kind: 'survey',
+    url: 'https://news.northeastern.edu/2026/11/02/ai-hiring-entry-level-jobs/',
+    note: '8,174 respondents who say they have a say in hiring. About half report AI affecting their decisions; of those, 26% hire fewer entry-level candidates and 7% more. Self-reported expectations, not observed headcount.',
+  },
 ] as const satisfies readonly Source[];
 
 export type SourceId = (typeof sources)[number]['id'];

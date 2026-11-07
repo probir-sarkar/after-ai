@@ -54,3 +54,17 @@ and no change is better than an invented one. One page per day, small diffs.
   graphic-design figure that aggregator posts attribute to the Management Science paper — the paper's
   own abstract states 17% for image creation, and the decimal figure appears to belong to a different
   paper's appendix, so only the verified number went on the site.
+
+- **2026-11-07** — `junior-analyst`: the page's thesis ("the entry level is being redesigned, not
+  deleted") now rests on observed payrolls rather than employer expectations alone. The October 2026
+  Employment Situation (BLS, 6 November) added 165,000 jobs against a prior twelve-month average of
+  48,000, with professional and business services +70,000 against a 15,000 average and professional,
+  scientific and technical services +33,000 in the month — 269,000 added since the sector's October
+  2025 low, and August/September revised up by 84,000. Four metrics replaced three: the +33,000 month,
+  insurance payrolls −89,700 over the year, PwC's +35% for seniorised junior roles, and the 26% of
+  AI-using hiring managers in Northeastern's survey who report hiring fewer entry-level candidates.
+  The prose now puts the AI losses where the counts put them — insurance −3.0%, publishing −2.6%,
+  motion pictures −5.6% over the year — and carries the counter-case: payroll data counts jobs not
+  causes, the household survey weakened in the same month (involuntary part-time +339,000, U-6 7.9%),
+  and both of the strongest numbers are forward-looking intentions. Horizon moved to 2019–2026. New
+  sources: `bls-employment-oct26`, `cepr-oct26`, `northeastern-hiring-2026`.
