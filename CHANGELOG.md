@@ -68,3 +68,23 @@ and no change is better than an invented one. One page per day, small diffs.
   causes, the household survey weakened in the same month (involuntary part-time +339,000, U-6 7.9%),
   and both of the strongest numbers are forward-looking intentions. Horizon moved to 2019–2026. New
   sources: `bls-employment-oct26`, `cepr-oct26`, `northeastern-hiring-2026`.
+
+- **2026-11-11** — `data-entry-clerk`: the page's at-risk case now rests on observed employment
+  rather than employer expectations. ifo's new indicator (9 November 2026, EconPol Policy Report 61)
+  scores 140 German occupations by AI exposure and tracks them by age: employment in the most
+  exposed occupations rose 1.8% since the third quarter of 2022 while the least exposed fell 6.4%,
+  and full-time employment of 20- to 24-year-olds in the most exposed occupations fell 14%, from
+  about 279,000 to 239,000. Reuters' report of the same release carries the ranking that makes this
+  a data-entry page rather than a generic one — data entry and text processing first of the 140,
+  ahead of software development and accounting offices, with the exposed-task share of the most
+  affected occupations about five times the least affected. IAB's separately built measure (13
+  October 2026, 22.3 million full-time employees, 2021–2025) is on the page as the smaller,
+  non-significant second estimate: 20- to 29-year-olds in highly exposed occupations 3.8% below
+  2022 against 2.6%, a 1.2 point gap that disappears into insignificance once home-office
+  suitability and the downturn are controlled. Four metrics replaced none, and the claims list went
+  from three to seven. Also fixed the card labels: the three sentences that read as threats
+  ("The task is the whole job") had been sitting under "What holds it up", so they moved to
+  "What threatens it" and the empty holds-it-up list was removed rather than padded. Horizon moved
+  from "to 2030" to 2022–2030. New sources: `ifo-fruehindikator`, `ifo-econpol-61`, `reuters-ifo`,
+  `iab-fruehindikator`, `iab-forum`. Cross-posted to the blog as
+  `ai-jobs-2026-11-german-entry-rung`.

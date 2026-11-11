@@ -3,23 +3,53 @@
   "short": "Data entry",
   "verdict": "at-risk",
   "category": "cognitive",
-  "oneLiner": "Fully specified input, verifiable output, no judgement — the pure case of automatable work.",
+  "oneLiner": "Fully specified input, verifiable output, no judgement — the pure case of automatable work, and the occupation a German exposure index now ranks first.",
   "tests": {
     "body": 0,
     "accountability": 0,
     "relationship": 0,
     "bundle": 0
   },
-  "why": [
-    "The task is the whole job",
+  "why": [],
+  "threats": [
+    "The task is the whole job, so nothing has to be redesigned to remove it",
     "Every step is already codified in a system the machine can reach",
-    "Nothing is lost by removing the human"
+    "German exposure scoring puts data entry and text processing first of 140 occupations",
+    "Full-time employment of 20- to 24-year-olds in the most exposed occupations fell 14% while the occupations themselves grew"
   ],
-  "threats": [],
-  "metrics": [],
+  "metrics": [
+    {
+      "label": "Full-time employment, ages 20–24, most AI-exposed occupations, Germany",
+      "display": "−14%",
+      "value": -14,
+      "unit": "percent",
+      "source": "ifo-fruehindikator"
+    },
+    {
+      "label": "Total employment, same occupations, since Q3 2022",
+      "display": "+1.8%",
+      "value": 1.8,
+      "unit": "percent",
+      "source": "ifo-fruehindikator"
+    },
+    {
+      "label": "Full-time employment, ages 20–29, highly exposed occupations, 2025 vs 2022",
+      "display": "−3.8%",
+      "value": -3.8,
+      "unit": "percent",
+      "source": "iab-forum"
+    },
+    {
+      "label": "AI-exposed task share, most exposed vs least exposed occupations",
+      "display": "5×",
+      "value": 5,
+      "unit": "index",
+      "source": "reuters-ifo"
+    }
+  ],
   "claims": [
     {
-      "text": "Data entry clerks appear on the World Economic Forum's list of fastest-declining job roles to 2030.",
+      "text": "Data entry clerks appear on the World Economic Forum's list of fastest-declining job roles to 2030, and employers expect the fall to continue.",
       "source": "wef-fastest"
     },
     {
@@ -29,10 +59,26 @@
     {
       "text": "In Microsoft's analysis of real AI usage, the most common and most successful AI-assisted activities are information work — creating, processing and communicating information.",
       "source": "ms-applicability"
+    },
+    {
+      "text": "ifo's new indicator ranks data entry and text processing as the most AI-exposed of 140 German occupations, ahead of software development, accounting offices, database and network specialists, and journalists; the share of AI-exposed tasks in the most affected occupations is about five times that in the least affected.",
+      "source": "reuters-ifo"
+    },
+    {
+      "text": "In Germany's most AI-exposed occupations, total employment rose 1.8% since the third quarter of 2022 and employment in the least exposed occupations fell 6.4%, while full-time employment of 20- to 24-year-olds in the most exposed occupations fell 14%, from about 279,000 to 239,000.",
+      "source": "ifo-fruehindikator"
+    },
+    {
+      "text": "IAB's separate study of about 22.3 million German full-time employees finds full-time employment of 20- to 29-year-olds in highly exposed occupations 3.8% below its 2022 level, against 2.6% in less exposed ones — a 1.2 percentage point gap that is not statistically significant for the age group overall and is smaller than the effect of the downturn.",
+      "source": "iab-fruehindikator"
+    },
+    {
+      "text": "Both teams measure the share of an occupation's tasks an AI system could do, not whether employers have adopted it, and neither attributes the age pattern to AI alone; ifo names demographic change, longer training periods and harder onboarding under remote work as untested alternatives.",
+      "source": "ifo-econpol-61"
     }
   ],
   "series": [],
-  "horizon": "to 2030",
+  "horizon": "2022–2030",
   "order": 20,
   "featured": true
 }
