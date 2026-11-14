@@ -3,7 +3,7 @@
   "short": "Admin assistants",
   "verdict": "at-risk",
   "category": "cognitive",
-  "oneLiner": "Scheduling, drafting and coordinating — the exact activities appearing most in real AI usage.",
+  "oneLiner": "Scheduling, drafting and coordinating: the tasks AI does most, in the occupation group that accounts for 42% of the fall in young workers.",
   "tests": {
     "body": 0,
     "accountability": 2,
@@ -14,11 +14,43 @@
     "Trust and discretion still matter: the assistant knows things the org chart does not",
     "Someone must coordinate people who will not coordinate themselves"
   ],
-  "threats": [],
-  "metrics": [],
+  "threats": [
+    "Scheduling, drafting and coordinating are the activities that appear most in records of real AI use",
+    "The entry rung is the part that closed: firms are not replacing assistants, they are not hiring them"
+  ],
+  "metrics": [
+    {
+      "label": "Change in workers under 30 in occupations whose AI exposure rose, per standard deviation of that rise, 2023–2026",
+      "display": "−8%",
+      "value": -8.0,
+      "unit": "percent",
+      "source": "dominski-labour-2026"
+    },
+    {
+      "label": "Share of that under-30 decline contributed by office and administrative support occupations",
+      "display": "42%",
+      "value": 42.0,
+      "unit": "percent",
+      "source": "dominski-labour-2026"
+    },
+    {
+      "label": "Gap in the monthly job-finding rate, most versus least AI-exposed occupations, against 2015–2019",
+      "display": "−6 pts",
+      "value": -6.0,
+      "unit": "percent",
+      "source": "clevelandfed-jobfinding"
+    },
+    {
+      "label": "Implied average unemployment duration in the most exposed occupations, from 10.5 weeks before",
+      "display": "13 weeks",
+      "value": 91,
+      "unit": "day",
+      "source": "clevelandfed-jobfinding"
+    }
+  ],
   "claims": [
     {
-      "text": "Administrative assistants appear among the roles employers expect to decline sharply to 2030.",
+      "text": "Administrative assistants appear among the roles employers expect to decline sharply to 2030 — an expectation, not an observed count.",
       "source": "wef-fastest"
     },
     {
@@ -28,9 +60,25 @@
     {
       "text": "The ILO's refined index places clerical support work in the highest exposure gradients.",
       "source": "ilo-index"
+    },
+    {
+      "text": "Occupations whose AI exposure rose most between the first half of 2023 and the first half of 2026 show no change in total employment or unemployment, but about 8% fewer workers under 30 for each standard deviation of the rise.",
+      "source": "dominski-labour-2026"
+    },
+    {
+      "text": "Office and administrative support accounts for 42% of that under-30 decline while employing 13% of young workers; secretaries and administrative assistants are among the occupations contributing 5 to 8% of the young-worker loss in the most exposed quartile, behind customer service representatives at 35%.",
+      "source": "dominski-labour-2026"
+    },
+    {
+      "text": "Job-finding rates fell about six points more in the most AI-exposed occupations than in the least exposed between the 2015–2019 baseline and 2024–2026, while separation rates showed no consistent relationship with exposure.",
+      "source": "clevelandfed-jobfinding"
+    },
+    {
+      "text": "The implied unemployment gap between least and most exposed occupations is about two points for workers aged 23–30, against at most one point for workers aged 45–54.",
+      "source": "clevelandfed-jobfinding"
     }
   ],
   "series": [],
-  "horizon": "to 2030",
+  "horizon": "2015–2026",
   "order": 25
 }

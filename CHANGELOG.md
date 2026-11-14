@@ -88,3 +88,22 @@ and no change is better than an invented one. One page per day, small diffs.
   from "to 2030" to 2022–2030. New sources: `ifo-fruehindikator`, `ifo-econpol-61`, `reuters-ifo`,
   `iab-fruehindikator`, `iab-forum`. Cross-posted to the blog as
   `ai-jobs-2026-11-german-entry-rung`.
+
+- **2026-11-14** — `admin-assistant`: the weakest page on the site now carries observed data instead
+  of employer expectations alone. The strongest finding is a new one, and it is occupation-specific:
+  Dominski, Boes and Lee (arXiv:2507.08244, v3, 10 November 2026) decompose the fall in under-30
+  workers across occupations by AI exposure and find office and administrative support contributes
+  42% of that decline while employing 13% of young workers; secretaries and administrative
+  assistants sit among the occupations contributing 5 to 8% of the young-worker loss in the most
+  exposed quartile, behind customer service representatives at 35%. The group's exposure score rose
+  41 points between 2023 and 2026 in a group employing 11% of US workers, while its total employment
+  and unemployment rate did not move — the same jobs held by older, more educated people. The
+  Cleveland Fed (Cline and Kaymak, Economic Commentary 2026-26, 9 November 2026) supplies the
+  mechanism and, for the first time on this page, the cost: separations in exposed occupations are
+  unchanged, job-finding rates fell about six points more than in the least exposed, and the implied
+  average unemployment spell stretched from 10.5 to more than 13 weeks, with a two-point predicted
+  gap for ages 23–30 against at most one for 45–54. Four metrics replaced none, claims went from
+  three to seven, two threats were written (the card previously had only a holds-it-up list), and
+  the horizon moved from "to 2030" to 2015–2026. The WEF claim remains but is now labelled an
+  expectation. New sources: `dominski-labour-2026`, `clevelandfed-jobfinding`. Cross-posted to the
+  blog as `ai-2026-11-no-hire-no-fire-clerical`.

@@ -432,6 +432,26 @@ export const sources = [
     url: 'https://iab-forum.de/ki-als-jobkiller-fuer-berufseinsteiger-entwarnung-mit-vorbehalt/',
     note: 'The authors’ own write-up of the same study: monthly administrative data on about 22.3 million full-time employees, January 2021 to December 2025. Full-time employment of 20- to 29-year-olds in highly exposed occupations 3.8% below its 2022 level against 2.6% in less exposed ones. Exposure is the share of tasks a large language model could do markedly faster (Eloundou et al.) — potential exposure, not observed adoption.',
   },
+  {
+    id: 'dominski-labour-2026',
+    short: 'Dominski et al. 2026',
+    title: 'Advancing AI Capabilities and Evolving Labor Outcomes',
+    publisher: 'arXiv:2507.08244 (Dominski, Boes and Lee)',
+    year: 2026,
+    kind: 'study',
+    url: 'https://arxiv.org/abs/2507.08244',
+    note: 'Current Population Survey, January 2023 to June 2026, with 2017–2022 as a placebo period. Occupations scored by how much of their work each AI capability generation could do. Finds no change in total employment or unemployment, about 8 log points fewer workers under 30 per standard deviation of exposure growth, and office and administrative support contributing 42% of that decline while employing 13% of young workers. Version 3, 10 November 2026.',
+  },
+  {
+    id: 'clevelandfed-jobfinding',
+    short: 'Cleveland Fed 2026',
+    title: 'Job Finding and Unemployment in the Age of AI',
+    publisher: 'Federal Reserve Bank of Cleveland, Economic Commentary 2026-26',
+    year: 2026,
+    kind: 'study',
+    url: 'https://www.clevelandfed.org/publications/economic-commentary/2026/ec-202626-job-finding-and-unemployment-in-the-age-of-ai',
+    note: 'Cline and Kaymak, published 9 November 2026. CPS panels linked month to month, January 2015 to December 2019 as the pre-AI baseline against January 2024 to April 2026. Unemployment about 1 point higher in the most AI-exposed occupations, driven by a 6 point larger fall in job-finding rather than by separations. Exposure is task overlap with what models can do — potential, not observed adoption.',
+  },
 ] as const satisfies readonly Source[];
 
 export type SourceId = (typeof sources)[number]['id'];
